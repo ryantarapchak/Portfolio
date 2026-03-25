@@ -348,89 +348,121 @@ export default function Home() {
 
   <div className="mt-8 grid gap-10 md:grid-cols-2">
 
-    {/* TECHNICAL SKILLS */}
-    <div>
+    {/* TECHNICAL */}
+    <div className="space-y-6">
       <h3 className="text-lg font-semibold text-[#7CC4FA]">
         Technical Skills
       </h3>
 
-      <div className="mt-4 space-y-5">
-
-        <div>
-          <p className="text-sm font-semibold text-slate-400">Financial Modeling & Valuation</p>
-          <p className="text-slate-300 text-sm">
-            Financial Modeling (DCF, M&A Case Analysis), Comparable Companies, Precedent Transactions
+      {[
+        {
+          title: "Financial Modeling & Deals",
+          items: [
+            "DCF Modeling",
+            "M&A Case Analysis",
+            "Comparable Company Analysis",
+            "Precedent Transactions",
+          ],
+        },
+        {
+          title: "Corporate Finance",
+          items: [
+            "Financial Statement Analysis",
+            "Forecasting & Budgeting",
+            "Investment Analysis",
+          ],
+        },
+        {
+          title: "Markets & Investments",
+          items: [
+            "Capital Markets",
+            "Portfolio & Risk Analysis",
+            "Fixed Income",
+          ],
+        },
+        {
+          title: "Tools & Programming",
+          items: ["Excel (Advanced)", "Python", "VBA"],
+        },
+        {
+          title: "Data & Analysis",
+          items: [
+            "Quantitative Analysis",
+            "Sensitivity Analysis",
+            "Data Analysis",
+          ],
+        },
+      ].map((section) => (
+        <div key={section.title}>
+          <p className="text-sm font-semibold text-slate-400">
+            {section.title}
           </p>
+          <div className="mt-2 flex flex-wrap gap-2">
+            {section.items.map((item) => (
+              <span
+                key={item}
+                className="rounded-full border border-[#4B9CD3]/25 bg-[#4B9CD3]/10 px-3 py-1 text-xs text-[#B9E3FF]"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
         </div>
-
-        <div>
-          <p className="text-sm font-semibold text-slate-400">Corporate Finance & Analysis</p>
-          <p className="text-slate-300 text-sm">
-            Financial Statement Analysis, Forecasting & Budgeting, Investment Analysis
-          </p>
-        </div>
-
-        <div>
-          <p className="text-sm font-semibold text-slate-400">Markets & Investments</p>
-          <p className="text-slate-300 text-sm">
-            Capital Markets, Portfolio & Risk Analysis, Fixed Income
-          </p>
-        </div>
-
-        <div>
-          <p className="text-sm font-semibold text-slate-400">Tools & Programming</p>
-          <p className="text-slate-300 text-sm">
-            Excel (Advanced), Python, VBA
-          </p>
-        </div>
-
-        <div>
-          <p className="text-sm font-semibold text-slate-400">Analysis Methods</p>
-          <p className="text-slate-300 text-sm">
-            Quantitative Analysis, Sensitivity Analysis, Data Analysis
-          </p>
-        </div>
-
-      </div>
+      ))}
     </div>
 
-    {/* PROFESSIONAL SKILLS */}
-    <div>
+    {/* PROFESSIONAL */}
+    <div className="space-y-6">
       <h3 className="text-lg font-semibold text-[#7CC4FA]">
         Professional Skills
       </h3>
 
-      <div className="mt-4 space-y-5">
-
-        <div>
-          <p className="text-sm font-semibold text-slate-400">Core Skills</p>
-          <p className="text-slate-300 text-sm">
-            Analytical Thinking, Problem Solving, Attention to Detail
+      {[
+        {
+          title: "Problem Solving",
+          items: [
+            "Breaking down complex financial problems",
+            "Thinking through decisions with data",
+            "Attention to detail",
+          ],
+        },
+        {
+          title: "Communication",
+          items: [
+            "Presenting financial ideas clearly",
+            "Explaining analysis to teams and stakeholders",
+          ],
+        },
+        {
+          title: "Leadership & Teamwork",
+          items: [
+            "Leading group projects",
+            "Working closely with teams",
+            "Coordinating across stakeholders",
+          ],
+        },
+        {
+          title: "Execution",
+          items: [
+            "Managing deadlines across multiple priorities",
+            "Making informed decisions under pressure",
+          ],
+        },
+      ].map((section) => (
+        <div
+          key={section.title}
+          className="rounded-xl border border-white/10 bg-white/[0.02] p-4"
+        >
+          <p className="text-sm font-semibold text-slate-400">
+            {section.title}
           </p>
+          <ul className="mt-2 text-sm text-slate-300 space-y-1">
+            {section.items.map((item) => (
+              <li key={item}>• {item}</li>
+            ))}
+          </ul>
         </div>
-
-        <div>
-          <p className="text-sm font-semibold text-slate-400">Communication</p>
-          <p className="text-slate-300 text-sm">
-            Communication, Presentations, Explaining Financial Concepts
-          </p>
-        </div>
-
-        <div>
-          <p className="text-sm font-semibold text-slate-400">Leadership & Teamwork</p>
-          <p className="text-slate-300 text-sm">
-            Leadership, Team Collaboration, Stakeholder Communication
-          </p>
-        </div>
-
-        <div>
-          <p className="text-sm font-semibold text-slate-400">Execution</p>
-          <p className="text-slate-300 text-sm">
-            Time Management, Decision-Making
-          </p>
-        </div>
-
-      </div>
+      ))}
     </div>
 
   </div>
