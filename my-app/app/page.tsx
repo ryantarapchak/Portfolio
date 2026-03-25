@@ -268,10 +268,7 @@ export default function Home() {
                     About
                   </h2>
                   <p className="mt-4 leading-7 text-slate-300">
-                    I’m a Master of Finance student with experience in financial
-                    analysis, valuation, budgeting, and strategic decision support.
-                    I enjoy taking complex ideas and turning them into practical,
-                    data-driven recommendations.
+                    Master of Finance student with experience in financial analysis, valuation, and budgeting. I’ve worked on building models and analyzing real projects, helping support better business decisions. I like getting into the details, figuring out what’s actually driving results, and turning that into clear, useful insights.
                   </p>
                 </div>
 
@@ -426,10 +423,10 @@ export default function Home() {
                     Truist Emerging Leaders Certification
                   </h3>
                   <p className="mt-1 text-sm text-[#7CC4FA]">
-                    Truist Financial Corporation
+                    Truist Leadership Institute
                   </p>
                   <p className="mt-2 text-sm text-slate-300">
-                    A leadership development program focused on professional growth and leadership training.
+                   A selective leadership development program focused on professional growth, communication, and team-based leadership skills.
                   </p>
                 </div>
 
@@ -441,7 +438,7 @@ export default function Home() {
                     Microsoft
                   </p>
                   <p className="mt-2 text-sm text-slate-300">
-                    A performance-based certification that validates proficiency in using Excel
+                  A performance-based certification demonstrating proficiency in Excel, including data analysis, financial modeling, and advanced spreadsheet functions.
                   </p>
                 </div>
               </div>
