@@ -573,31 +573,6 @@ export default function Home() {
                 ))}
               </div>
             </section>
-
-            <section
-              id="contact-info"
-              className="scroll-mt-28 rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm"
-            >
-              <h2 className="text-3xl font-bold tracking-tight text-white">
-                Contact
-              </h2>
-
-              <div className="mt-6 space-y-2 text-slate-300">
-                <p>Email: ryantarapchak@gmail.com</p>
-                <p>Phone: 215-962-8332</p>
-                <p>
-                  LinkedIn:{" "}
-                  <a
-                    href="https://www.linkedin.com/in/ryantarapchak"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-[#7CC4FA] transition hover:text-white"
-                  >
-                    linkedin.com/in/ryantarapchak
-                  </a>
-                </p>
-              </div>
-            </section>
           </section>
         </div>
       </div>
