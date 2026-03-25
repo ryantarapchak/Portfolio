@@ -187,45 +187,44 @@ export default function Home() {
       <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(75,156,211,0.16),transparent_30%),radial-gradient(circle_at_top_right,rgba(255,255,255,0.05),transparent_22%),linear-gradient(to_bottom,#070B14,#0B1530_55%,#08101F)]" />
       <div className="pointer-events-none fixed inset-0 -z-10 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:32px_32px] opacity-[0.06]" />
 
-      <div className="mx-auto max-w-7xl px-6 py-8">
-        <header className="sticky top-0 z-50 mb-10 flex items-center justify-between border-b border-white/10 bg-[#070B14]/80 py-4 backdrop-blur-md">
+      <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-8">
+        <header className="mb-6 border-b border-white/10 bg-[#070B14]/80 py-4 backdrop-blur-md lg:sticky lg:top-0 lg:z-50 lg:mb-10">
+          <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+            <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-4">
+              <h1 className="text-xl font-bold text-white sm:text-2xl">
+                <span className="text-[#7CC4FA]">Ryan</span> Tarapchak
+              </h1>
 
-  {/* LEFT SIDE */}
-  <div className="flex items-center gap-4">
-    <h1 className="text-2xl font-bold text-white">
-      <span className="text-[#7CC4FA]">Ryan</span> Tarapchak
-    </h1>
+              <span className="text-xs text-slate-400 sm:text-sm">
+                Finance Graduate Student
+              </span>
+            </div>
 
-    <span className="text-sm text-slate-400">
-      Finance Graduate Student
-    </span>
-  </div>
+            <nav className="hidden lg:flex lg:items-center lg:gap-3">
+              {navItems.map((item) => (
+                <button
+                  key={item.key}
+                  type="button"
+                  onClick={() => {
+                    setActiveSection(item.key);
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+                  className={`rounded-xl px-4 py-2 text-sm font-semibold transition ${
+                    activeSection === item.key
+                      ? "bg-[#4B9CD3] text-[#041E42] shadow-[0_0_25px_rgba(124,196,250,0.35)]"
+                      : "border border-white/15 bg-white/[0.02] text-slate-200 hover:border-[#4B9CD3]/50 hover:bg-white/[0.06]"
+                  }`}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </nav>
+          </div>
+        </header>
 
-  {/* RIGHT SIDE NAV */}
-  <nav className="flex items-center gap-3">
-  {navItems.map((item) => (
-    <button
-      key={item.key}
-      type="button"
-      onClick={() => {
-        setActiveSection(item.key);
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }}
-      className={`rounded-xl px-4 py-2 text-sm font-semibold transition ${
-        activeSection === item.key
-          ? "bg-[#4B9CD3] text-[#041E42] shadow-[0_0_25px_rgba(124,196,250,0.35)]"
-          : "border border-white/15 bg-white/[0.02] text-slate-200 hover:border-[#4B9CD3]/50 hover:bg-white/[0.06]"
-      }`}
-    >
-      {item.label}
-    </button>
-  ))}
-</nav>
-
-</header>
-        <div className="grid gap-10 lg:grid-cols-[340px_minmax(0,1fr)]">
-          <aside className="h-fit rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.35)] backdrop-blur-sm">
-            <div className="mb-6 h-32 w-32 overflow-hidden rounded-full border-2 border-[#4B9CD3]/50 shadow-[0_0_40px_rgba(75,156,211,0.35)]">
+        <div className="grid gap-6 lg:gap-10 lg:grid-cols-[340px_minmax(0,1fr)]">
+          <aside className="h-fit rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.35)] backdrop-blur-sm sm:p-8">
+            <div className="mb-6 h-24 w-24 overflow-hidden rounded-full border-2 border-[#4B9CD3]/50 shadow-[0_0_40px_rgba(75,156,211,0.35)] sm:h-32 sm:w-32">
               <img
                 src="/headshot.png"
                 alt="Ryan Tarapchak"
@@ -233,10 +232,10 @@ export default function Home() {
               />
             </div>
 
-            <h1 className="text-3xl font-bold tracking-tight text-white">
+            <h1 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
               Ryan Tarapchak
             </h1>
-            <p className="mt-2 text-lg text-[#7CC4FA]">
+            <p className="mt-2 text-base text-[#7CC4FA] sm:text-lg">
               Penn State Master of Finance
             </p>
             <p className="mt-1 text-sm text-slate-400">
@@ -244,25 +243,26 @@ export default function Home() {
             </p>
 
             <div className="mt-6">
-  <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-[#7CC4FA]">
-    Target Roles
-  </h2>
+              <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-[#7CC4FA]">
+                Target Roles
+              </h2>
 
-  <div className="mt-3 flex flex-wrap gap-2">
-    {[
-      "Financial Analyst",
-      "Corporate Finance",
-      "Investment Banking Analyst",
-    ].map((role) => (
-      <span
-        key={role}
-        className="rounded-full border border-[#4B9CD3]/25 bg-[#4B9CD3]/10 px-3 py-1 text-xs font-medium text-[#B9E3FF]"
-      >
-        {role}
-      </span>
-    ))}
-  </div>
-</div>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {[
+                  "Financial Analyst",
+                  "Corporate Finance",
+                  "Investment Banking Analyst",
+                ].map((role) => (
+                  <span
+                    key={role}
+                    className="rounded-full border border-[#4B9CD3]/25 bg-[#4B9CD3]/10 px-3 py-1 text-xs font-medium text-[#B9E3FF]"
+                  >
+                    {role}
+                  </span>
+                ))}
+              </div>
+            </div>
+
             <div className="mt-8 flex gap-3">
               <button
                 type="button"
@@ -289,6 +289,32 @@ export default function Home() {
               </button>
             </div>
 
+            <div className="mt-6 lg:hidden">
+              <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-[#7CC4FA]">
+                Sections
+              </h2>
+
+              <div className="mt-3 flex flex-wrap gap-2">
+                {navItems.map((item) => (
+                  <button
+                    key={item.key}
+                    type="button"
+                    onClick={() => {
+                      setActiveSection(item.key);
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }}
+                    className={`rounded-xl px-3 py-2 text-xs font-semibold transition ${
+                      activeSection === item.key
+                        ? "bg-[#4B9CD3] text-[#041E42] shadow-[0_0_25px_rgba(124,196,250,0.35)]"
+                        : "border border-white/15 bg-white/[0.02] text-slate-200 hover:border-[#4B9CD3]/50 hover:bg-white/[0.06]"
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
             {sidebarView === "work" ? (
               <>
                 <div className="mt-10 border-t border-white/10 pt-8">
@@ -296,7 +322,12 @@ export default function Home() {
                     About
                   </h2>
                   <p className="mt-4 leading-7 text-slate-300">
-                    Master of Finance student with experience in financial analysis, valuation, and budgeting. I’ve worked on building models and analyzing real projects, helping support better business decisions. I like getting into the details, figuring out what’s actually driving results, and turning that into clear, useful insights.
+                    Master of Finance student with experience in financial
+                    analysis, valuation, and budgeting. I’ve worked on building
+                    models and analyzing real projects, helping support better
+                    business decisions. I like getting into the details,
+                    figuring out what’s actually driving results, and turning
+                    that into clear, useful insights.
                   </p>
                 </div>
 
@@ -363,10 +394,10 @@ export default function Home() {
             )}
           </aside>
 
-          <section className="space-y-8">
+          <section className="space-y-6 sm:space-y-8">
             {activeSection === "professional" && (
-              <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm">
-                <h2 className="text-3xl font-bold tracking-tight text-white">
+              <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8">
+                <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
                   Professional Experience
                 </h2>
 
@@ -377,8 +408,8 @@ export default function Home() {
             )}
 
             {activeSection === "leadership" && (
-              <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm">
-                <h2 className="text-3xl font-bold tracking-tight text-white">
+              <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8">
+                <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
                   Leadership Experience
                 </h2>
 
@@ -389,8 +420,8 @@ export default function Home() {
             )}
 
             {activeSection === "education" && (
-              <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm">
-                <h2 className="text-3xl font-bold tracking-tight text-white">
+              <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8">
+                <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
                   Education
                 </h2>
 
@@ -423,9 +454,7 @@ export default function Home() {
                     <p className="mt-2 text-sm text-slate-400">
                       Graduated: May 2025
                     </p>
-                    <p className="mt-2 text-sm text-slate-400">
-                      GPA: 3.88
-                    </p>
+                    <p className="mt-2 text-sm text-slate-400">GPA: 3.88</p>
                     <p className="mt-2 text-sm text-slate-400">
                       Magna Cum Laude
                     </p>
@@ -435,8 +464,8 @@ export default function Home() {
             )}
 
             {activeSection === "credentials" && (
-              <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm">
-                <h2 className="text-3xl font-bold tracking-tight text-white">
+              <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8">
+                <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
                   Certifications & Credentials
                 </h2>
 
@@ -449,7 +478,9 @@ export default function Home() {
                       Truist Leadership Institute
                     </p>
                     <p className="mt-2 text-sm text-slate-300">
-                      A selective leadership development program focused on professional growth, communication, and team-based leadership skills.
+                      A selective leadership development program focused on
+                      professional growth, communication, and team-based
+                      leadership skills.
                     </p>
                   </div>
 
@@ -457,11 +488,11 @@ export default function Home() {
                     <h3 className="text-lg font-semibold text-white">
                       Microsoft Office Specialist (MOS): Excel 2016
                     </h3>
-                    <p className="mt-1 text-sm text-[#7CC4FA]">
-                      Microsoft
-                    </p>
+                    <p className="mt-1 text-sm text-[#7CC4FA]">Microsoft</p>
                     <p className="mt-2 text-sm text-slate-300">
-                      A performance-based certification demonstrating proficiency in Excel, including data analysis, financial modeling, and advanced spreadsheet functions.
+                      A performance-based certification demonstrating
+                      proficiency in Excel, including data analysis, financial
+                      modeling, and advanced spreadsheet functions.
                     </p>
                   </div>
                 </div>
@@ -469,8 +500,8 @@ export default function Home() {
             )}
 
             {activeSection === "skills" && (
-              <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm">
-                <h2 className="text-3xl font-bold tracking-tight text-white">
+              <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8">
+                <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
                   Skills & Expertise
                 </h2>
 
@@ -594,8 +625,8 @@ export default function Home() {
             )}
 
             {activeSection === "portfolio" && (
-              <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm">
-                <h2 className="text-3xl font-bold tracking-tight text-white">
+              <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8">
+                <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
                   Portfolio
                 </h2>
                 <div className="mt-8 grid gap-4 md:grid-cols-2">
