@@ -202,7 +202,7 @@ export default function Home() {
   </div>
 
   {/* RIGHT SIDE NAV */}
-  <nav className="flex items-center gap-6 text-sm">
+  <nav className="flex items-center gap-3 text-sm">
 
   {navItems.map((item) => {
     const isActive = activeSection === item.key;
@@ -214,31 +214,17 @@ export default function Home() {
           setActiveSection(item.key);
           window.scrollTo({ top: 0, behavior: "smooth" });
         }}
-        className="relative pb-1 transition-all duration-200"
+        className={`relative px-3 py-1.5 rounded-md transition-all duration-200 ${
+          isActive
+            ? "text-white bg-[#4B9CD3]/10 shadow-[0_0_12px_rgba(75,156,211,0.25)]"
+            : "text-slate-400 hover:text-white hover:bg-[#4B9CD3]/5"
+        }`}
       >
-        {/* TEXT */}
-        <span
-          className={`transition ${
-            isActive
-              ? "text-[#7CC4FA]"
-              : "text-slate-400 hover:text-white"
-          }`}
-        >
-          {item.label}
-        </span>
+        {item.label}
 
-        {/* UNDERLINE */}
-        <span
-          className={`absolute left-0 bottom-0 h-[2px] w-full rounded-full bg-[#4B9CD3] transition-all duration-300 ${
-            isActive
-              ? "opacity-100 scale-x-100"
-              : "opacity-0 scale-x-0 group-hover:scale-x-100"
-          }`}
-        />
-
-        {/* GLOW (subtle) */}
+        {/* subtle bottom glow line */}
         {isActive && (
-          <span className="absolute left-0 bottom-0 h-[2px] w-full bg-[#4B9CD3] blur-sm opacity-70" />
+          <span className="absolute left-2 right-2 bottom-0 h-[2px] bg-[#4B9CD3] opacity-70 blur-[1px]" />
         )}
       </button>
     );
