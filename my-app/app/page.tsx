@@ -170,6 +170,7 @@ export default function Home() {
             <div className="mb-6 h-32 w-32 overflow-hidden rounded-full border-2 border-[#4B9CD3]/50 shadow-[0_0_40px_rgba(75,156,211,0.35)]">
               <img
                 src="m/workspaces/Portfolio/my-app/public/headshot.png"
+                
                 alt="Ryan Tarapchak"
                 className="h-full w-full object-cover object-top"
               />
