@@ -109,24 +109,6 @@ export default function Home() {
     },
   ];
 
-  const technicalSkills = [
-    "Financial Modeling & Valuation",
-    "Budgeting & Forecasting",
-    "Advanced Excel",
-    "Data Visualization",
-    "Python",
-    "VBA",
-  ];
-
-  const softSkills = [
-    "Communication",
-    "Leadership",
-    "Problem Solving",
-    "Time Management",
-    "Presentation Skills",
-    "Teamwork",
-  ];
-
   return (
     <main className="min-h-screen bg-[#070B14] text-slate-200">
       <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(75,156,211,0.16),transparent_30%),radial-gradient(circle_at_top_right,rgba(255,255,255,0.05),transparent_22%),linear-gradient(to_bottom,#070B14,#0B1530_55%,#08101F)]" />
@@ -169,7 +151,7 @@ export default function Home() {
           <aside className="h-fit rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.35)] backdrop-blur-sm">
             <div className="mb-6 h-32 w-32 overflow-hidden rounded-full border-2 border-[#4B9CD3]/50 shadow-[0_0_40px_rgba(75,156,211,0.35)]">
               <img
-                src="headshot.png"
+                src="/headshot.png"
                 alt="Ryan Tarapchak"
                 className="h-full w-full object-cover object-top"
               />
@@ -363,20 +345,60 @@ export default function Home() {
                 Skills & Expertise
               </h2>
 
-              <div className="mt-8 grid gap-8 md:grid-cols-2">
+              <div className="mt-8 grid gap-10 md:grid-cols-2">
                 <div>
                   <h3 className="text-lg font-semibold text-[#7CC4FA]">
                     Technical Skills
                   </h3>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {technicalSkills.map((skill) => (
-                      <span
-                        key={skill}
-                        className="rounded-full border border-[#4B9CD3]/25 bg-[#4B9CD3]/10 px-3 py-1 text-sm text-[#B9E3FF]"
-                      >
-                        {skill}
-                      </span>
-                    ))}
+
+                  <div className="mt-4 space-y-5">
+                    <div>
+                      <p className="text-sm font-semibold text-slate-400">
+                        Financial Modeling & Valuation
+                      </p>
+                      <p className="text-sm text-slate-300">
+                        Financial Modeling (DCF, M&A Case Analysis), Valuation
+                        (Comparable Companies, Precedent Transactions)
+                      </p>
+                    </div>
+
+                    <div>
+                      <p className="text-sm font-semibold text-slate-400">
+                        Corporate Finance & Analysis
+                      </p>
+                      <p className="text-sm text-slate-300">
+                        Financial Statement Analysis, Forecasting & Budgeting,
+                        Investment Analysis
+                      </p>
+                    </div>
+
+                    <div>
+                      <p className="text-sm font-semibold text-slate-400">
+                        Markets & Investments
+                      </p>
+                      <p className="text-sm text-slate-300">
+                        Capital Markets, Portfolio & Risk Analysis, Fixed Income
+                      </p>
+                    </div>
+
+                    <div>
+                      <p className="text-sm font-semibold text-slate-400">
+                        Tools & Programming
+                      </p>
+                      <p className="text-sm text-slate-300">
+                        Excel (Advanced), Python, VBA
+                      </p>
+                    </div>
+
+                    <div>
+                      <p className="text-sm font-semibold text-slate-400">
+                        Analysis Methods
+                      </p>
+                      <p className="text-sm text-slate-300">
+                        Quantitative Analysis, Sensitivity Analysis, Data
+                        Analysis
+                      </p>
+                    </div>
                   </div>
                 </div>
 
@@ -384,15 +406,44 @@ export default function Home() {
                   <h3 className="text-lg font-semibold text-[#7CC4FA]">
                     Professional Skills
                   </h3>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {softSkills.map((skill) => (
-                      <span
-                        key={skill}
-                        className="rounded-full border border-[#4B9CD3]/25 bg-[#4B9CD3]/10 px-3 py-1 text-sm text-[#B9E3FF]"
-                      >
-                        {skill}
-                      </span>
-                    ))}
+
+                  <div className="mt-4 space-y-5">
+                    <div>
+                      <p className="text-sm font-semibold text-slate-400">
+                        Core Skills
+                      </p>
+                      <p className="text-sm text-slate-300">
+                        Analytical Thinking, Problem Solving, Attention to Detail
+                      </p>
+                    </div>
+
+                    <div>
+                      <p className="text-sm font-semibold text-slate-400">
+                        Communication
+                      </p>
+                      <p className="text-sm text-slate-300">
+                        Communication, Presentations, Explaining Financial
+                        Concepts
+                      </p>
+                    </div>
+
+                    <div>
+                      <p className="text-sm font-semibold text-slate-400">
+                        Leadership & Teamwork
+                      </p>
+                      <p className="text-sm text-slate-300">
+                        Leadership, Team Collaboration, Stakeholder Communication
+                      </p>
+                    </div>
+
+                    <div>
+                      <p className="text-sm font-semibold text-slate-400">
+                        Execution
+                      </p>
+                      <p className="text-sm text-slate-300">
+                        Time Management, Decision-Making
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
