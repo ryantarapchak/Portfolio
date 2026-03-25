@@ -4,6 +4,14 @@ import { useState } from "react";
 
 export default function Home() {
   const [sidebarView, setSidebarView] = useState<"work" | "contact">("work");
+  const [activeSection, setActiveSection] = useState<
+    | "professional"
+    | "leadership"
+    | "education"
+    | "credentials"
+    | "skills"
+    | "portfolio"
+  >("professional");
 
   const experience = [
     {
@@ -94,22 +102,22 @@ export default function Home() {
   );
 
   const projects = [
-   {
-  title: "SensoTech",
-  subtitle: "Master Budget",
-},
-{
-  title: "Burton Sensors",
-  subtitle: "M&A Financial Model",
-},
-{
-  title: "Sabakiball",
-  subtitle: "M&A Economic Model",
-},
-{
-  title: "CrowdStrike (CRWD)",
-  subtitle: "Investment Pitch",
-},
+    {
+      title: "SensoTech",
+      subtitle: "Master Budget",
+    },
+    {
+      title: "Burton Sensors",
+      subtitle: "M&A Financial Model",
+    },
+    {
+      title: "Sabakiball",
+      subtitle: "M&A Economic Model",
+    },
+    {
+      title: "CrowdStrike (CRWD)",
+      subtitle: "Investment Pitch",
+    },
   ];
 
   const renderExperienceCard = (job: {
@@ -165,6 +173,15 @@ export default function Home() {
     </div>
   );
 
+  const navItems = [
+    { key: "professional", label: "Professional Experience" },
+    { key: "leadership", label: "Leadership Experience" },
+    { key: "education", label: "Education" },
+    { key: "credentials", label: "Credentials" },
+    { key: "skills", label: "Skills" },
+    { key: "portfolio", label: "Portfolio" },
+  ] as const;
+
   return (
     <main className="min-h-screen bg-[#070B14] text-slate-200">
       <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(75,156,211,0.16),transparent_30%),radial-gradient(circle_at_top_right,rgba(255,255,255,0.05),transparent_22%),linear-gradient(to_bottom,#070B14,#0B1530_55%,#08101F)]" />
@@ -180,21 +197,19 @@ export default function Home() {
           </div>
 
           <nav className="flex flex-wrap gap-3 text-sm">
-            {[
-              ["#professional-experience", "Professional Experience"],
-              ["#leadership-experience", "Leadership Experience"],
-              ["#education", "Education"],
-              ["#credentials", "Credentials"],
-              ["#skills", "Skills"],
-              ["#portfolio", "Portfolio"],
-            ].map(([href, label]) => (
-              <a
-                key={label}
-                href={href}
-                className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-slate-300 transition duration-200 hover:border-[#4B9CD3]/50 hover:bg-[#4B9CD3]/10 hover:text-white hover:shadow-[0_0_20px_rgba(75,156,211,0.18)]"
+            {navItems.map((item) => (
+              <button
+                key={item.key}
+                type="button"
+                onClick={() => setActiveSection(item.key)}
+                className={`rounded-full px-4 py-2 transition duration-200 ${
+                  activeSection === item.key
+                    ? "border border-[#4B9CD3]/60 bg-[#4B9CD3]/15 text-white shadow-[0_0_20px_rgba(75,156,211,0.18)]"
+                    : "border border-white/10 bg-white/[0.03] text-slate-300 hover:border-[#4B9CD3]/50 hover:bg-[#4B9CD3]/10 hover:text-white hover:shadow-[0_0_20px_rgba(75,156,211,0.18)]"
+                }`}
               >
-                {label}
-              </a>
+                {item.label}
+              </button>
             ))}
           </nav>
         </header>
@@ -336,265 +351,257 @@ export default function Home() {
           </aside>
 
           <section className="space-y-8">
-            <section
-              id="professional-experience"
-              className="scroll-mt-28 rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm"
-            >
-              <h2 className="text-3xl font-bold tracking-tight text-white">
-                Professional Experience
-              </h2>
+            {activeSection === "professional" && (
+              <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm">
+                <h2 className="text-3xl font-bold tracking-tight text-white">
+                  Professional Experience
+                </h2>
 
-              <div className="mt-8 space-y-8">
-                {professionalExperience.map(renderExperienceCard)}
-              </div>
-            </section>
-
-            <section
-              id="leadership-experience"
-              className="scroll-mt-28 rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm"
-            >
-              <h2 className="text-3xl font-bold tracking-tight text-white">
-                Leadership Experience
-              </h2>
-
-              <div className="mt-8 space-y-8">
-                {leadershipExperience.map(renderExperienceCard)}
-              </div>
-            </section>
-
-            <section
-              id="education"
-              className="scroll-mt-28 rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm"
-            >
-              <h2 className="text-3xl font-bold tracking-tight text-white">
-                Education
-              </h2>
-
-              <div className="mt-8 grid gap-6 md:grid-cols-2">
-                <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition hover:border-[#4B9CD3]/35 hover:bg-white/[0.05]">
-                  <h3 className="text-lg font-semibold text-white">
-                    Master of Finance
-                  </h3>
-                  <p className="mt-2 text-[#7CC4FA]">
-                    The Pennsylvania State University
-                  </p>
-                  <p className="mt-2 text-sm text-slate-400">
-                    Smeal College of Business
-                  </p>
-                  <p className="mt-2 text-sm text-slate-400">
-                    Expected Graduation: May 2026
-                  </p>
+                <div className="mt-8 space-y-8">
+                  {professionalExperience.map(renderExperienceCard)}
                 </div>
+              </section>
+            )}
 
-                <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition hover:border-[#4B9CD3]/35 hover:bg-white/[0.05]">
-                  <h3 className="text-lg font-semibold text-white">
-                    Bachelor of Science in Business Administration
-                  </h3>
-                  <p className="mt-2 text-[#7CC4FA]">
-                    East Carolina University
-                  </p>
-                  <p className="mt-2 text-sm text-slate-400">
-                    The College of Business
-                  </p>
-                  <p className="mt-2 text-sm text-slate-400">
-                    Graduated: May 2025
-                  </p>
-                  <p className="mt-2 text-sm text-slate-400">
-                    GPA: 3.88
-                  </p>
-                  <p className="mt-2 text-sm text-slate-400">
-                    Magna Cum Laude
-                  </p>
+            {activeSection === "leadership" && (
+              <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm">
+                <h2 className="text-3xl font-bold tracking-tight text-white">
+                  Leadership Experience
+                </h2>
+
+                <div className="mt-8 space-y-8">
+                  {leadershipExperience.map(renderExperienceCard)}
                 </div>
-              </div>
-            </section>
+              </section>
+            )}
 
-            <section
-              id="credentials"
-              className="scroll-mt-28 rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm"
-            >
-              <h2 className="text-3xl font-bold tracking-tight text-white">
-                Certifications & Credentials
-              </h2>
+            {activeSection === "education" && (
+              <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm">
+                <h2 className="text-3xl font-bold tracking-tight text-white">
+                  Education
+                </h2>
 
-              <div className="mt-8 space-y-6">
-                <div className="rounded-xl border border-white/10 bg-white/[0.02] p-5">
-                  <h3 className="text-lg font-semibold text-white">
-                    Truist Emerging Leaders Certification
-                  </h3>
-                  <p className="mt-1 text-sm text-[#7CC4FA]">
-                    Truist Leadership Institute
-                  </p>
-                  <p className="mt-2 text-sm text-slate-300">
-                   A selective leadership development program focused on professional growth, communication, and team-based leadership skills.
-                  </p>
-                </div>
-
-                <div className="rounded-xl border border-white/10 bg-white/[0.02] p-5">
-                  <h3 className="text-lg font-semibold text-white">
-                    Microsoft Office Specialist (MOS): Excel 2016
-                  </h3>
-                  <p className="mt-1 text-sm text-[#7CC4FA]">
-                    Microsoft
-                  </p>
-                  <p className="mt-2 text-sm text-slate-300">
-                  A performance-based certification demonstrating proficiency in Excel, including data analysis, financial modeling, and advanced spreadsheet functions.
-                  </p>
-                </div>
-              </div>
-            </section>
-
-            <section
-              id="skills"
-              className="scroll-mt-28 rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm"
-            >
-              <h2 className="text-3xl font-bold tracking-tight text-white">
-                Skills & Expertise
-              </h2>
-
-              <div className="mt-8 grid gap-10 md:grid-cols-2">
-                <div className="space-y-6">
-                  <h3 className="text-lg font-semibold text-[#7CC4FA]">
-                    Technical Skills
-                  </h3>
-
-                  {[
-                    {
-                      title: "Financial Modeling & Deals",
-                      items: [
-                        "DCF Modeling",
-                        "M&A Case Analysis",
-                        "Comparable Company Analysis",
-                        "Precedent Transactions",
-                      ],
-                    },
-                    {
-                      title: "Corporate Finance",
-                      items: [
-                        "Financial Statement Analysis",
-                        "Forecasting & Budgeting",
-                        "Investment Analysis",
-                      ],
-                    },
-                    {
-                      title: "Markets & Investments",
-                      items: [
-                        "Capital Markets",
-                        "Portfolio & Risk Analysis",
-                        "Fixed Income",
-                      ],
-                    },
-                    {
-                      title: "Tools & Programming",
-                      items: ["Excel (Advanced)", "Python", "VBA"],
-                    },
-                    {
-                      title: "Data & Analysis",
-                      items: [
-                        "Quantitative Analysis",
-                        "Sensitivity Analysis",
-                        "Data Analysis",
-                      ],
-                    },
-                  ].map((section) => (
-                    <div key={section.title}>
-                      <p className="text-sm font-semibold text-slate-400">
-                        {section.title}
-                      </p>
-                      <div className="mt-2 flex flex-wrap gap-2">
-                        {section.items.map((item) => (
-                          <span
-                            key={item}
-                            className="rounded-full border border-[#4B9CD3]/25 bg-[#4B9CD3]/10 px-3 py-1 text-xs text-[#B9E3FF]"
-                          >
-                            {item}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="space-y-6">
-                  <h3 className="text-lg font-semibold text-[#7CC4FA]">
-                    Professional Skills
-                  </h3>
-
-                  {[
-                    {
-                      title: "Problem Solving",
-                      items: [
-                        "Breaking down complex financial problems",
-                        "Thinking through decisions with data",
-                        "Attention to detail",
-                      ],
-                    },
-                    {
-                      title: "Communication",
-                      items: [
-                        "Presenting financial ideas clearly",
-                        "Explaining analysis to teams and stakeholders",
-                      ],
-                    },
-                    {
-                      title: "Leadership & Teamwork",
-                      items: [
-                        "Leading group projects",
-                        "Working closely with teams",
-                        "Coordinating across stakeholders",
-                      ],
-                    },
-                    {
-                      title: "Execution",
-                      items: [
-                        "Managing deadlines across multiple priorities",
-                        "Making informed decisions under pressure",
-                      ],
-                    },
-                  ].map((section) => (
-                    <div
-                      key={section.title}
-                      className="rounded-xl border border-white/10 bg-white/[0.02] p-4"
-                    >
-                      <p className="text-sm font-semibold text-slate-400">
-                        {section.title}
-                      </p>
-                      <ul className="mt-2 space-y-1 text-sm text-slate-300">
-                        {section.items.map((item) => (
-                          <li key={item}>• {item}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </section>
-
-            <section
-              id="portfolio"
-              className="scroll-mt-28 rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm"
-            >
-              <h2 className="text-3xl font-bold tracking-tight text-white">
-                Portfolio
-              </h2>
-              <div className="mt-8 grid gap-4 md:grid-cols-2">
-                {projects.map((project) => (
-                  <div
-                    key={project.title}
-                    className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition duration-200 hover:-translate-y-1 hover:border-[#4B9CD3]/35 hover:bg-white/[0.05] hover:shadow-[0_0_30px_rgba(75,156,211,0.12)]"
-                  >
+                <div className="mt-8 grid gap-6 md:grid-cols-2">
+                  <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition hover:border-[#4B9CD3]/35 hover:bg-white/[0.05]">
                     <h3 className="text-lg font-semibold text-white">
-                      {project.title}
+                      Master of Finance
                     </h3>
-                    <p className="mt-1 text-sm text-[#7CC4FA]">
-                      {project.subtitle}
+                    <p className="mt-2 text-[#7CC4FA]">
+                      The Pennsylvania State University
                     </p>
-                    <p className="mt-3 text-slate-300">
+                    <p className="mt-2 text-sm text-slate-400">
+                      Smeal College of Business
+                    </p>
+                    <p className="mt-2 text-sm text-slate-400">
+                      Expected Graduation: May 2026
                     </p>
                   </div>
-                ))}
-              </div>
-            </section>
+
+                  <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition hover:border-[#4B9CD3]/35 hover:bg-white/[0.05]">
+                    <h3 className="text-lg font-semibold text-white">
+                      Bachelor of Science in Business Administration
+                    </h3>
+                    <p className="mt-2 text-[#7CC4FA]">
+                      East Carolina University
+                    </p>
+                    <p className="mt-2 text-sm text-slate-400">
+                      The College of Business
+                    </p>
+                    <p className="mt-2 text-sm text-slate-400">
+                      Graduated: May 2025
+                    </p>
+                    <p className="mt-2 text-sm text-slate-400">
+                      GPA: 3.88
+                    </p>
+                    <p className="mt-2 text-sm text-slate-400">
+                      Magna Cum Laude
+                    </p>
+                  </div>
+                </div>
+              </section>
+            )}
+
+            {activeSection === "credentials" && (
+              <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm">
+                <h2 className="text-3xl font-bold tracking-tight text-white">
+                  Certifications & Credentials
+                </h2>
+
+                <div className="mt-8 space-y-6">
+                  <div className="rounded-xl border border-white/10 bg-white/[0.02] p-5">
+                    <h3 className="text-lg font-semibold text-white">
+                      Truist Emerging Leaders Certification
+                    </h3>
+                    <p className="mt-1 text-sm text-[#7CC4FA]">
+                      Truist Leadership Institute
+                    </p>
+                    <p className="mt-2 text-sm text-slate-300">
+                      A selective leadership development program focused on professional growth, communication, and team-based leadership skills.
+                    </p>
+                  </div>
+
+                  <div className="rounded-xl border border-white/10 bg-white/[0.02] p-5">
+                    <h3 className="text-lg font-semibold text-white">
+                      Microsoft Office Specialist (MOS): Excel 2016
+                    </h3>
+                    <p className="mt-1 text-sm text-[#7CC4FA]">
+                      Microsoft
+                    </p>
+                    <p className="mt-2 text-sm text-slate-300">
+                      A performance-based certification demonstrating proficiency in Excel, including data analysis, financial modeling, and advanced spreadsheet functions.
+                    </p>
+                  </div>
+                </div>
+              </section>
+            )}
+
+            {activeSection === "skills" && (
+              <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm">
+                <h2 className="text-3xl font-bold tracking-tight text-white">
+                  Skills & Expertise
+                </h2>
+
+                <div className="mt-8 grid gap-10 md:grid-cols-2">
+                  <div className="space-y-6">
+                    <h3 className="text-lg font-semibold text-[#7CC4FA]">
+                      Technical Skills
+                    </h3>
+
+                    {[
+                      {
+                        title: "Financial Modeling & Deals",
+                        items: [
+                          "DCF Modeling",
+                          "M&A Case Analysis",
+                          "Comparable Company Analysis",
+                          "Precedent Transactions",
+                        ],
+                      },
+                      {
+                        title: "Corporate Finance",
+                        items: [
+                          "Financial Statement Analysis",
+                          "Forecasting & Budgeting",
+                          "Investment Analysis",
+                        ],
+                      },
+                      {
+                        title: "Markets & Investments",
+                        items: [
+                          "Capital Markets",
+                          "Portfolio & Risk Analysis",
+                          "Fixed Income",
+                        ],
+                      },
+                      {
+                        title: "Tools & Programming",
+                        items: ["Excel (Advanced)", "Python", "VBA"],
+                      },
+                      {
+                        title: "Data & Analysis",
+                        items: [
+                          "Quantitative Analysis",
+                          "Sensitivity Analysis",
+                          "Data Analysis",
+                        ],
+                      },
+                    ].map((section) => (
+                      <div key={section.title}>
+                        <p className="text-sm font-semibold text-slate-400">
+                          {section.title}
+                        </p>
+                        <div className="mt-2 flex flex-wrap gap-2">
+                          {section.items.map((item) => (
+                            <span
+                              key={item}
+                              className="rounded-full border border-[#4B9CD3]/25 bg-[#4B9CD3]/10 px-3 py-1 text-xs text-[#B9E3FF]"
+                            >
+                              {item}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="space-y-6">
+                    <h3 className="text-lg font-semibold text-[#7CC4FA]">
+                      Professional Skills
+                    </h3>
+
+                    {[
+                      {
+                        title: "Problem Solving",
+                        items: [
+                          "Breaking down complex financial problems",
+                          "Thinking through decisions with data",
+                          "Attention to detail",
+                        ],
+                      },
+                      {
+                        title: "Communication",
+                        items: [
+                          "Presenting financial ideas clearly",
+                          "Explaining analysis to teams and stakeholders",
+                        ],
+                      },
+                      {
+                        title: "Leadership & Teamwork",
+                        items: [
+                          "Leading group projects",
+                          "Working closely with teams",
+                          "Coordinating across stakeholders",
+                        ],
+                      },
+                      {
+                        title: "Execution",
+                        items: [
+                          "Managing deadlines across multiple priorities",
+                          "Making informed decisions under pressure",
+                        ],
+                      },
+                    ].map((section) => (
+                      <div
+                        key={section.title}
+                        className="rounded-xl border border-white/10 bg-white/[0.02] p-4"
+                      >
+                        <p className="text-sm font-semibold text-slate-400">
+                          {section.title}
+                        </p>
+                        <ul className="mt-2 space-y-1 text-sm text-slate-300">
+                          {section.items.map((item) => (
+                            <li key={item}>• {item}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </section>
+            )}
+
+            {activeSection === "portfolio" && (
+              <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm">
+                <h2 className="text-3xl font-bold tracking-tight text-white">
+                  Portfolio
+                </h2>
+                <div className="mt-8 grid gap-4 md:grid-cols-2">
+                  {projects.map((project) => (
+                    <div
+                      key={project.title}
+                      className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition duration-200 hover:-translate-y-1 hover:border-[#4B9CD3]/35 hover:bg-white/[0.05] hover:shadow-[0_0_30px_rgba(75,156,211,0.12)]"
+                    >
+                      <h3 className="text-lg font-semibold text-white">
+                        {project.title}
+                      </h3>
+                      <p className="mt-1 text-sm text-[#7CC4FA]">
+                        {project.subtitle}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
           </section>
         </div>
       </div>
