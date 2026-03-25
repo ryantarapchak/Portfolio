@@ -348,35 +348,28 @@ export default function Home() {
 
           <section className="space-y-8">
             <section
-              id="experience"
+              id="professional-experience"
               className="scroll-mt-28 rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm"
             >
               <h2 className="text-3xl font-bold tracking-tight text-white">
-                Experience
+                Professional Experience
               </h2>
 
-              <div
-                id="professional-experience"
-                className="mt-8 scroll-mt-28"
-              >
-                <h3 className="text-xl font-semibold text-[#7CC4FA]">
-                  Professional Experience
-                </h3>
-                <div className="mt-6 space-y-8">
-                  {professionalExperience.map(renderExperienceCard)}
-                </div>
+              <div className="mt-8 space-y-8">
+                {professionalExperience.map(renderExperienceCard)}
               </div>
+            </section>
 
-              <div
-                id="leadership-experience"
-                className="mt-12 scroll-mt-28"
-              >
-                <h3 className="text-xl font-semibold text-[#7CC4FA]">
-                  Leadership Experience
-                </h3>
-                <div className="mt-6 space-y-8">
-                  {leadershipExperience.map(renderExperienceCard)}
-                </div>
+            <section
+              id="leadership-experience"
+              className="scroll-mt-28 rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm"
+            >
+              <h2 className="text-3xl font-bold tracking-tight text-white">
+                Leadership Experience
+              </h2>
+
+              <div className="mt-8 space-y-8">
+                {leadershipExperience.map(renderExperienceCard)}
               </div>
             </section>
 
