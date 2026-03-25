@@ -193,9 +193,14 @@ export default function Home() {
             <a href="#" className="text-2xl font-bold tracking-tight text-white">
               <span className="text-[#7CC4FA]">Ryan</span> Tarapchak
             </a>
-            <p className="text-sm text-slate-400">Finance Graduate Student | Financial Analysis, Modeling, & Forecasting</p>
-          </div>
-
+            <div className="mt-2 space-y-1">
+  <p className="text-base text-[#7CC4FA] font-medium">
+    Finance Graduate Student
+  </p>
+  <p className="text-sm text-slate-400">
+    Financial Analysis, Modeling & Forecasting
+  </p>
+</div>
           <nav className="flex flex-wrap gap-3 text-sm">
             {navItems.map((item) => (
               <button
