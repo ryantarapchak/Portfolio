@@ -148,7 +148,7 @@ export default function Home() {
         </header>
 
         <div className="grid gap-10 lg:grid-cols-[340px_minmax(0,1fr)]">
-          <aside className="h-fit rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.35)] backdrop-blur-sm">
+          <aside className="sticky top-24 h-fit rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.35)] backdrop-blur-sm">
             <div className="mb-6 h-32 w-32 overflow-hidden rounded-full border-2 border-[#4B9CD3]/50 shadow-[0_0_40px_rgba(75,156,211,0.35)]">
               <img
                 src="/headshot.png"
@@ -229,6 +229,52 @@ export default function Home() {
                 Open to new opportunities
               </p>
             </div>
+
+            <section
+              id="contact"
+              className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-5 scroll-mt-28"
+            >
+              <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-[#7CC4FA]">
+                Contact
+              </h2>
+
+              <div className="mt-4 space-y-3 text-sm text-slate-300">
+                <p>
+                  <span className="text-slate-400">Email:</span>
+                  <br />
+                  <a
+                    href="mailto:ryantarapchak@gmail.com"
+                    className="text-white transition hover:text-[#7CC4FA]"
+                  >
+                    ryantarapchak@gmail.com
+                  </a>
+                </p>
+
+                <p>
+                  <span className="text-slate-400">Phone:</span>
+                  <br />
+                  <a
+                    href="tel:2159628332"
+                    className="text-white transition hover:text-[#7CC4FA]"
+                  >
+                    215-962-8332
+                  </a>
+                </p>
+
+                <p>
+                  <span className="text-slate-400">LinkedIn:</span>
+                  <br />
+                  <a
+                    href="https://www.linkedin.com/in/ryantarapchak"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-white transition hover:text-[#7CC4FA]"
+                  >
+                    linkedin.com/in/ryantarapchak
+                  </a>
+                </p>
+              </div>
+            </section>
           </aside>
 
           <section className="space-y-8">
@@ -357,8 +403,7 @@ export default function Home() {
                     Truist Financial Corporation
                   </p>
                   <p className="mt-2 text-sm text-slate-300">
-                    Selected leadership development program focused on professional growth,
-                    financial services exposure, and leadership training.
+                    A leadership development program focused on professional growth and leadership training.
                   </p>
                 </div>
 
@@ -370,8 +415,7 @@ export default function Home() {
                     Microsoft
                   </p>
                   <p className="mt-2 text-sm text-slate-300">
-                    Demonstrated proficiency in Excel including data analysis, formulas,
-                    and spreadsheet management.
+                    A performance-based certification that validates proficiency in using Excel
                   </p>
                 </div>
               </div>
@@ -531,7 +575,7 @@ export default function Home() {
             </section>
 
             <section
-              id="contact"
+              id="contact-info"
               className="scroll-mt-28 rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm"
             >
               <h2 className="text-3xl font-bold tracking-tight text-white">
