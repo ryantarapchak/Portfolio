@@ -1,7 +1,7 @@
 export default function Home() {
   const experience = [
     {
-      title: "Master of Finance Candidate",
+      title: "Master of Finance Student",
       company: "Penn State University",
       date: "Expected May 2026",
       description:
@@ -67,10 +67,10 @@ export default function Home() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#f8fafc] text-slate-900">
+    <main className="min-h-screen bg-[#0b0f19] text-white">
       <div className="mx-auto max-w-7xl px-6 py-8">
-        <header className="mb-10 flex flex-col gap-4 border-b border-slate-200 pb-6 md:flex-row md:items-center md:justify-between">
-          <a href="#" className="text-xl font-semibold tracking-tight">
+        <header className="mb-10 flex flex-col gap-4 border-b border-slate-700 pb-6 md:flex-row md:items-center md:justify-between">
+          <a href="#" className="text-xl font-semibold tracking-tight text-[#4B9CD3]">
             Ryan Tarapchak
           </a>
 
@@ -94,12 +94,12 @@ export default function Home() {
         </header>
 
         <div className="grid gap-10 lg:grid-cols-[340px_minmax(0,1fr)]">
-          <aside className="h-fit rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+          <aside className="rounded-3xl border border-slate-700 bg-[#111827] p-8 shadow-lg">
             <div className="mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-slate-200 text-2xl font-bold text-slate-700">
               RT
             </div>
 
-            <h1 className="text-3xl font-bold tracking-tight">Ryan Tarapchak</h1>
+            <h1 className="text-3xl font-bold tracking-tight text-[#4B9CD3]">Ryan Tarapchak</h1>
             <p className="mt-2 text-lg text-slate-600">
               Master of Finance Candidate
             </p>
@@ -166,9 +166,9 @@ export default function Home() {
           <section className="space-y-8">
             <section
               id="experience"
-              className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+              className="rounded-3xl border border-slate-700 bg-[#111827] p-8 shadow-sm"
             >
-              <h2 className="text-3xl font-bold tracking-tight">Experience</h2>
+              <h2 className="text-3xl font-bold tracking-tight text-[#4B9CD3]">Experience</h2>
 
               <div className="mt-8 space-y-8">
                 {experience.map((job) => (
@@ -216,18 +216,18 @@ export default function Home() {
 
             <section
               id="education"
-              className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+              className="rounded-3xl border border-slate-700 bg-[#111827]p-8 shadow-sm"
             >
-              <h2 className="text-3xl font-bold tracking-tight">Education</h2>
+              <h2 className="text-3xl font-bold tracking-tight text-[#4B9CD3]">Education</h2>
 
               <div className="mt-8 grid gap-6 md:grid-cols-2">
-                <div className="rounded-2xl border border-slate-200 p-6">
+                <div className="rounded-2xl border border-slate-700 p-6">
                   <h3 className="text-lg font-semibold">Master of Finance</h3>
                   <p className="mt-2 text-slate-600">Penn State University</p>
                   <p className="mt-2 text-sm text-slate-500">Expected Graduation: May 2026</p>
                 </div>
 
-                <div className="rounded-2xl border border-slate-200 p-6">
+                <div className="rounded-2xl border border-slate-700 p-6">
                   <h3 className="text-lg font-semibold">Bachelor’s Degree</h3>
                   <p className="mt-2 text-slate-600">Finance Background</p>
                   <p className="mt-2 text-sm text-slate-500">
@@ -239,9 +239,9 @@ export default function Home() {
 
             <section
               id="skills"
-              className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+              className="rounded-3xl border bg-[#111827] p-8 shadow-sm"
             >
-              <h2 className="text-3xl font-bold tracking-tight">Skills & Expertise</h2>
+              <h2 className="text-3xl font-bold tracking-tight text-[#4B9CD3]">Skills & Expertise</h2>
 
               <div className="mt-8 grid gap-8 md:grid-cols-2">
                 <div>
@@ -276,14 +276,14 @@ export default function Home() {
 
             <section
               id="portfolio"
-              className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+              className="rounded-3xl border border-slate-700 bg-[#111827] p-8 shadow-sm"
             >
-              <h2 className="text-3xl font-bold tracking-tight">Portfolio</h2>
+              <h2 className="text-3xl font-bold tracking-tight text-[#4B9CD3]">Portfolio</h2>
               <div className="mt-8 grid gap-4 md:grid-cols-2">
                 {projects.map((project) => (
                   <div
                     key={project}
-                    className="rounded-2xl border border-slate-200 p-5 transition hover:-translate-y-0.5 hover:shadow-md"
+                    className="rounded-2xl border border-slate-700 p-5 transition hover:-translate-y-0.5 hover:shadow-md"
                   >
                     <h3 className="text-lg font-semibold">{project}</h3>
                     <p className="mt-2 text-slate-600">
@@ -296,9 +296,9 @@ export default function Home() {
 
             <section
               id="contact"
-              className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+              className="rounded-3xl border border-slate-700 bg-[#111827] p-8 shadow-sm"
             >
-              <h2 className="text-3xl font-bold tracking-tight">Contact</h2>
+              <h2 className="text-3xl font-bold tracking-tight text-[#4B9CD3]">Contact</h2>
               <p className="mt-4 max-w-2xl leading-7 text-slate-600">
                 I’m currently interested in opportunities across finance, strategy,
                 and analysis.
@@ -306,7 +306,7 @@ export default function Home() {
 
               <div className="mt-6 space-y-2 text-slate-700">
                 <p>Email: your-email@example.com</p>
-                <p>LinkedIn: linkedin.com/in/your-link</p>
+                <p>LinkedIn: linkedin.com/in/https://www.linkedin.com/in/ryantarapchak/</p>
               </div>
             </section>
           </section>
