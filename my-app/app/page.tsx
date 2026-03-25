@@ -188,37 +188,47 @@ export default function Home() {
       <div className="pointer-events-none fixed inset-0 -z-10 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:32px_32px] opacity-[0.06]" />
 
       <div className="mx-auto max-w-7xl px-6 py-8">
-        <header className="sticky top-0 z-50 mb-10 flex flex-col gap-4 border-b border-white/10 bg-[#070B14]/80 pb-6 pt-2 backdrop-blur-md md:flex-row md:items-center md:justify-between">
-          <div className="flex flex-col gap-1 md:flex-row md:items-center md:gap-4">
-            <a href="#" className="text-2xl font-bold tracking-tight text-white">
-              <span className="text-[#7CC4FA]">Ryan</span> Tarapchak
-            </a>
-            <div className="mt-2 space-y-1">
-  <p className="text-base text-[#7CC4FA] font-medium">
-    Finance Graduate Student
-  </p>
-  <p className="text-sm text-slate-400">
-    Financial Analysis, Modeling & Forecasting
-  </p>
-</div>
-          <nav className="flex flex-wrap gap-3 text-sm">
-            {navItems.map((item) => (
-              <button
-                key={item.key}
-                type="button"
-                onClick={() => setActiveSection(item.key)}
-                className={`rounded-full px-4 py-2 transition duration-200 ${
-                  activeSection === item.key
-                    ? "border border-[#4B9CD3]/60 bg-[#4B9CD3]/15 text-white shadow-[0_0_20px_rgba(75,156,211,0.18)]"
-                    : "border border-white/10 bg-white/[0.03] text-slate-300 hover:border-[#4B9CD3]/50 hover:bg-[#4B9CD3]/10 hover:text-white hover:shadow-[0_0_20px_rgba(75,156,211,0.18)]"
-                }`}
-              >
-                {item.label}
-              </button>
-            ))}
-          </nav>
-        </header>
+        <header className="sticky top-0 z-50 mb-10 flex flex-col gap-4 border-b border-white/10 bg-[#070B14]/80 pb-6 pt-2 backdrop-blur-md">
+  <div className="flex flex-col gap-2">
+    
+    {/* Name */}
+    <a href="#" className="text-3xl font-bold tracking-tight text-white">
+      <span className="text-[#7CC4FA]">Ryan</span> Tarapchak
+    </a>
 
+    {/* Subtitle */}
+    <div className="space-y-1">
+      <p className="text-lg font-semibold text-[#7CC4FA]">
+        Finance Graduate Student
+      </p>
+      <p className="text-sm text-slate-400">
+        Financial Analysis • Modeling • Forecasting
+      </p>
+    </div>
+
+  </div>
+
+  {/* Navigation */}
+  <nav className="flex flex-wrap gap-3 text-sm">
+    {navItems.map((item) => (
+      <button
+        key={item.key}
+        type="button"
+        onClick={() => {
+          setActiveSection(item.key);
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }}
+        className={`rounded-full px-4 py-2 transition duration-200 ${
+          activeSection === item.key
+            ? "border border-[#4B9CD3]/60 bg-[#4B9CD3]/15 text-white shadow-[0_0_20px_rgba(75,156,211,0.18)]"
+            : "border border-white/10 bg-white/[0.03] text-slate-300 hover:border-[#4B9CD3]/50 hover:bg-[#4B9CD3]/10 hover:text-white hover:shadow-[0_0_20px_rgba(75,156,211,0.18)]"
+        }`}
+      >
+        {item.label}
+      </button>
+    ))}
+  </nav>
+</header>
         <div className="grid gap-10 lg:grid-cols-[340px_minmax(0,1fr)]">
           <aside className="h-fit rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.35)] backdrop-blur-sm">
             <div className="mb-6 h-32 w-32 overflow-hidden rounded-full border-2 border-[#4B9CD3]/50 shadow-[0_0_40px_rgba(75,156,211,0.35)]">
