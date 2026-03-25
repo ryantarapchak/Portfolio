@@ -337,117 +337,104 @@ export default function Home() {
               </div>
             </section>
 
-            <section
-              id="skills"
-              className="scroll-mt-28 rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm"
-            >
-              <h2 className="text-3xl font-bold tracking-tight text-white">
-                Skills & Expertise
-              </h2>
+            <section>
+              <section
+  id="skills"
+  className="scroll-mt-28 rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm"
+>
+  <h2 className="text-3xl font-bold tracking-tight text-white">
+    Skills & Expertise
+  </h2>
 
-              <div className="mt-8 grid gap-10 md:grid-cols-2">
-                <div>
-                  <h3 className="text-lg font-semibold text-[#7CC4FA]">
-                    Technical Skills
-                  </h3>
+  <div className="mt-8 grid gap-10 md:grid-cols-2">
 
-                  <div className="mt-4 space-y-5">
-                    <div>
-                      <p className="text-sm font-semibold text-slate-400">
-                        Financial Modeling & Valuation
-                      </p>
-                      <p className="text-sm text-slate-300">
-                        Financial Modeling (DCF, M&A Case Analysis), Valuation
-                        (Comparable Companies, Precedent Transactions)
-                      </p>
-                    </div>
+    {/* TECHNICAL SKILLS */}
+    <div>
+      <h3 className="text-lg font-semibold text-[#7CC4FA]">
+        Technical Skills
+      </h3>
 
-                    <div>
-                      <p className="text-sm font-semibold text-slate-400">
-                        Corporate Finance & Analysis
-                      </p>
-                      <p className="text-sm text-slate-300">
-                        Financial Statement Analysis, Forecasting & Budgeting,
-                        Investment Analysis
-                      </p>
-                    </div>
+      <div className="mt-4 space-y-5">
 
-                    <div>
-                      <p className="text-sm font-semibold text-slate-400">
-                        Markets & Investments
-                      </p>
-                      <p className="text-sm text-slate-300">
-                        Capital Markets, Portfolio & Risk Analysis, Fixed Income
-                      </p>
-                    </div>
+        <div>
+          <p className="text-sm font-semibold text-slate-400">Financial Modeling & Valuation</p>
+          <p className="text-slate-300 text-sm">
+            Financial Modeling (DCF, M&A Case Analysis), Comparable Companies, Precedent Transactions
+          </p>
+        </div>
 
-                    <div>
-                      <p className="text-sm font-semibold text-slate-400">
-                        Tools & Programming
-                      </p>
-                      <p className="text-sm text-slate-300">
-                        Excel (Advanced), Python, VBA
-                      </p>
-                    </div>
+        <div>
+          <p className="text-sm font-semibold text-slate-400">Corporate Finance & Analysis</p>
+          <p className="text-slate-300 text-sm">
+            Financial Statement Analysis, Forecasting & Budgeting, Investment Analysis
+          </p>
+        </div>
 
-                    <div>
-                      <p className="text-sm font-semibold text-slate-400">
-                        Analysis Methods
-                      </p>
-                      <p className="text-sm text-slate-300">
-                        Quantitative Analysis, Sensitivity Analysis, Data
-                        Analysis
-                      </p>
-                    </div>
-                  </div>
-                </div>
+        <div>
+          <p className="text-sm font-semibold text-slate-400">Markets & Investments</p>
+          <p className="text-slate-300 text-sm">
+            Capital Markets, Portfolio & Risk Analysis, Fixed Income
+          </p>
+        </div>
 
-                <div>
-                  <h3 className="text-lg font-semibold text-[#7CC4FA]">
-                    Professional Skills
-                  </h3>
+        <div>
+          <p className="text-sm font-semibold text-slate-400">Tools & Programming</p>
+          <p className="text-slate-300 text-sm">
+            Excel (Advanced), Python, VBA
+          </p>
+        </div>
 
-                  <div className="mt-4 space-y-5">
-                    <div>
-                      <p className="text-sm font-semibold text-slate-400">
-                        Core Skills
-                      </p>
-                      <p className="text-sm text-slate-300">
-                        Analytical Thinking, Problem Solving, Attention to Detail
-                      </p>
-                    </div>
+        <div>
+          <p className="text-sm font-semibold text-slate-400">Analysis Methods</p>
+          <p className="text-slate-300 text-sm">
+            Quantitative Analysis, Sensitivity Analysis, Data Analysis
+          </p>
+        </div>
 
-                    <div>
-                      <p className="text-sm font-semibold text-slate-400">
-                        Communication
-                      </p>
-                      <p className="text-sm text-slate-300">
-                        Communication, Presentations, Explaining Financial
-                        Concepts
-                      </p>
-                    </div>
+      </div>
+    </div>
 
-                    <div>
-                      <p className="text-sm font-semibold text-slate-400">
-                        Leadership & Teamwork
-                      </p>
-                      <p className="text-sm text-slate-300">
-                        Leadership, Team Collaboration, Stakeholder Communication
-                      </p>
-                    </div>
+    {/* PROFESSIONAL SKILLS */}
+    <div>
+      <h3 className="text-lg font-semibold text-[#7CC4FA]">
+        Professional Skills
+      </h3>
 
-                    <div>
-                      <p className="text-sm font-semibold text-slate-400">
-                        Execution
-                      </p>
-                      <p className="text-sm text-slate-300">
-                        Time Management, Decision-Making
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
+      <div className="mt-4 space-y-5">
+
+        <div>
+          <p className="text-sm font-semibold text-slate-400">Core Skills</p>
+          <p className="text-slate-300 text-sm">
+            Analytical Thinking, Problem Solving, Attention to Detail
+          </p>
+        </div>
+
+        <div>
+          <p className="text-sm font-semibold text-slate-400">Communication</p>
+          <p className="text-slate-300 text-sm">
+            Communication, Presentations, Explaining Financial Concepts
+          </p>
+        </div>
+
+        <div>
+          <p className="text-sm font-semibold text-slate-400">Leadership & Teamwork</p>
+          <p className="text-slate-300 text-sm">
+            Leadership, Team Collaboration, Stakeholder Communication
+          </p>
+        </div>
+
+        <div>
+          <p className="text-sm font-semibold text-slate-400">Execution</p>
+          <p className="text-slate-300 text-sm">
+            Time Management, Decision-Making
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
 
             <section
               id="portfolio"
