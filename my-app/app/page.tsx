@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export default function Home() {
   const [sidebarView, setSidebarView] = useState<"work" | "contact">("work");
@@ -12,6 +12,34 @@ export default function Home() {
     | "skills"
     | "portfolio"
   >("professional");
+
+  const sectionRefs = {
+    professional: useRef<HTMLElement>(null),
+    leadership: useRef<HTMLElement>(null),
+    education: useRef<HTMLElement>(null),
+    credentials: useRef<HTMLElement>(null),
+    skills: useRef<HTMLElement>(null),
+    portfolio: useRef<HTMLElement>(null),
+  };
+
+  const handleSectionClick = (
+    section:
+      | "professional"
+      | "leadership"
+      | "education"
+      | "credentials"
+      | "skills"
+      | "portfolio"
+  ) => {
+    setActiveSection(section);
+
+    setTimeout(() => {
+      sectionRefs[section].current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }, 100);
+  };
 
   const experience = [
     {
@@ -205,10 +233,7 @@ export default function Home() {
                 <button
                   key={item.key}
                   type="button"
-                  onClick={() => {
-                    setActiveSection(item.key);
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                  }}
+                  onClick={() => handleSectionClick(item.key)}
                   className={`rounded-xl px-4 py-2 text-sm font-semibold transition ${
                     activeSection === item.key
                       ? "bg-[#4B9CD3] text-[#041E42] shadow-[0_0_25px_rgba(124,196,250,0.35)]"
@@ -299,10 +324,7 @@ export default function Home() {
                   <button
                     key={item.key}
                     type="button"
-                    onClick={() => {
-                      setActiveSection(item.key);
-                      window.scrollTo({ top: 0, behavior: "smooth" });
-                    }}
+                    onClick={() => handleSectionClick(item.key)}
                     className={`rounded-xl px-3 py-2 text-xs font-semibold transition ${
                       activeSection === item.key
                         ? "bg-[#4B9CD3] text-[#041E42] shadow-[0_0_25px_rgba(124,196,250,0.35)]"
@@ -396,7 +418,11 @@ export default function Home() {
 
           <section className="space-y-6 sm:space-y-8">
             {activeSection === "professional" && (
-              <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8">
+              <section
+                ref={sectionRefs.professional}
+                style={{ scrollMarginTop: "90px" }}
+                className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
+              >
                 <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
                   Professional Experience
                 </h2>
@@ -408,7 +434,11 @@ export default function Home() {
             )}
 
             {activeSection === "leadership" && (
-              <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8">
+              <section
+                ref={sectionRefs.leadership}
+                style={{ scrollMarginTop: "90px" }}
+                className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
+              >
                 <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
                   Leadership Experience
                 </h2>
@@ -420,7 +450,11 @@ export default function Home() {
             )}
 
             {activeSection === "education" && (
-              <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8">
+              <section
+                ref={sectionRefs.education}
+                style={{ scrollMarginTop: "90px" }}
+                className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
+              >
                 <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
                   Education
                 </h2>
@@ -464,7 +498,11 @@ export default function Home() {
             )}
 
             {activeSection === "credentials" && (
-              <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8">
+              <section
+                ref={sectionRefs.credentials}
+                style={{ scrollMarginTop: "90px" }}
+                className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
+              >
                 <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
                   Certifications & Credentials
                 </h2>
@@ -500,7 +538,11 @@ export default function Home() {
             )}
 
             {activeSection === "skills" && (
-              <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8">
+              <section
+                ref={sectionRefs.skills}
+                style={{ scrollMarginTop: "90px" }}
+                className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
+              >
                 <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
                   Skills & Expertise
                 </h2>
@@ -625,7 +667,11 @@ export default function Home() {
             )}
 
             {activeSection === "portfolio" && (
-              <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8">
+              <section
+                ref={sectionRefs.portfolio}
+                style={{ scrollMarginTop: "90px" }}
+                className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
+              >
                 <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
                   Portfolio
                 </h2>
