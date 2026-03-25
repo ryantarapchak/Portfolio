@@ -188,38 +188,22 @@ export default function Home() {
           </div>
 
           <nav className="flex flex-wrap gap-3 text-sm">
-            <section
-  id="experience"
-  className="scroll-mt-28 rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm"
->
-  <h2 className="text-3xl font-bold tracking-tight text-white">
-    Experience
-  </h2>
-
-  <div
-    id="professional-experience"
-    className="mt-8 scroll-mt-28"
-  >
-    <h3 className="text-xl font-semibold text-[#7CC4FA]">
-      Professional Experience
-    </h3>
-    <div className="mt-6 space-y-8">
-      {professionalExperience.map(renderExperienceCard)}
-    </div>
-  </div>
-
-  <div
-    id="leadership-experience"
-    className="mt-12 scroll-mt-28"
-  >
-    <h3 className="text-xl font-semibold text-[#7CC4FA]">
-      Leadership Experience
-    </h3>
-    <div className="mt-6 space-y-8">
-      {leadershipExperience.map(renderExperienceCard)}
-    </div>
-  </div>
-</section>
+            {[
+              ["#professional-experience", "Professional Experience"],
+              ["#leadership-experience", "Leadership Experience"],
+              ["#education", "Education"],
+              ["#credentials", "Credentials"],
+              ["#skills", "Skills"],
+              ["#portfolio", "Portfolio"],
+            ].map(([href, label]) => (
+              <a
+                key={label}
+                href={href}
+                className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-slate-300 transition duration-200 hover:border-[#4B9CD3]/50 hover:bg-[#4B9CD3]/10 hover:text-white hover:shadow-[0_0_20px_rgba(75,156,211,0.18)]"
+              >
+                {label}
+              </a>
+            ))}
           </nav>
         </header>
 
@@ -371,7 +355,10 @@ export default function Home() {
                 Experience
               </h2>
 
-              <div className="mt-8">
+              <div
+                id="professional-experience"
+                className="mt-8 scroll-mt-28"
+              >
                 <h3 className="text-xl font-semibold text-[#7CC4FA]">
                   Professional Experience
                 </h3>
@@ -380,7 +367,10 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="mt-12">
+              <div
+                id="leadership-experience"
+                className="mt-12 scroll-mt-28"
+              >
                 <h3 className="text-xl font-semibold text-[#7CC4FA]">
                   Leadership Experience
                 </h3>
