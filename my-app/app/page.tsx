@@ -169,7 +169,7 @@ export default function Home() {
           <aside className="h-fit rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.35)] backdrop-blur-sm">
             <div className="mb-6 h-32 w-32 overflow-hidden rounded-full border-2 border-[#4B9CD3]/50 shadow-[0_0_40px_rgba(75,156,211,0.35)]">
               <img
-                src="/workspaces/Portfolio/my-app/app/headshot.png"
+                src="my-app/app/headshot.png"
                 alt="Ryan Tarapchak"
                 className="h-full w-full object-cover object-top"
               />
