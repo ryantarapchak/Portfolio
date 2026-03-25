@@ -193,7 +193,7 @@ export default function Home() {
             <a href="#" className="text-2xl font-bold tracking-tight text-white">
               <span className="text-[#7CC4FA]">Ryan</span> Tarapchak
             </a>
-            <p className="text-sm text-slate-400">Penn State Master of Finance</p>
+            <p className="text-sm text-slate-400">Finance Graduate Student | Financial Analysis, Modeling, & Forecasting</p>
           </div>
 
           <nav className="flex flex-wrap gap-3 text-sm">
@@ -234,22 +234,26 @@ export default function Home() {
               Langhorne, Pennsylvania
             </p>
 
-            <div className="mt-6 flex flex-wrap gap-2">
-              {[
-                "Financial Analysis",
-                "Financial Modeling",
-                "Forecasting",
-                "Budgeting",
-              ].map((item) => (
-                <span
-                  key={item}
-                  className="rounded-full border border-[#4B9CD3]/25 bg-[#4B9CD3]/10 px-3 py-1 text-xs font-medium text-[#B9E3FF]"
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
+            <div className="mt-6">
+  <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-[#7CC4FA]">
+    Target Roles
+  </h2>
 
+  <div className="mt-3 flex flex-wrap gap-2">
+    {[
+      "Financial Analyst",
+      "Corporate Finance",
+      "Investment Banking Analyst",
+    ].map((role) => (
+      <span
+        key={role}
+        className="rounded-full border border-[#4B9CD3]/25 bg-[#4B9CD3]/10 px-3 py-1 text-xs font-medium text-[#B9E3FF]"
+      >
+        {role}
+      </span>
+    ))}
+  </div>
+</div>
             <div className="mt-8 flex gap-3">
               <button
                 type="button"
