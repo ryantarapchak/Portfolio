@@ -1,60 +1,121 @@
 export default function Home() {
   const experience = [
     {
-      title: "Master of Finance Student",
-      company: "Penn State University",
-      date: "Expected May 2026",
+      title: "Teaching Assistant",
+      company: "The Pennsylvania State University",
+      date: "Aug 2025 – Present",
       description:
-        "Graduate finance training focused on valuation, financial analysis, capital markets, and strategic decision-making.",
+        "Lead weekly labs and support business capstone students through instruction, grading, and team-based financial analysis guidance.",
       achievements: [
-        "Built a strong foundation in corporate finance, modeling, and investment analysis",
-        "Applied classwork to real business and market-based case problems",
-        "Focused on analytical thinking, clear communication, and decision support",
+        "Lead and prepare weekly labs for 50+ business capstone students, creating lesson plans on financial modeling and strategy",
+        "Grade 200+ assignments monthly using Canvas SpeedGrader, Excel, and SharePoint",
+        "Advise 20+ student teams on financial analysis, credit risk, and investment evaluation",
+        "Help improve student decision-making and simulation performance through real-world case insights",
       ],
-      skills: ["Financial Analysis", "Valuation", "Capital Markets", "Excel"],
+      skills: [
+        "Financial Modeling",
+        "Strategy",
+        "Teaching",
+        "Excel",
+        "Canvas",
+      ],
     },
     {
-      title: "Economic Development Analysis Experience",
-      company: "Philadelphia Department of Commerce",
-      date: "Previous Experience",
+      title: "M&A Intern",
+      company: "Sabakiball International, LLC",
+      date: "Oct 2025 – Dec 2025",
       description:
-        "Supported review of economic development projects through financial and strategic analysis tied to investment and growth outcomes.",
+        "Supported early-stage M&A outreach and strategic analysis for a patented sport business by building economic models and acquisition materials.",
       achievements: [
-        "Reviewed project-level business and economic impact factors",
-        "Helped structure information into clearer decision support",
-        "Worked on analysis connected to public-private investment outcomes",
+        "Produced a strategic economic model and acquisition thesis for a patented sport with 1M+ users and adoption in 300+ schools",
+        "Quantified market size, unit economics, and TAM penetration to support sale positioning",
+        "Identified and contacted 15+ potential buyers and helped facilitate introductory discussions",
+        "Developed supporting materials to advance Sabakiball’s M&A outreach",
       ],
-      skills: ["Economic Analysis", "Strategy", "Project Evaluation", "Research"],
+      skills: [
+        "M&A",
+        "Economic Modeling",
+        "Market Analysis",
+        "Outreach",
+        "Valuation",
+      ],
     },
     {
-      title: "Division I Athlete",
-      company: "Track & Cross Country",
-      date: "Previous Experience",
+      title: "Office of Neighborhood Economic Development Intern",
+      company: "City of Philadelphia Department of Commerce",
+      date: "June 2025 – Aug 2025",
       description:
-        "Built discipline, consistency, and high-performance habits through Division I athletics.",
+        "Performed financial and operational analysis on grant-funded projects and built tools to support funding visibility and data-driven decisions.",
       achievements: [
-        "Balanced athletics with academics and long-term goals",
-        "Developed resilience, time management, and consistency",
-        "Learned how to perform under pressure and structure improvement",
+        "Conducted financial and operational analysis for 10 grant-funded projects using Excel and Quickbase",
+        "Built and maintained a $10M project database in Excel tracking 30+ performance metrics",
+        "Designed 10 digital project profiles in Canva to improve visibility across commerce initiatives",
+        "Created and managed a $100K project budget using Excel to model ROI, credit feasibility, and risk mitigation strategies",
       ],
-      skills: ["Discipline", "Leadership", "Work Ethic", "Performance"],
+      skills: [
+        "Financial Analysis",
+        "Excel",
+        "Quickbase",
+        "Budgeting",
+        "ROI Modeling",
+      ],
+    },
+    {
+      title: "Treasurer",
+      company: "Business Leaders for Change",
+      date: "Aug 2025 – Present",
+      description:
+        "Manage budgeting, transactions, and funding coordination for a student organization serving thousands of students through annual events.",
+      achievements: [
+        "Oversee $10K in budgets for four annual events reaching 8,000+ students",
+        "Use Excel to track spending, improve efficiency, and help raise participation by 30%",
+        "Manage and reconcile 100+ financial transactions in the ASA account",
+        "Collaborate with executives and external stakeholders to secure $10K+ in funding while maintaining compliance and transparency",
+      ],
+      skills: [
+        "Budgeting",
+        "Leadership",
+        "Excel",
+        "Financial Tracking",
+        "Stakeholder Management",
+      ],
     },
   ];
 
   const projects = [
-    "Financial Modeling",
-    "Valuation Work",
-    "Market & Investment Analysis",
-    "Strategy Presentations",
+    {
+      title: "SensoTech Master Budget",
+      subtitle: "Financial Modeling Project",
+      description:
+        "Built a dynamic multi-sheet Excel master budget for a manufacturing firm, including sales, production, inventory, labor, overhead, SG&A, cash flow, and financial statements.",
+    },
+    {
+      title: "Burton Sensors M&A Case",
+      subtitle: "Financial Modeling & Valuation Project",
+      description:
+        "Built dynamic Excel models applying DCF, FCFF, WACC, IRR, NPV, and EBITDA multiple analysis to evaluate acquisition and investment decisions.",
+    },
+    {
+      title: "Market & Investment Analysis",
+      subtitle: "Academic / Applied Finance",
+      description:
+        "Applied finance coursework and analytical tools to evaluate companies, industries, and financial decisions with a focus on practical recommendations.",
+    },
+    {
+      title: "Strategy Presentations",
+      subtitle: "Business Communication",
+      description:
+        "Created clear presentations and materials that communicate financial findings, strategic direction, and decision support in a professional format.",
+    },
   ];
 
   const technicalSkills = [
-    "Excel",
-    "PowerPoint",
-    "Financial Modeling",
-    "Valuation",
-    "Data Analysis",
-    "Research",
+    "Financial Modeling & Valuation",
+    "Budgeting & Forecasting",
+    "Advanced Excel",
+    "Data Visualization",
+    "Python",
+    "VBA",
   ];
 
   const softSkills = [
@@ -156,9 +217,10 @@ export default function Home() {
                 About
               </h2>
               <p className="mt-4 leading-7 text-slate-300">
-                I’m focused on finance, strategy, and analysis. I like taking
-                complicated ideas and turning them into clean, practical
-                decisions through modeling, research, and structured thinking.
+                I’m a Master of Finance student with experience in financial
+                analysis, valuation, budgeting, and strategic decision support.
+                I enjoy taking complex ideas and turning them into practical,
+                data-driven recommendations.
               </p>
             </div>
 
@@ -168,8 +230,8 @@ export default function Home() {
               </h2>
               <ul className="mt-4 space-y-3 text-slate-300">
                 <li>• Financial modeling and valuation</li>
-                <li>• Investment and market analysis</li>
-                <li>• Strategy and business decision support</li>
+                <li>• M&A and investment analysis</li>
+                <li>• Budgeting, forecasting, and decision support</li>
               </ul>
             </div>
 
@@ -250,7 +312,7 @@ export default function Home() {
               className="scroll-mt-28 rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm"
             >
               <h2 className="text-3xl font-bold tracking-tight text-white">
-                Education
+                Academic Experience
               </h2>
 
               <div className="mt-8 grid gap-6 md:grid-cols-2">
@@ -258,7 +320,12 @@ export default function Home() {
                   <h3 className="text-lg font-semibold text-white">
                     Master of Finance
                   </h3>
-                  <p className="mt-2 text-[#7CC4FA]">Penn State University</p>
+                  <p className="mt-2 text-[#7CC4FA]">
+                    The Pennsylvania State University
+                  </p>
+                  <p className="mt-2 text-sm text-slate-400">
+                    Smeal College of Business
+                  </p>
                   <p className="mt-2 text-sm text-slate-400">
                     Expected Graduation: May 2026
                   </p>
@@ -266,11 +333,19 @@ export default function Home() {
 
                 <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition hover:border-[#4B9CD3]/35 hover:bg-white/[0.05]">
                   <h3 className="text-lg font-semibold text-white">
-                    Bachelor’s Degree
+                    Bachelor of Science in Business Administration
                   </h3>
-                  <p className="mt-2 text-[#7CC4FA]">Finance Background</p>
+                  <p className="mt-2 text-[#7CC4FA]">
+                    East Carolina University
+                  </p>
                   <p className="mt-2 text-sm text-slate-400">
-                    Academic and professional foundation in business and finance
+                    Concentration in Finance
+                  </p>
+                  <p className="mt-2 text-sm text-slate-400">
+                    GPA: 3.88
+                  </p>
+                  <p className="mt-2 text-sm text-slate-400">
+                    Magna Cum Laude
                   </p>
                 </div>
               </div>
@@ -329,14 +404,17 @@ export default function Home() {
               <div className="mt-8 grid gap-4 md:grid-cols-2">
                 {projects.map((project) => (
                   <div
-                    key={project}
+                    key={project.title}
                     className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition duration-200 hover:-translate-y-1 hover:border-[#4B9CD3]/35 hover:bg-white/[0.05] hover:shadow-[0_0_30px_rgba(75,156,211,0.12)]"
                   >
                     <h3 className="text-lg font-semibold text-white">
-                      {project}
+                      {project.title}
                     </h3>
-                    <p className="mt-2 text-slate-300">
-                      Add a short case study, PDF, deck, or project link here.
+                    <p className="mt-1 text-sm text-[#7CC4FA]">
+                      {project.subtitle}
+                    </p>
+                    <p className="mt-3 text-slate-300">
+                      {project.description}
                     </p>
                   </div>
                 ))}
@@ -356,11 +434,12 @@ export default function Home() {
               </p>
 
               <div className="mt-6 space-y-2 text-slate-300">
-                <p>Email: your-email@example.com</p>
+                <p>Email: ryantarapchak@gmail.com</p>
+                <p>Phone: 215-962-8332</p>
                 <p>
                   LinkedIn:{" "}
                   <a
-                    href="https://www.linkedin.com/in/ryantarapchak/"
+                    href="https://www.linkedin.com/in/ryantarapchak"
                     target="_blank"
                     rel="noreferrer"
                     className="text-[#7CC4FA] transition hover:text-white"
