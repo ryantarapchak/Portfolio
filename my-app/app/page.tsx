@@ -72,7 +72,7 @@ export default function Home() {
       <div className="pointer-events-none fixed inset-0 -z-10 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:32px_32px] opacity-[0.06]" />
 
       <div className="mx-auto max-w-7xl px-6 py-8">
-        <header className="mb-10 flex flex-col gap-4 border-b border-white/10 pb-6 md:flex-row md:items-center md:justify-between">
+        <header className="sticky top-0 z-50 mb-10 flex flex-col gap-4 border-b border-white/10 bg-[#070B14]/80 pb-6 pt-2 backdrop-blur-md md:flex-row md:items-center md:justify-between">
           <div className="flex flex-col gap-1 md:flex-row md:items-center md:gap-4">
             <a
               href="#"
@@ -186,7 +186,7 @@ export default function Home() {
           <section className="space-y-8">
             <section
               id="experience"
-              className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm"
+              className="scroll-mt-28 rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm"
             >
               <h2 className="text-3xl font-bold tracking-tight text-white">
                 Experience
@@ -247,7 +247,7 @@ export default function Home() {
 
             <section
               id="education"
-              className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm"
+              className="scroll-mt-28 rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm"
             >
               <h2 className="text-3xl font-bold tracking-tight text-white">
                 Education
@@ -278,7 +278,7 @@ export default function Home() {
 
             <section
               id="skills"
-              className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm"
+              className="scroll-mt-28 rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm"
             >
               <h2 className="text-3xl font-bold tracking-tight text-white">
                 Skills & Expertise
@@ -321,7 +321,7 @@ export default function Home() {
 
             <section
               id="portfolio"
-              className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm"
+              className="scroll-mt-28 rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm"
             >
               <h2 className="text-3xl font-bold tracking-tight text-white">
                 Portfolio
@@ -345,7 +345,7 @@ export default function Home() {
 
             <section
               id="contact"
-              className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm"
+              className="scroll-mt-28 rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm"
             >
               <h2 className="text-3xl font-bold tracking-tight text-white">
                 Contact
