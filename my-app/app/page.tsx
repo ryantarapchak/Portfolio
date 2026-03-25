@@ -174,7 +174,7 @@ export default function Home() {
 
       <div className="mt-5">
         <h4 className="text-sm font-semibold uppercase tracking-[0.15em] text-slate-400">
-          Key Highlights
+          Achievements
         </h4>
         <ul className="mt-3 space-y-2 text-slate-300">
           {job.achievements.map((item) => (
