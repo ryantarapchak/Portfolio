@@ -1,4 +1,10 @@
+"use client";
+
+import { useState } from "react";
+
 export default function Home() {
+  const [sidebarView, setSidebarView] = useState<"work" | "contact">("work");
+
   const experience = [
     {
       title: "Teaching Assistant",
@@ -12,12 +18,7 @@ export default function Home() {
         "Advise 20+ student teams on financial analysis, credit risk, and investment evaluation",
         "Help improve student decision-making and simulation performance through real-world case insights",
       ],
-      skills: [
-        "Financial Modeling",
-        "Strategy",
-        "Leadership",
-        "Excel",
-      ],
+      skills: ["Financial Modeling", "Strategy", "Leadership", "Excel"],
     },
     {
       title: "M&A Intern",
@@ -116,15 +117,10 @@ export default function Home() {
       <div className="mx-auto max-w-7xl px-6 py-8">
         <header className="sticky top-0 z-50 mb-10 flex flex-col gap-4 border-b border-white/10 bg-[#070B14]/80 pb-6 pt-2 backdrop-blur-md md:flex-row md:items-center md:justify-between">
           <div className="flex flex-col gap-1 md:flex-row md:items-center md:gap-4">
-            <a
-              href="#"
-              className="text-2xl font-bold tracking-tight text-white"
-            >
+            <a href="#" className="text-2xl font-bold tracking-tight text-white">
               <span className="text-[#7CC4FA]">Ryan</span> Tarapchak
             </a>
-            <p className="text-sm text-slate-400">
-              Penn State Master of Finance
-            </p>
+            <p className="text-sm text-slate-400">Penn State Master of Finance</p>
           </div>
 
           <nav className="flex flex-wrap gap-3 text-sm">
@@ -183,85 +179,106 @@ export default function Home() {
             </div>
 
             <div className="mt-8 flex gap-3">
-              <a
-                href="#portfolio"
-                className="rounded-xl bg-[#4B9CD3] px-4 py-2 text-sm font-semibold text-[#041E42] transition hover:bg-[#7CC4FA] hover:shadow-[0_0_25px_rgba(124,196,250,0.35)]"
+              <button
+                type="button"
+                onClick={() => setSidebarView("work")}
+                className={`rounded-xl px-4 py-2 text-sm font-semibold transition ${
+                  sidebarView === "work"
+                    ? "bg-[#4B9CD3] text-[#041E42] shadow-[0_0_25px_rgba(124,196,250,0.35)]"
+                    : "border border-white/15 bg-white/[0.02] text-slate-200 hover:border-[#4B9CD3]/50 hover:bg-white/[0.06]"
+                }`}
               >
                 View Work
-              </a>
-            </div>
+              </button>
 
-            <div className="mt-10 border-t border-white/10 pt-8">
-              <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-[#7CC4FA]">
-                About
-              </h2>
-              <p className="mt-4 leading-7 text-slate-300">
-                I’m a Master of Finance student with experience in financial
-                analysis, valuation, budgeting, and strategic decision support.
-                I enjoy taking complex ideas and turning them into practical,
-                data-driven recommendations.
-              </p>
-            </div>
-
-            <div className="mt-10 border-t border-white/10 pt-8">
-              <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-[#7CC4FA]">
-                Focus
-              </h2>
-              <ul className="mt-4 space-y-3 text-slate-300">
-                <li>• Financial modeling and valuation</li>
-                <li>• Forecasting and budgeting</li>
-                <li>• Financial statement analysis & business insights</li>
-              </ul>
-            </div>
-
-            <div className="mt-10 border-t border-white/10 pt-8">
-              <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-[#7CC4FA]">
-                Status
-              </h2>
-              <p className="mt-4 text-slate-200">
-                Open to new opportunities
-              </p>
-            </div>
-
-            <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-5">
-              <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-[#7CC4FA]">
+              <button
+                type="button"
+                onClick={() => setSidebarView("contact")}
+                className={`rounded-xl px-4 py-2 text-sm font-medium transition ${
+                  sidebarView === "contact"
+                    ? "bg-[#4B9CD3] text-[#041E42] shadow-[0_0_25px_rgba(124,196,250,0.35)]"
+                    : "border border-white/15 bg-white/[0.02] text-slate-200 hover:border-[#4B9CD3]/50 hover:bg-white/[0.06]"
+                }`}
+              >
                 Contact
-              </h2>
+              </button>
+            </div>
 
-              <div className="mt-4 space-y-4 text-sm text-slate-300">
-                <div>
-                  <p className="text-slate-400">Email</p>
-                  <a
-                    href="mailto:ryantarapchak@gmail.com"
-                    className="text-white transition hover:text-[#7CC4FA]"
-                  >
-                    ryantarapchak@gmail.com
-                  </a>
+            {sidebarView === "work" ? (
+              <>
+                <div className="mt-10 border-t border-white/10 pt-8">
+                  <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-[#7CC4FA]">
+                    About
+                  </h2>
+                  <p className="mt-4 leading-7 text-slate-300">
+                    I’m a Master of Finance student with experience in financial
+                    analysis, valuation, budgeting, and strategic decision support.
+                    I enjoy taking complex ideas and turning them into practical,
+                    data-driven recommendations.
+                  </p>
                 </div>
 
-                <div>
-                  <p className="text-slate-400">Phone</p>
-                  <a
-                    href="tel:2159628332"
-                    className="text-white transition hover:text-[#7CC4FA]"
-                  >
-                    215-962-8332
-                  </a>
+                <div className="mt-10 border-t border-white/10 pt-8">
+                  <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-[#7CC4FA]">
+                    Focus
+                  </h2>
+                  <ul className="mt-4 space-y-3 text-slate-300">
+                    <li>• Financial modeling and valuation</li>
+                    <li>• Forecasting and budgeting</li>
+                    <li>• Financial statement analysis & business insights</li>
+                  </ul>
                 </div>
 
-                <div>
-                  <p className="text-slate-400">LinkedIn</p>
-                  <a
-                    href="https://www.linkedin.com/in/ryantarapchak"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-white transition hover:text-[#7CC4FA]"
-                  >
-                    linkedin.com/in/ryantarapchak
-                  </a>
+                <div className="mt-10 border-t border-white/10 pt-8">
+                  <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-[#7CC4FA]">
+                    Status
+                  </h2>
+                  <p className="mt-4 text-slate-200">
+                    Open to new opportunities
+                  </p>
+                </div>
+              </>
+            ) : (
+              <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-5">
+                <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-[#7CC4FA]">
+                  Contact Information
+                </h2>
+
+                <div className="mt-4 space-y-4 text-sm text-slate-300">
+                  <div>
+                    <p className="text-slate-400">Email</p>
+                    <a
+                      href="mailto:ryantarapchak@gmail.com"
+                      className="text-white transition hover:text-[#7CC4FA]"
+                    >
+                      ryantarapchak@gmail.com
+                    </a>
+                  </div>
+
+                  <div>
+                    <p className="text-slate-400">Phone</p>
+                    <a
+                      href="tel:2159628332"
+                      className="text-white transition hover:text-[#7CC4FA]"
+                    >
+                      215-962-8332
+                    </a>
+                  </div>
+
+                  <div>
+                    <p className="text-slate-400">LinkedIn</p>
+                    <a
+                      href="https://www.linkedin.com/in/ryantarapchak"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-white transition hover:text-[#7CC4FA]"
+                    >
+                      linkedin.com/in/ryantarapchak
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
           </aside>
 
           <section className="space-y-8">
