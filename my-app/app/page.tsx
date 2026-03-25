@@ -167,8 +167,12 @@ export default function Home() {
 
         <div className="grid gap-10 lg:grid-cols-[340px_minmax(0,1fr)]">
           <aside className="h-fit rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.35)] backdrop-blur-sm">
-            <div className="mb-6 flex h-24 w-24 items-center justify-center rounded-full border border-[#4B9CD3]/40 bg-gradient-to-br from-[#4B9CD3]/20 to-white/10 text-2xl font-bold text-white shadow-[0_0_30px_rgba(75,156,211,0.2)]">
-              RT
+            <div className="mb-6 h-32 w-32 overflow-hidden rounded-full border-2 border-[#4B9CD3]/50 shadow-[0_0_40px_rgba(75,156,211,0.35)]">
+              <img
+                src="/headshot.png"
+                alt="Ryan Tarapchak"
+                className="h-full w-full object-cover object-top"
+              />
             </div>
 
             <h1 className="text-3xl font-bold tracking-tight text-white">
