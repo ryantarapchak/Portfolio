@@ -134,7 +134,6 @@ export default function Home() {
               ["#credentials", "Credentials"],
               ["#skills", "Skills"],
               ["#portfolio", "Portfolio"],
-              ["#contact", "Contact"],
             ].map(([href, label]) => (
               <a
                 key={label}
@@ -190,12 +189,6 @@ export default function Home() {
               >
                 View Work
               </a>
-              <a
-                href="#contact"
-                className="rounded-xl border border-white/15 bg-white/[0.02] px-4 py-2 text-sm font-medium text-slate-200 transition hover:border-[#4B9CD3]/50 hover:bg-white/[0.06] hover:text-white"
-              >
-                Contact
-              </a>
             </div>
 
             <div className="mt-10 border-t border-white/10 pt-8">
@@ -230,40 +223,34 @@ export default function Home() {
               </p>
             </div>
 
-            <section
-              id="contact"
-              className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-5 scroll-mt-28"
-            >
+            <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-5">
               <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-[#7CC4FA]">
                 Contact
               </h2>
 
-              <div className="mt-4 space-y-3 text-sm text-slate-300">
-                <p>
-                  <span className="text-slate-400">Email:</span>
-                  <br />
+              <div className="mt-4 space-y-4 text-sm text-slate-300">
+                <div>
+                  <p className="text-slate-400">Email</p>
                   <a
                     href="mailto:ryantarapchak@gmail.com"
                     className="text-white transition hover:text-[#7CC4FA]"
                   >
                     ryantarapchak@gmail.com
                   </a>
-                </p>
+                </div>
 
-                <p>
-                  <span className="text-slate-400">Phone:</span>
-                  <br />
+                <div>
+                  <p className="text-slate-400">Phone</p>
                   <a
                     href="tel:2159628332"
                     className="text-white transition hover:text-[#7CC4FA]"
                   >
                     215-962-8332
                   </a>
-                </p>
+                </div>
 
-                <p>
-                  <span className="text-slate-400">LinkedIn:</span>
-                  <br />
+                <div>
+                  <p className="text-slate-400">LinkedIn</p>
                   <a
                     href="https://www.linkedin.com/in/ryantarapchak"
                     target="_blank"
@@ -272,9 +259,9 @@ export default function Home() {
                   >
                     linkedin.com/in/ryantarapchak
                   </a>
-                </p>
+                </div>
               </div>
-            </section>
+            </div>
           </aside>
 
           <section className="space-y-8">
