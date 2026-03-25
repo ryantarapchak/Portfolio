@@ -15,9 +15,8 @@ export default function Home() {
       skills: [
         "Financial Modeling",
         "Strategy",
-        "Teaching",
+        "Leadership",
         "Excel",
-        "Canvas",
       ],
     },
     {
@@ -124,7 +123,7 @@ export default function Home() {
               <span className="text-[#7CC4FA]">Ryan</span> Tarapchak
             </a>
             <p className="text-sm text-slate-400">
-              Finance • Analysis • Strategy
+              Penn State Master of Finance
             </p>
           </div>
 
@@ -161,18 +160,18 @@ export default function Home() {
               Ryan Tarapchak
             </h1>
             <p className="mt-2 text-lg text-[#7CC4FA]">
-              Master of Finance Candidate
+              Penn State Master of Finance
             </p>
             <p className="mt-1 text-sm text-slate-400">
-              Pennsylvania, United States
+            Langhorne, Pennsylvania
             </p>
 
             <div className="mt-6 flex flex-wrap gap-2">
               {[
                 "Financial Analysis",
-                "Valuation",
-                "Strategy",
-                "Business Consulting",
+                "Financial Modeling",
+                "Forecasting",
+                "Budgeting",
               ].map((item) => (
                 <span
                   key={item}
@@ -216,8 +215,8 @@ export default function Home() {
               </h2>
               <ul className="mt-4 space-y-3 text-slate-300">
                 <li>• Financial modeling and valuation</li>
-                <li>• M&A and investment analysis</li>
-                <li>• Budgeting, forecasting, and decision support</li>
+                <li>• Forecasting and budgeting</li>
+                <li>• Financial statement analysis & business insights</li>
               </ul>
             </div>
 
@@ -226,7 +225,7 @@ export default function Home() {
                 Status
               </h2>
               <p className="mt-4 text-slate-200">
-                Available for new opportunities
+                Open to new opportunities
               </p>
             </div>
           </aside>
@@ -294,52 +293,92 @@ export default function Home() {
             </section>
 
             <section
-              id="education"
-              className="scroll-mt-28 rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm"
-            >
-              <h2 className="text-3xl font-bold tracking-tight text-white">
-                Academic Experience
-              </h2>
-
-              <div className="mt-8 grid gap-6 md:grid-cols-2">
-                <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition hover:border-[#4B9CD3]/35 hover:bg-white/[0.05]">
-                  <h3 className="text-lg font-semibold text-white">
-                    Master of Finance
-                  </h3>
-                  <p className="mt-2 text-[#7CC4FA]">
-                    The Pennsylvania State University
-                  </p>
-                  <p className="mt-2 text-sm text-slate-400">
-                    Smeal College of Business
-                  </p>
-                  <p className="mt-2 text-sm text-slate-400">
-                    Expected Graduation: May 2026
-                  </p>
-                </div>
-
-                <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition hover:border-[#4B9CD3]/35 hover:bg-white/[0.05]">
-                  <h3 className="text-lg font-semibold text-white">
-                    Bachelor of Science in Business Administration
-                  </h3>
-                  <p className="mt-2 text-[#7CC4FA]">
-                    East Carolina University
-                  </p>
-                  <p className="mt-2 text-sm text-slate-400">
-                    Concentration in Finance
-                  </p>
-                  <p className="mt-2 text-sm text-slate-400">
-                    GPA: 3.88
-                  </p>
-                  <p className="mt-2 text-sm text-slate-400">
-                    Magna Cum Laude
-                  </p>
-                </div>
-              </div>
-            </section>
-              <section
-  id="skills"
+  id="education"
   className="scroll-mt-28 rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm"
 >
+  <h2 className="text-3xl font-bold tracking-tight text-white">
+    Academic Experience
+  </h2>
+
+  <div className="mt-8 grid gap-6 md:grid-cols-2">
+    <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition hover:border-[#4B9CD3]/35 hover:bg-white/[0.05]">
+      <h3 className="text-lg font-semibold text-white">
+        Master of Finance
+      </h3>
+      <p className="mt-2 text-[#7CC4FA]">
+        The Pennsylvania State University
+      </p>
+      <p className="mt-2 text-sm text-slate-400">
+        Smeal College of Business
+      </p>
+      <p className="mt-2 text-sm text-slate-400">
+        Expected Graduation: May 2026
+      </p>
+    </div>
+
+    <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition hover:border-[#4B9CD3]/35 hover:bg-white/[0.05]">
+      <h3 className="text-lg font-semibold text-white">
+        Bachelor of Science in Business Administration
+      </h3>
+      <p className="mt-2 text-[#7CC4FA]">
+        East Carolina University
+      </p>
+      <p className="mt-2 text-sm text-slate-400">
+        The College of Business
+      </p>
+      <p className="mt-2 text-sm text-slate-400">
+        Graduated: May 2025
+      </p>
+      <p className="mt-2 text-sm text-slate-400">
+        GPA: 3.88
+      </p>
+      <p className="mt-2 text-sm text-slate-400">
+        Magna Cum Laude
+      </p>
+    </div>
+  </div>
+</section>
+
+<section
+  id="credentials"
+  className="scroll-mt-28 rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm"
+>
+  <h2 className="text-3xl font-bold tracking-tight text-white">
+    Certifications & Credentials
+  </h2>
+
+  <div className="mt-8 space-y-6">
+    <div className="rounded-xl border border-white/10 bg-white/[0.02] p-5">
+      <h3 className="text-lg font-semibold text-white">
+        Truist Emerging Leaders Certification
+      </h3>
+      <p className="mt-1 text-sm text-[#7CC4FA]">
+        Truist Financial Corporation
+      </p>
+      <p className="mt-2 text-sm text-slate-300">
+        Selected leadership development program focused on professional growth,
+        financial services exposure, and leadership training.
+      </p>
+    </div>
+
+    <div className="rounded-xl border border-white/10 bg-white/[0.02] p-5">
+      <h3 className="text-lg font-semibold text-white">
+        Microsoft Office Specialist (MOS): Excel 2016
+      </h3>
+      <p className="mt-1 text-sm text-[#7CC4FA]">
+        Microsoft
+      </p>
+      <p className="mt-2 text-sm text-slate-300">
+        Demonstrated proficiency in Excel including data analysis, formulas,
+        and spreadsheet management.
+      </p>
+    </div>
+  </div>
+</section>
+
+  id="skills"
+  className="scroll-mt-28 rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm"
+
   <h2 className="text-3xl font-bold tracking-tight text-white">
     Skills & Expertise
   </h2>
@@ -500,10 +539,6 @@ export default function Home() {
               <h2 className="text-3xl font-bold tracking-tight text-white">
                 Contact
               </h2>
-              <p className="mt-4 max-w-2xl leading-7 text-slate-300">
-                I’m currently interested in opportunities across finance,
-                strategy, and analysis.
-              </p>
 
               <div className="mt-6 space-y-2 text-slate-300">
                 <p>Email: ryantarapchak@gmail.com</p>
