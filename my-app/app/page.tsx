@@ -203,23 +203,27 @@ export default function Home() {
 
   {/* RIGHT SIDE NAV */}
   <nav className="flex items-center gap-3 text-sm">
-  {navItems.map((item) => (
-    <button
-      key={item.key}
-      type="button"
-      onClick={() => {
-        setActiveSection(item.key);
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }}
-      className={`rounded-xl px-4 py-2 text-sm font-medium transition ${
-        activeSection === item.key
-          ? "bg-[#4B9CD3] text-[#041E42] shadow-[0_0_25px_rgba(124,196,250,0.35)]"
-          : "border border-white/15 bg-white/[0.02] text-slate-200 hover:border-[#4B9CD3]/50 hover:bg-white/[0.06]"
-      }`}
-    >
-      {item.label}
-    </button>
-  ))}
+  {navItems.map((item) => {
+    const isActive = activeSection === item.key;
+
+    return (
+      <button
+        key={item.key}
+        type="button"
+        onClick={() => {
+          setActiveSection(item.key);
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }}
+        className={`rounded-xl px-4 py-2 text-sm font-semibold transition ${
+          isActive
+            ? "bg-[#4B9CD3] text-[#041E42] shadow-[0_0_25px_rgba(124,196,250,0.35)]"
+            : "border border-white/15 bg-white/[0.02] text-slate-200 hover:border-[#4B9CD3]/50 hover:bg-white/[0.06]"
+        }`}
+      >
+        {item.label}
+      </button>
+    );
+  })}
 </nav>
 
 </header>
