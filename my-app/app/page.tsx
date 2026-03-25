@@ -107,16 +107,16 @@ export default function Home() {
         "Built dynamic Excel models applying DCF, FCFF, WACC, IRR, NPV, and EBITDA multiple analysis to evaluate acquisition and investment decisions.",
     },
     {
-      title: "Market & Investment Analysis",
-      subtitle: "Academic / Applied Finance",
+      title: "Sabakiball M&A Economic Model",
+      subtitle: "M&A / Investment Analysis",
       description:
-        "Applied finance coursework and analytical tools to evaluate companies, industries, and financial decisions with a focus on practical recommendations.",
+        "Developed a full economic model and acquisition thesis for a patented sports business with 1M+ users and 300+ school partnerships. Analyzed unit economics, market size, and scalability to support M&A outreach and strategic buyer positioning.",
     },
     {
-      title: "Strategy Presentations",
-      subtitle: "Business Communication",
+      title: "CrowdStrike Stock Pitch",
+      subtitle: "Equity Research / Investment Analysis",
       description:
-        "Created clear presentations and materials that communicate financial findings, strategic direction, and decision support in a professional format.",
+        "Delivered a 10-minute investment recommendation presentation on CrowdStrike, evaluating financial performance, valuation metrics, competitive positioning, and industry trends. Developed a clear buy/sell thesis supported by financial modeling, risk analysis, and market research, presenting findings to the Nittany Investment Club.",
     },
   ];
 
@@ -437,7 +437,7 @@ export default function Home() {
                     Truist Financial Corporation
                   </p>
                   <p className="mt-2 text-sm text-slate-300">
-                    Selective leadership development program focused on professional growth, communication, and team-based leadership skills
+                    A leadership development program focused on professional growth and leadership training.
                   </p>
                 </div>
 
@@ -449,7 +449,7 @@ export default function Home() {
                     Microsoft
                   </p>
                   <p className="mt-2 text-sm text-slate-300">
-                    Performance-based certification demonstrating proficiency in Excel, including data analysis, financial modeling, and advanced spreadsheet functions
+                    A performance-based certification that validates proficiency in using Excel
                   </p>
                 </div>
               </div>
