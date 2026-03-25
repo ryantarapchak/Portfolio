@@ -19,6 +19,7 @@ export default function Home() {
         "Help improve student decision-making and simulation performance through real-world case insights",
       ],
       skills: ["Financial Modeling", "Strategy", "Leadership", "Excel"],
+      category: "professional",
     },
     {
       title: "M&A Intern",
@@ -39,6 +40,7 @@ export default function Home() {
         "Outreach",
         "Valuation",
       ],
+      category: "professional",
     },
     {
       title: "Office of Neighborhood Economic Development Intern",
@@ -59,6 +61,7 @@ export default function Home() {
         "Budgeting",
         "ROI Modeling",
       ],
+      category: "professional",
     },
     {
       title: "Treasurer",
@@ -79,8 +82,16 @@ export default function Home() {
         "Financial Tracking",
         "Stakeholder Management",
       ],
+      category: "leadership",
     },
   ];
+
+  const professionalExperience = experience.filter(
+    (job) => job.category === "professional"
+  );
+  const leadershipExperience = experience.filter(
+    (job) => job.category === "leadership"
+  );
 
   const projects = [
     {
@@ -108,6 +119,59 @@ export default function Home() {
         "Created clear presentations and materials that communicate financial findings, strategic direction, and decision support in a professional format.",
     },
   ];
+
+  const renderExperienceCard = (job: {
+    title: string;
+    company: string;
+    date: string;
+    description: string;
+    achievements: string[];
+    skills: string[];
+  }) => (
+    <div
+      key={`${job.title}-${job.company}`}
+      className="border-b border-white/10 pb-8 last:border-0"
+    >
+      <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
+        <div>
+          <h3 className="text-xl font-semibold text-white">{job.title}</h3>
+          <p className="text-[#7CC4FA]">{job.company}</p>
+        </div>
+        <p className="w-fit rounded-full border border-white/10 bg-white/[0.04] px-4 py-1 text-sm text-slate-300">
+          {job.date}
+        </p>
+      </div>
+
+      <p className="mt-4 leading-7 text-slate-300">{job.description}</p>
+
+      <div className="mt-5">
+        <h4 className="text-sm font-semibold uppercase tracking-[0.15em] text-slate-400">
+          Key Highlights
+        </h4>
+        <ul className="mt-3 space-y-2 text-slate-300">
+          {job.achievements.map((item) => (
+            <li key={item}>• {item}</li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="mt-5">
+        <h4 className="text-sm font-semibold uppercase tracking-[0.15em] text-slate-400">
+          Skills
+        </h4>
+        <div className="mt-3 flex flex-wrap gap-2">
+          {job.skills.map((skill) => (
+            <span
+              key={skill}
+              className="rounded-full border border-[#4B9CD3]/25 bg-[#4B9CD3]/10 px-3 py-1 text-xs font-medium text-[#B9E3FF]"
+            >
+              {skill}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <main className="min-h-screen bg-[#070B14] text-slate-200">
@@ -143,7 +207,7 @@ export default function Home() {
         </header>
 
         <div className="grid gap-10 lg:grid-cols-[340px_minmax(0,1fr)]">
-          <aside className="sticky top-24 h-fit rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.35)] backdrop-blur-sm">
+          <aside className="h-fit rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.35)] backdrop-blur-sm">
             <div className="mb-6 h-32 w-32 overflow-hidden rounded-full border-2 border-[#4B9CD3]/50 shadow-[0_0_40px_rgba(75,156,211,0.35)]">
               <img
                 src="/headshot.png"
@@ -188,7 +252,7 @@ export default function Home() {
                     : "border border-white/15 bg-white/[0.02] text-slate-200 hover:border-[#4B9CD3]/50 hover:bg-white/[0.06]"
                 }`}
               >
-                View Work
+                About Me
               </button>
 
               <button
@@ -290,56 +354,22 @@ export default function Home() {
                 Experience
               </h2>
 
-              <div className="mt-8 space-y-8">
-                {experience.map((job) => (
-                  <div
-                    key={job.title}
-                    className="border-b border-white/10 pb-8 last:border-0"
-                  >
-                    <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
-                      <div>
-                        <h3 className="text-xl font-semibold text-white">
-                          {job.title}
-                        </h3>
-                        <p className="text-[#7CC4FA]">{job.company}</p>
-                      </div>
-                      <p className="w-fit rounded-full border border-white/10 bg-white/[0.04] px-4 py-1 text-sm text-slate-300">
-                        {job.date}
-                      </p>
-                    </div>
+              <div className="mt-8">
+                <h3 className="text-xl font-semibold text-[#7CC4FA]">
+                  Professional Experience
+                </h3>
+                <div className="mt-6 space-y-8">
+                  {professionalExperience.map(renderExperienceCard)}
+                </div>
+              </div>
 
-                    <p className="mt-4 leading-7 text-slate-300">
-                      {job.description}
-                    </p>
-
-                    <div className="mt-5">
-                      <h4 className="text-sm font-semibold uppercase tracking-[0.15em] text-slate-400">
-                        Key Highlights
-                      </h4>
-                      <ul className="mt-3 space-y-2 text-slate-300">
-                        {job.achievements.map((item) => (
-                          <li key={item}>• {item}</li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="mt-5">
-                      <h4 className="text-sm font-semibold uppercase tracking-[0.15em] text-slate-400">
-                        Skills
-                      </h4>
-                      <div className="mt-3 flex flex-wrap gap-2">
-                        {job.skills.map((skill) => (
-                          <span
-                            key={skill}
-                            className="rounded-full border border-[#4B9CD3]/25 bg-[#4B9CD3]/10 px-3 py-1 text-xs font-medium text-[#B9E3FF]"
-                          >
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                ))}
+              <div className="mt-12">
+                <h3 className="text-xl font-semibold text-[#7CC4FA]">
+                  Leadership Experience
+                </h3>
+                <div className="mt-6 space-y-8">
+                  {leadershipExperience.map(renderExperienceCard)}
+                </div>
               </div>
             </section>
 
