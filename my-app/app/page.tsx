@@ -94,30 +94,22 @@ export default function Home() {
   );
 
   const projects = [
-    {
-      title: "SensoTech Master Budget",
-      subtitle: "Budget Model",
-      description:
-        "Built a dynamic multi-sheet Excel master budget for a manufacturing firm, including sales, production, inventory, labor, overhead, SG&A, cash flow, and financial statements",
-    },
-    {
-      title: "Burton Sensors M&A Case",
-      subtitle: "M&A Financial Model",
-      description:
-        "Built dynamic Excel models applying DCF, FCFF, WACC, IRR, NPV, and EBITDA multiple analysis to evaluate acquisition and investment decisions",
-    },
-    {
-      title: "Sabakiball M&A Economic Model",
-      subtitle: "M&A Economic Model",
-      description:
-        "Built an economic model and acquisition thesis for a patented sports business with 1M+ users and 300+ school partnerships. Analyzed unit economics, market size, and scalability to support M&A strategy and buyer targeting",
-    },
-    {
-      title: "CrowdStrike Stock Pitch",
-      subtitle: "Investment Pitch",
-      description:
-        "Delivered a 10-minute investment pitch on CrowdStrike, analyzing financials, valuation, and competitive positioning. Built a clear buy/sell thesis supported by financial modeling and research, and presented findings to the Nittany Investment Club",
-    },
+   {
+  title: "SensoTech",
+  subtitle: "Master Budget",
+},
+{
+  title: "Burton Sensors",
+  subtitle: "M&A Financial Model",
+},
+{
+  title: "Sabakiball",
+  subtitle: "M&A Economic Model",
+},
+{
+  title: "CrowdStrike Stock Pitch",
+  subtitle: "Investment Pitch",
+},
   ];
 
   const renderExperienceCard = (job: {
@@ -601,7 +593,6 @@ export default function Home() {
                       {project.subtitle}
                     </p>
                     <p className="mt-3 text-slate-300">
-                      {project.description}
                     </p>
                   </div>
                 ))}
