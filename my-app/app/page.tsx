@@ -43,8 +43,8 @@ export default function Home() {
       category: "professional",
     },
     {
-      title: "Office of Neighborhood Economic Development Intern",
-      company: "City of Philadelphia Department of Commerce",
+      title: "Commerce Intern",
+      company: "City of Philadelphia",
       date: "June 2025 – Aug 2025",
       description:
         "Performed financial and operational analysis on grant-funded projects and built tools to support funding visibility and data-driven decisions.",
@@ -378,7 +378,7 @@ export default function Home() {
               className="scroll-mt-28 rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm"
             >
               <h2 className="text-3xl font-bold tracking-tight text-white">
-                Academic Experience
+                Education
               </h2>
 
               <div className="mt-8 grid gap-6 md:grid-cols-2">
@@ -437,7 +437,7 @@ export default function Home() {
                     Truist Financial Corporation
                   </p>
                   <p className="mt-2 text-sm text-slate-300">
-                    A leadership development program focused on professional growth and leadership training.
+                    Selective leadership development program focused on professional growth, communication, and team-based leadership skills
                   </p>
                 </div>
 
@@ -449,7 +449,7 @@ export default function Home() {
                     Microsoft
                   </p>
                   <p className="mt-2 text-sm text-slate-300">
-                    A performance-based certification that validates proficiency in using Excel
+                    Performance-based certification demonstrating proficiency in Excel, including data analysis, financial modeling, and advanced spreadsheet functions
                   </p>
                 </div>
               </div>
