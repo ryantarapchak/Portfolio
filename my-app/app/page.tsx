@@ -107,7 +107,7 @@ export default function Home() {
   subtitle: "M&A Economic Model",
 },
 {
-  title: "CrowdStrike Stock Pitch",
+  title: "CrowdStrike (CRWD)",
   subtitle: "Investment Pitch",
 },
   ];
