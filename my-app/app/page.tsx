@@ -336,8 +336,6 @@ export default function Home() {
                 </div>
               </div>
             </section>
-
-            <section>
               <section
   id="skills"
   className="scroll-mt-28 rounded-3xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm"
