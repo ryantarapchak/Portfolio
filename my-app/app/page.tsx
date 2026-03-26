@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export default function Home() {
   const [sidebarView, setSidebarView] = useState<"work" | "contact">("work");
@@ -13,6 +13,8 @@ export default function Home() {
     | "portfolio"
   >("professional");
 
+  const contentTopRef = useRef<HTMLElement>(null);
+
   const handleSectionClick = (
     section:
       | "professional"
@@ -23,6 +25,20 @@ export default function Home() {
       | "portfolio"
   ) => {
     setActiveSection(section);
+
+    setTimeout(() => {
+      if (contentTopRef.current) {
+        const targetY =
+          contentTopRef.current.getBoundingClientRect().top + window.scrollY - 16;
+
+        if (window.scrollY > targetY) {
+          window.scrollTo({
+            top: targetY,
+            behavior: "smooth",
+          });
+        }
+      }
+    }, 50);
   };
 
   const experience = [
@@ -404,7 +420,7 @@ export default function Home() {
             )}
           </aside>
 
-          <section className="space-y-6 sm:space-y-8">
+          <section ref={contentTopRef} className="space-y-6 sm:space-y-8">
             {activeSection === "professional" && (
               <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8">
                 <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
