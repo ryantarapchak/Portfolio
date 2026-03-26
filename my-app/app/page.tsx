@@ -133,56 +133,24 @@ export default function Home() {
     {
       title: "SensoTech",
       subtitle: "Master Budget",
-      description:
-        "Built a full master budget including revenue, operating expenses, cash planning, and projected financial statements. Focused on forecasting performance and supporting management decision-making.",
-      highlights: [
-        "Prepared revenue and expense forecasts",
-        "Built cash budget and projected statements",
-        "Connected assumptions across operating schedules",
-        "Used the model to support planning decisions",
-      ],
+      pdf: "/sensotech.pdf",
     },
     {
       title: "Burton Sensors",
       subtitle: "M&A Financial Model",
-      description:
-        "Created a financial model to evaluate an acquisition opportunity, including operating assumptions, valuation support, and deal impact analysis. Used the model to assess whether the transaction made financial and strategic sense.",
-      highlights: [
-        "Modeled acquisition assumptions and deal impact",
-        "Evaluated valuation and transaction logic",
-        "Analyzed revenue, cost, and return scenarios",
-        "Supported strategic decision-making with model output",
-      ],
+      pdf: "/burton.pdf",
     },
     {
       title: "Sabakiball",
       subtitle: "M&A Economic Model",
-      description:
-        "Built an economic model and acquisition thesis for Sabakiball, a patented sports business with over 1M participants and 300+ school partnerships. Evaluated equipment economics, recurring demand, market expansion, and strategic buyer fit.",
-      highlights: [
-        "Positioned the business as a scalable sport + IP package",
-        "Analyzed recurring replacement demand and durable equipment economics",
-        "Assessed adoption across schools, recreation, and international markets",
-        "Supported acquisition rationale through market size and growth potential",
-      ],
+      pdf: "/econ-model.pdf",
     },
     {
       title: "CrowdStrike (CRWD)",
       subtitle: "Investment Pitch",
-      description:
-        "Prepared a 10-minute investment pitch on CrowdStrike, evaluating financial performance, valuation metrics, competitive positioning, growth outlook, and key risks to support an overall recommendation.",
-      highlights: [
-        "Reviewed company performance and valuation",
-        "Compared positioning within the cybersecurity industry",
-        "Built a clear recommendation supported by analysis",
-        "Presented upside, downside, and major risks",
-      ],
+      pdf: "/crowdstrike.pdf",
     },
-  ] as const;
-
-  const [selectedProject, setSelectedProject] = useState<(typeof projects)[number] | null>(
-    projects[2]
-  );
+  ];
 
   const renderExperienceCard = (job: {
     title: string;
@@ -711,18 +679,14 @@ export default function Home() {
                 <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
                   Portfolio
                 </h2>
-
                 <div className="mt-8 grid gap-4 md:grid-cols-2">
                   {projects.map((project) => (
-                    <button
+                    <a
                       key={project.title}
-                      type="button"
-                      onClick={() => setSelectedProject(project)}
-                      className={`text-left rounded-2xl border p-5 transition duration-200 hover:-translate-y-1 hover:border-[#4B9CD3]/35 hover:bg-white/[0.05] hover:shadow-[0_0_30px_rgba(75,156,211,0.12)] ${
-                        selectedProject?.title === project.title
-                          ? "border-[#4B9CD3]/60 bg-white/[0.05] shadow-[0_0_30px_rgba(75,156,211,0.12)]"
-                          : "border-white/10 bg-white/[0.03]"
-                      }`}
+                      href={project.pdf}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition duration-200 hover:-translate-y-1 hover:border-[#4B9CD3]/35 hover:bg-white/[0.05] hover:shadow-[0_0_30px_rgba(75,156,211,0.12)]"
                     >
                       <h3 className="text-lg font-semibold text-white">
                         {project.title}
@@ -730,34 +694,12 @@ export default function Home() {
                       <p className="mt-1 text-sm text-[#7CC4FA]">
                         {project.subtitle}
                       </p>
-                    </button>
+                      <p className="mt-3 text-xs text-slate-400">
+                        Click to view full project →
+                      </p>
+                    </a>
                   ))}
                 </div>
-
-                {selectedProject && (
-                  <div className="mt-8 rounded-2xl border border-[#4B9CD3]/25 bg-white/[0.03] p-6">
-                    <h3 className="text-2xl font-semibold text-white">
-                      {selectedProject.title}
-                    </h3>
-                    <p className="mt-2 text-sm font-medium text-[#7CC4FA]">
-                      {selectedProject.subtitle}
-                    </p>
-                    <p className="mt-4 leading-7 text-slate-300">
-                      {selectedProject.description}
-                    </p>
-
-                    <div className="mt-6">
-                      <h4 className="text-sm font-semibold uppercase tracking-[0.15em] text-slate-400">
-                        Project Highlights
-                      </h4>
-                      <ul className="mt-3 space-y-2 text-slate-300">
-                        {selectedProject.highlights.map((item) => (
-                          <li key={item}>• {item}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                )}
               </section>
             )}
           </section>
