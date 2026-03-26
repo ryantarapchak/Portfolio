@@ -143,7 +143,7 @@ export default function Home() {
     {
       title: "Sabakiball",
       subtitle: "M&A Economic Model",
-      pdf: "/econ-model.pdf",
+      pdf: "/econmodel.pdf",
     },
     {
       title: "CrowdStrike (CRWD)",
