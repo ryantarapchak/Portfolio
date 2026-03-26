@@ -13,7 +13,14 @@ export default function Home() {
     | "portfolio"
   >("professional");
 
-  const contentTopRef = useRef<HTMLElement>(null);
+  const sectionRefs = {
+    professional: useRef<HTMLElement>(null),
+    leadership: useRef<HTMLElement>(null),
+    education: useRef<HTMLElement>(null),
+    credentials: useRef<HTMLElement>(null),
+    skills: useRef<HTMLElement>(null),
+    portfolio: useRef<HTMLElement>(null),
+  };
 
   const handleSectionClick = (
     section:
@@ -27,9 +34,11 @@ export default function Home() {
     setActiveSection(section);
 
     setTimeout(() => {
-      if (contentTopRef.current) {
+      const sectionEl = sectionRefs[section].current;
+
+      if (sectionEl) {
         const targetY =
-          contentTopRef.current.getBoundingClientRect().top + window.scrollY - 16;
+          sectionEl.getBoundingClientRect().top + window.scrollY - 8;
 
         if (window.scrollY > targetY) {
           window.scrollTo({
@@ -420,9 +429,12 @@ export default function Home() {
             )}
           </aside>
 
-          <section ref={contentTopRef} className="space-y-6 sm:space-y-8">
+          <section className="space-y-6 sm:space-y-8">
             {activeSection === "professional" && (
-              <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8">
+              <section
+                ref={sectionRefs.professional}
+                className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
+              >
                 <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
                   Professional Experience
                 </h2>
@@ -434,7 +446,10 @@ export default function Home() {
             )}
 
             {activeSection === "leadership" && (
-              <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8">
+              <section
+                ref={sectionRefs.leadership}
+                className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
+              >
                 <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
                   Leadership Experience
                 </h2>
@@ -446,7 +461,10 @@ export default function Home() {
             )}
 
             {activeSection === "education" && (
-              <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8">
+              <section
+                ref={sectionRefs.education}
+                className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
+              >
                 <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
                   Education
                 </h2>
@@ -490,7 +508,10 @@ export default function Home() {
             )}
 
             {activeSection === "credentials" && (
-              <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8">
+              <section
+                ref={sectionRefs.credentials}
+                className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
+              >
                 <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
                   Certifications & Credentials
                 </h2>
@@ -526,7 +547,10 @@ export default function Home() {
             )}
 
             {activeSection === "skills" && (
-              <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8">
+              <section
+                ref={sectionRefs.skills}
+                className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
+              >
                 <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
                   Skills & Expertise
                 </h2>
@@ -651,7 +675,10 @@ export default function Home() {
             )}
 
             {activeSection === "portfolio" && (
-              <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8">
+              <section
+                ref={sectionRefs.portfolio}
+                className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
+              >
                 <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
                   Portfolio
                 </h2>
