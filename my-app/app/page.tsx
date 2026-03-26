@@ -440,7 +440,7 @@ export default function Home() {
             {activeSection === "leadership" && (
               <section
                 ref={sectionRefs.leadership}
-                style={{ scrollMarginTop: "90px" }}
+                style={{ scrollMarginTop: "60px" }}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
                 <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
@@ -456,7 +456,7 @@ export default function Home() {
             {activeSection === "education" && (
               <section
                 ref={sectionRefs.education}
-                style={{ scrollMarginTop: "90px" }}
+                style={{ scrollMarginTop: "60px" }}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
                 <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
@@ -504,7 +504,7 @@ export default function Home() {
             {activeSection === "credentials" && (
               <section
                 ref={sectionRefs.credentials}
-                style={{ scrollMarginTop: "90px" }}
+                style={{ scrollMarginTop: "60px" }}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
                 <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
@@ -544,7 +544,7 @@ export default function Home() {
             {activeSection === "skills" && (
               <section
                 ref={sectionRefs.skills}
-                style={{ scrollMarginTop: "90px" }}
+                style={{ scrollMarginTop: "60px" }}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
                 <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
@@ -673,7 +673,7 @@ export default function Home() {
             {activeSection === "portfolio" && (
               <section
                 ref={sectionRefs.portfolio}
-                style={{ scrollMarginTop: "90px" }}
+                style={{ scrollMarginTop: "60px" }}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
                 <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
