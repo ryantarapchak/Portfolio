@@ -220,7 +220,7 @@ export default function Home() {
       <div className="pointer-events-none fixed inset-0 -z-10 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:32px_32px] opacity-[0.06]" />
 
       <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-8">
-        <header className="mb-6 border-b border-white/10 bg-[#070B14]/80 py-4 backdrop-blur-md lg:sticky lg:top-0 lg:z-50 lg:mb-10">
+        <header className="mb-4 border-b border-white/10 bg-[#070B14]/80 py-4 backdrop-blur-md lg:sticky lg:top-0 lg:z-50 lg:mb-4">
           <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
             <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-4">
               <h1 className="text-xl font-bold text-white sm:text-2xl">
@@ -424,7 +424,7 @@ export default function Home() {
             {activeSection === "professional" && (
               <section
                 ref={sectionRefs.professional}
-                style={{ scrollMarginTop: "60px" }}
+                style={{ scrollMarginTop: "40px" }}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
                 <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
@@ -440,7 +440,7 @@ export default function Home() {
             {activeSection === "leadership" && (
               <section
                 ref={sectionRefs.leadership}
-                style={{ scrollMarginTop: "60px" }}
+                style={{ scrollMarginTop: "40px" }}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
                 <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
@@ -456,7 +456,7 @@ export default function Home() {
             {activeSection === "education" && (
               <section
                 ref={sectionRefs.education}
-                style={{ scrollMarginTop: "60px" }}
+                style={{ scrollMarginTop: "40px" }}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
                 <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
@@ -504,7 +504,7 @@ export default function Home() {
             {activeSection === "credentials" && (
               <section
                 ref={sectionRefs.credentials}
-                style={{ scrollMarginTop: "60px" }}
+                style={{ scrollMarginTop: "40px" }}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
                 <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
@@ -544,7 +544,7 @@ export default function Home() {
             {activeSection === "skills" && (
               <section
                 ref={sectionRefs.skills}
-                style={{ scrollMarginTop: "60px" }}
+                style={{ scrollMarginTop: "40px" }}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
                 <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
@@ -673,7 +673,7 @@ export default function Home() {
             {activeSection === "portfolio" && (
               <section
                 ref={sectionRefs.portfolio}
-                style={{ scrollMarginTop: "60px" }}
+                style={{ scrollMarginTop: "40px" }}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
                 <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
