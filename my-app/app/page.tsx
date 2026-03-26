@@ -424,7 +424,7 @@ export default function Home() {
             {activeSection === "professional" && (
               <section
                 ref={sectionRefs.professional}
-                style={{ scrollMarginTop: "90px" }}
+                style={{ scrollMarginTop: "60px" }}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
                 <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
