@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 export default function Home() {
   const [sidebarView, setSidebarView] = useState<"work" | "contact">("work");
@@ -13,15 +13,6 @@ export default function Home() {
     | "portfolio"
   >("professional");
 
-  const sectionRefs = {
-    professional: useRef<HTMLElement>(null),
-    leadership: useRef<HTMLElement>(null),
-    education: useRef<HTMLElement>(null),
-    credentials: useRef<HTMLElement>(null),
-    skills: useRef<HTMLElement>(null),
-    portfolio: useRef<HTMLElement>(null),
-  };
-
   const handleSectionClick = (
     section:
       | "professional"
@@ -32,13 +23,6 @@ export default function Home() {
       | "portfolio"
   ) => {
     setActiveSection(section);
-
-    setTimeout(() => {
-      sectionRefs[section].current?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }, 100);
   };
 
   const experience = [
@@ -422,11 +406,7 @@ export default function Home() {
 
           <section className="space-y-6 sm:space-y-8">
             {activeSection === "professional" && (
-              <section
-                ref={sectionRefs.professional}
-                style={{ scrollMarginTop: "40px" }}
-                className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
-              >
+              <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8">
                 <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
                   Professional Experience
                 </h2>
@@ -438,11 +418,7 @@ export default function Home() {
             )}
 
             {activeSection === "leadership" && (
-              <section
-                ref={sectionRefs.leadership}
-                style={{ scrollMarginTop: "40px" }}
-                className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
-              >
+              <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8">
                 <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
                   Leadership Experience
                 </h2>
@@ -454,11 +430,7 @@ export default function Home() {
             )}
 
             {activeSection === "education" && (
-              <section
-                ref={sectionRefs.education}
-                style={{ scrollMarginTop: "40px" }}
-                className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
-              >
+              <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8">
                 <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
                   Education
                 </h2>
@@ -502,11 +474,7 @@ export default function Home() {
             )}
 
             {activeSection === "credentials" && (
-              <section
-                ref={sectionRefs.credentials}
-                style={{ scrollMarginTop: "40px" }}
-                className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
-              >
+              <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8">
                 <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
                   Certifications & Credentials
                 </h2>
@@ -542,11 +510,7 @@ export default function Home() {
             )}
 
             {activeSection === "skills" && (
-              <section
-                ref={sectionRefs.skills}
-                style={{ scrollMarginTop: "40px" }}
-                className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
-              >
+              <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8">
                 <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
                   Skills & Expertise
                 </h2>
@@ -671,11 +635,7 @@ export default function Home() {
             )}
 
             {activeSection === "portfolio" && (
-              <section
-                ref={sectionRefs.portfolio}
-                style={{ scrollMarginTop: "40px" }}
-                className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
-              >
+              <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8">
                 <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
                   Portfolio
                 </h2>
