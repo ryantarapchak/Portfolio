@@ -38,7 +38,7 @@ export default function Home() {
 
       if (sectionEl) {
         const targetY =
-          sectionEl.getBoundingClientRect().top + window.scrollY - 8;
+  sectionEl.getBoundingClientRect().top + window.scrollY - 95;
 
         if (window.scrollY > targetY) {
           window.scrollTo({
