@@ -38,16 +38,14 @@ export default function Home() {
 
       if (sectionEl) {
         const targetY =
-  sectionEl.getBoundingClientRect().top + window.scrollY - 95;
+          sectionEl.getBoundingClientRect().top + window.scrollY - 95;
 
-        if (window.scrollY > targetY) {
-          window.scrollTo({
-            top: targetY,
-            behavior: "smooth",
-          });
-        }
+        window.scrollTo({
+          top: targetY,
+          behavior: "smooth",
+        });
       }
-    }, 50);
+    }, 150);
   };
 
   const experience = [
