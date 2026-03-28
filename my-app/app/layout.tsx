@@ -13,14 +13,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://ryantarapchak.vercel.app"),
   title: "Ryan Tarapchak | Finance Portfolio",
   description:
     "Master of Finance student specializing in financial analysis, valuation, and M&A.",
-
   openGraph: {
     title: "Ryan Tarapchak | Finance Portfolio",
     description:
-      "Financial analysis, valuation, and M&A experience.",
+      "Master of Finance student specializing in financial analysis, valuation, and M&A.",
     url: "https://ryantarapchak.vercel.app",
     siteName: "Ryan Tarapchak Portfolio",
     images: [
@@ -28,17 +28,16 @@ export const metadata: Metadata = {
         url: "/preview.png",
         width: 1200,
         height: 630,
-        alt: "Ryan Tarapchak Portfolio",
+        alt: "Ryan Tarapchak Finance Portfolio",
       },
     ],
     type: "website",
   },
-
   twitter: {
     card: "summary_large_image",
     title: "Ryan Tarapchak | Finance Portfolio",
     description:
-      "Financial analysis, valuation, and M&A experience.",
+      "Master of Finance student specializing in financial analysis, valuation, and M&A.",
     images: ["/preview.png"],
   },
 };
