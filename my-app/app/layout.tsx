@@ -23,14 +23,6 @@ export const metadata: Metadata = {
       "Master of Finance student specializing in financial analysis, valuation, and M&A.",
     url: "https://ryantarapchak.vercel.app",
     siteName: "Ryan Tarapchak Portfolio",
-    images: [
-      {
-        url: "/preview.png",
-        width: 1200,
-        height: 630,
-        alt: "Ryan Tarapchak Finance Portfolio",
-      },
-    ],
     type: "website",
   },
   twitter: {
@@ -38,7 +30,6 @@ export const metadata: Metadata = {
     title: "Ryan Tarapchak | Finance Portfolio",
     description:
       "Master of Finance student specializing in financial analysis, valuation, and M&A.",
-    images: ["/preview.png"],
   },
 };
 
