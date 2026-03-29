@@ -56,7 +56,7 @@ export default function Home() {
       description:
         "Lead weekly labs and support business capstone students through instruction, grading, and team-based financial analysis guidance.",
       achievements: [
-        "Lead testestestest testetstest and prepare weekly labs for 50+ business capstone students, creating lesson plans on financial modeling and strategy",
+        "Lead and prepared weekly labs for 50+ business capstone students, creating lesson plans on financial modeling and strategy",
         "Grade 200+ assignments monthly using Canvas SpeedGrader, Excel, and SharePoint",
         "Advise 20+ student teams on financial analysis, credit risk, and investment evaluation",
         "Enhance student decision-making and simulation performance through real-world case insights",
