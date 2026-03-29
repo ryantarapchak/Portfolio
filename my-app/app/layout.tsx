@@ -14,11 +14,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ryantarapchak.vercel.app"),
-  title: "Ryan Tarapchak | Finance Portfolio",
+  title: "Ryan Tarapchak | Portfolio",
   description:
     "Master of Finance student specializing in financial analysis, valuation, and M&A.",
   openGraph: {
-    title: "Ryan Tarapchak | Finance Portfolio",
+    title: "Ryan Tarapchak | Portfolio",
     description:
       "Master of Finance student specializing in financial analysis, valuation, and M&A.",
     url: "https://ryantarapchak.vercel.app",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ryan Tarapchak | Finance Portfolio",
+    title: "Ryan Tarapchak | Portfolio",
     description:
       "Master of Finance student specializing in financial analysis, valuation, and M&A.",
   },
