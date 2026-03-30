@@ -32,6 +32,7 @@ export default function Home() {
   const [sidebarView, setSidebarView] = useState<"work" | "contact">("work");
   const [activeSection, setActiveSection] =
     useState<SectionKey>("professional");
+  const [resumeOpen, setResumeOpen] = useState(false);
 
   const sectionRefs: Record<SectionKey, React.RefObject<HTMLElement | null>> = {
     professional: useRef<HTMLElement>(null),
@@ -305,14 +306,13 @@ export default function Home() {
             </p>
 
             <div className="mt-6">
-              <a
-                href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                type="button"
+                onClick={() => setResumeOpen(true)}
                 className="w-full flex items-center justify-center rounded-xl border border-[#4B9CD3]/35 bg-[#4B9CD3]/12 px-4 py-3 text-sm font-semibold text-[#B9E3FF] transition hover:-translate-y-0.5 hover:bg-[#4B9CD3]/18"
               >
                 Resume
-              </a>
+              </button>
             </div>
 
             <div className="mt-6">
@@ -787,7 +787,41 @@ export default function Home() {
           </section>
         </div>
       </div>
+
+      {resumeOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 px-4">
+          <div className="relative h-[90vh] w-full max-w-5xl rounded-2xl border border-white/10 bg-[#0B1220] shadow-2xl">
+            <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
+              <h3 className="text-sm font-semibold text-white">Resume</h3>
+
+              <div className="flex items-center gap-3">
+                <a
+                  href="/resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-[#7CC4FA] hover:text-white transition"
+                >
+                  Open in new tab
+                </a>
+
+                <button
+                  type="button"
+                  onClick={() => setResumeOpen(false)}
+                  className="rounded-lg border border-white/10 px-3 py-1 text-sm text-slate-300 hover:bg-white/[0.06] hover:text-white transition"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+
+            <iframe
+              src="/resume.pdf"
+              className="h-[calc(90vh-57px)] w-full rounded-b-2xl"
+              title="Resume PDF"
+            />
+          </div>
+        </div>
+      )}
     </main>
   );
 }
-
