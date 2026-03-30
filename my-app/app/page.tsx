@@ -393,8 +393,7 @@ export default function Home() {
                   </h2>
 
                   <p className="mt-4 leading-7 text-slate-300">
-                    Penn State graduate student focused on financial modeling,
-                    valuation, and how businesses make decisions
+                  Penn State graduate student with experience in financial analysis, valuation, and building models across both academic and real-world settings. I enjoy breaking down businesses, understanding what drives performance, and turning that into decisions.
                   </p>
                 </div>
 
