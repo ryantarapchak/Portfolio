@@ -946,37 +946,27 @@ export default function Home() {
 
                   {(activeProject.presentation || activeProject.spreadsheet) && (
                     <div className="mt-6 flex flex-wrap gap-3">
-                      {activeProject.presentation && (
-                        <a
-                          href={activeProject.presentation}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex rounded-xl border border-[#4B9CD3]/35 bg-[#4B9CD3]/12 px-4 py-3 text-sm font-semibold text-[#B9E3FF] transition hover:bg-[#4B9CD3]/18"
-                        >
-                          Open Presentation in New Tab
-                        </a>
-                      )}
 
                       {activeProject.spreadsheet && (
-                        <a
-                          href={activeProject.spreadsheet}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex rounded-xl border border-white/15 bg-white/[0.05] px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/[0.09]"
-                        >
-                          View Excel
-                        </a>
-                      )}
+  <div className="mt-6 flex flex-wrap gap-3">
+    <a
+      href={activeProject.spreadsheet}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex rounded-xl border border-white/15 bg-white/[0.05] px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/[0.09]"
+    >
+      View Excel
+    </a>
 
-                      {activeProject.spreadsheet && (
-                        <a
-                          href={activeProject.spreadsheet}
-                          download
-                          className="inline-flex rounded-xl border border-white/15 bg-white/[0.05] px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/[0.09]"
-                        >
-                          Download Excel
-                        </a>
-                      )}
+    <a
+      href={activeProject.spreadsheet}
+      download
+      className="inline-flex rounded-xl border border-white/15 bg-white/[0.05] px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/[0.09]"
+    >
+      Download Excel
+    </a>
+  </div>
+)}
                     </div>
                   )}
                 </div>
