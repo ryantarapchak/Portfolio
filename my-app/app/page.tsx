@@ -315,6 +315,13 @@ export default function Home() {
               </a>
             </div>
 
+            <div className="mt-3 flex items-center gap-2">
+  <span className="h-2 w-2 rounded-full bg-[#4B9CD3]" />
+  <p className="text-sm text-slate-300">
+    Open to full-time opportunities
+  </p>
+</div>
+
             <div className="mt-6">
               <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-[#7CC4FA]">
                 Target Roles
