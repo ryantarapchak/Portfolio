@@ -216,7 +216,7 @@ export default function Home() {
       title: "Burton Sensors",
       subtitle: "M&A Financial Model",
       description:
-        "Built a financial model to evaluate a potential acquisition and its effect on value creation.",
+      "Built a financial model to evaluate a potential acquisition and its effect on value creation.",
       pdf: "/burton.pdf",
       featured: false,
       client: "Professor Lou Gattis",
@@ -227,7 +227,7 @@ export default function Home() {
       title: "CrowdStrike",
       subtitle: "Investment Pitch",
       description:
-        "Created an investment pitch covering valuation, company performance, and cybersecurity positioning.",
+      "Created and presented an investment pitch covering valuation, company performance, and cybersecurity positioning.",
       pdf: "/crowdstrike.pdf",
       featured: false,
       client: "Nittany Lion Investment Club",
@@ -238,7 +238,7 @@ export default function Home() {
       title: "SensoTech",
       subtitle: "Master Budget",
       description:
-        "Built a full budgeting and forecasting model to connect operating decisions with financial performance.",
+        "Built a multi-sheet Excel master budget for a manufacturing firm, linking operating budgets to financial statements, with AI used to streamline calculations and improve its efficiency.",
       pdf: "/sensotech.pdf",
       featured: false,
       client: "Professor Sajay Samuel",
