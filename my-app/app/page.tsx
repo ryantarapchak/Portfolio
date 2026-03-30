@@ -8,7 +8,6 @@ import {
   Wrench,
   FolderOpen,
   Mail,
-  Linkedin,
   FileText,
   Star,
   MapPin,
@@ -347,8 +346,6 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/[0.02] px-4 py-3 text-sm font-semibold text-slate-200 transition hover:-translate-y-0.5 hover:border-[#4B9CD3]/50 hover:bg-white/[0.06]"
               >
-                <Linkedin size={16} />
-                LinkedIn
               </a>
 
               <a
