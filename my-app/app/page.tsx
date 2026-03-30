@@ -154,7 +154,7 @@ export default function Home() {
       title: "Sabakiball",
       subtitle: "Featured Project • M&A Economic Model",
       description:
-        "Built a full M&A model and acquisition thesis for a patented sports business, breaking down how it could scale, what it’s worth, and who the right buyer would be.",
+      "Built an economic model and acquisition thesis for a patented sports business, breaking down how it could scale, what it’s worth, and who the right buyer would be.",
       pdf: "/econmodel.pdf",
       featured: true,
     },
