@@ -257,9 +257,9 @@ export default function Home() {
       client: "Professor Bharadwaj Kannan",
       timeline: "Spring 2026",
       collaborators:
-        "Ryan Tarapchak, Shubh Savani, Thor Skogum, Dionysis Petratos, and Zachary Nickolas",
+        "Ryan Tarapchak, Shubh Savani, Thor Skogum, Dionysis Petratos, Zachary Nickolas, and Ryan Greathouse",
       presentation: "/wrigleypresentation.pdf",
-      spreadsheet: "/files/wrigley.xlsx",
+      spreadsheet: "/wrigley.xlsx",
     },
   ];
 
