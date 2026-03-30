@@ -873,20 +873,19 @@ export default function Home() {
       {projectViewerOpen && (
         <div className="fixed inset-0 z-[110] overflow-y-auto bg-[#050810]/95 px-4 py-6 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-[1700px]">
-            <div className="rounded-[28px] border border-white/10 bg-[linear-gradient(135deg,rgba(124,76,255,0.95),rgba(139,69,255,0.88),rgba(244,133,33,0.78))] px-6 py-8 shadow-[0_25px_80px_rgba(0,0,0,0.45)] sm:px-10 sm:py-12">
-              <div className="flex items-start justify-between gap-4">
+<div className="rounded-[28px] border border-[#4B9CD3]/20 bg-[linear-gradient(135deg,rgba(11,21,48,0.96),rgba(7,11,20,0.94),rgba(75,156,211,0.22))] px-6 py-8 shadow-[0_25px_80px_rgba(0,0,0,0.45)] sm:px-10 sm:py-12">              <div className="flex items-start justify-between gap-4">
                 <div className="max-w-4xl">
-                  <p className="text-sm font-semibold uppercase tracking-[0.14em] text-yellow-300">
-                    {activeProject.subtitle}
-                  </p>
+                  <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[#7CC4FA]">
+  {activeProject.subtitle}
+</p>
 
                   <h2 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl">
                     {activeProject.title}
                   </h2>
 
-                  <p className="mt-4 max-w-3xl text-base leading-7 text-white/90 sm:text-lg">
-                    {activeProject.description}
-                  </p>
+                  <p className="mt-4 max-w-3xl text-base leading-7 text-slate-200 sm:text-lg">
+  {activeProject.description}
+</p>
                 </div>
 
                 <button
@@ -967,16 +966,16 @@ export default function Home() {
         </div>
       )}
 
-      <div className="fixed bottom-24 right-6 z-50 hidden sm:flex">
-        <button
-          type="button"
-          onClick={scrollToTop}
-          className="flex h-12 w-12 items-center justify-center rounded-full border border-[#4B9CD3]/30 bg-[#08101F]/85 text-xl font-bold text-[#B9E3FF] shadow-[0_0_25px_rgba(75,156,211,0.2)] backdrop-blur-md transition hover:-translate-y-1 hover:bg-[#0B1530]"
-          aria-label="Back to top"
-        >
-          ↑
-        </button>
-      </div>
+      <div className="fixed bottom-24 right-7 z-50 hidden sm:flex">
+  <button
+    type="button"
+    onClick={scrollToTop}
+    className="flex h-8 w-8 items-center justify-center rounded-full border border-[#4B9CD3]/25 bg-[#08101F]/85 text-sm font-semibold text-[#B9E3FF] shadow-[0_0_18px_rgba(75,156,211,0.18)] backdrop-blur-md transition hover:-translate-y-0.5 hover:bg-[#0B1530]"
+    aria-label="Back to top"
+  >
+    ^
+  </button>
+</div>
 
       <div className="fixed bottom-6 right-6 z-50 hidden h-14 w-14 items-center justify-center rounded-full border border-[#4B9CD3]/30 bg-[#08101F]/85 text-sm font-semibold text-[#B9E3FF] shadow-[0_0_25px_rgba(75,156,211,0.2)] backdrop-blur-md sm:flex">
         {scrollProgress}%
