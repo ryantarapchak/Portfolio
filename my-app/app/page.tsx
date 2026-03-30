@@ -298,7 +298,7 @@ export default function Home() {
             </h1>
 
             <p className="mt-2 text-base text-[#7CC4FA] sm:text-lg">
-              Penn State Master of Finance
+              The Pennsylvania State University Master of Finance
             </p>
 
             <p className="mt-1 text-sm text-slate-400">
