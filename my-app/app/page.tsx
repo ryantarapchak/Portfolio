@@ -409,7 +409,7 @@ export default function Home() {
                   <ul className="mt-4 space-y-3 text-slate-300">
                     <li>• Financial modeling and valuation</li>
                     <li>• Forecasting and budgeting</li>
-                    <li>• Financial statement analysis & business insights</li>
+                    <li>• Breaking down company performance</li>
                   </ul>
                 </div>
               </>
@@ -790,3 +790,4 @@ export default function Home() {
     </main>
   );
 }
+
