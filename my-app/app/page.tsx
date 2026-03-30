@@ -927,101 +927,88 @@ export default function Home() {
       )}
 
       {projectViewerOpen && (
-        <div className="fixed inset-0 z-[110] overflow-y-auto bg-[#050810]/95 px-3 py-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-[1700px]">
-            <div className="rounded-[28px] border border-[#4B9CD3]/20 bg-[linear-gradient(135deg,rgba(11,21,48,0.96),rgba(7,11,20,0.94),rgba(75,156,211,0.22))] px-6 py-8 shadow-[0_25px_80px_rgba(0,0,0,0.45)] sm:px-10 sm:py-12">
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-                <div className="max-w-4xl">
-                  <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[#7CC4FA]">
-                    {activeProject.subtitle}
-                  </p>
+  <div className="fixed inset-0 z-[110] overflow-y-auto bg-[#050810]/95 px-3 py-4 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-[1700px]">
+      <div className="rounded-[28px] border border-[#4B9CD3]/20 bg-[linear-gradient(135deg,rgba(11,21,48,0.96),rgba(7,11,20,0.94),rgba(75,156,211,0.22))] px-6 py-8 shadow-[0_25px_80px_rgba(0,0,0,0.45)] sm:px-10 sm:py-12">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+          <div className="max-w-4xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[#7CC4FA]">
+              {activeProject.subtitle}
+            </p>
 
-                  <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-5xl">
-                    {activeProject.title}
-                  </h2>
+            <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-5xl">
+              {activeProject.title}
+            </h2>
 
-                  <p className="mt-4 max-w-3xl text-base leading-7 text-slate-200 sm:text-lg">
-                    {activeProject.description}
-                  </p>
+            <p className="mt-4 max-w-3xl text-base leading-7 text-slate-200 sm:text-lg">
+              {activeProject.description}
+            </p>
 
-                  {(activeProject.presentation || activeProject.spreadsheet) && (
-                    <div className="mt-6 flex flex-wrap gap-3">
-
-                      {activeProject.spreadsheet && (
-  <div className="mt-6 flex flex-wrap gap-3">
-    <a
-      href={activeProject.spreadsheet}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-flex rounded-xl border border-white/15 bg-white/[0.05] px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/[0.09]"
-    >
-      View Excel
-    </a>
-
-    <a
-      href={activeProject.spreadsheet}
-      download
-      className="inline-flex rounded-xl border border-white/15 bg-white/[0.05] px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/[0.09]"
-    >
-      Download Excel
-    </a>
-  </div>
-)}
-                    </div>
-                  )}
-                </div>
-
-                <button
-                  type="button"
-                  onClick={() => setProjectViewerOpen(false)}
-                  className="w-fit rounded-xl border border-white/20 bg-black/15 px-4 py-2 text-sm font-semibold text-white transition hover:bg-black/25"
+            {activeProject.spreadsheet && (
+              <div className="mt-6">
+                <a
+                  href={activeProject.spreadsheet}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex rounded-xl border border-white/15 bg-white/[0.05] px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/[0.09]"
                 >
-                  Close
-                </button>
+                  View Model
+                </a>
+              </div>
+            )}
+          </div>
+
+          <button
+            type="button"
+            onClick={() => setProjectViewerOpen(false)}
+            className="w-fit rounded-xl border border-white/20 bg-black/15 px-4 py-2 text-sm font-semibold text-white transition hover:bg-black/25"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+
+      <div className="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1fr)_360px]">
+        <div className="rounded-3xl border border-white/10 bg-white p-3 shadow-[0_10px_50px_rgba(0,0,0,0.35)]">
+          {activeViewerSrc ? (
+            isMobile ? (
+              <div className="rounded-2xl bg-slate-100 p-6 text-center">
+                <h3 className="text-lg font-semibold text-slate-900">
+                  {activeProject.title}
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-slate-600">
+                  This preview is better viewed in a full tab on mobile.
+                </p>
+
+                <a
+                  href={activeViewerSrc}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-5 inline-flex rounded-xl border border-[#4B9CD3]/30 bg-[#0B1530] px-4 py-3 text-sm font-semibold text-[#B9E3FF] transition hover:bg-[#10214A]"
+                >
+                  Open File
+                </a>
+              </div>
+            ) : (
+              <iframe
+                src={activeViewerSrc}
+                title={activeProject.title}
+                className="h-[950px] w-full rounded-2xl"
+              />
+            )
+          ) : (
+            <div className="flex h-[950px] items-center justify-center rounded-2xl bg-slate-100 px-6 text-center">
+              <div>
+                <h3 className="text-lg font-semibold text-slate-900">
+                  No preview available
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-slate-600">
+                  This project does not currently have a preview file.
+                </p>
               </div>
             </div>
-
-            <div className="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1fr)_360px]">
-              <div className="rounded-3xl border border-white/10 bg-white p-3 shadow-[0_10px_50px_rgba(0,0,0,0.35)]">
-                {activeViewerSrc ? (
-                  isMobile ? (
-                    <div className="rounded-2xl bg-slate-100 p-6 text-center">
-                      <h3 className="text-lg font-semibold text-slate-900">
-                        {activeProject.title}
-                      </h3>
-                      <p className="mt-2 text-sm leading-6 text-slate-600">
-                        This preview is better viewed in a full tab on mobile.
-                      </p>
-
-                      <a
-                        href={activeViewerSrc}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-5 inline-flex rounded-xl border border-[#4B9CD3]/30 bg-[#0B1530] px-4 py-3 text-sm font-semibold text-[#B9E3FF] transition hover:bg-[#10214A]"
-                      >
-                        Open File
-                      </a>
-                    </div>
-                  ) : (
-                    <iframe
-                      src={activeViewerSrc}
-                      title={activeProject.title}
-                      className="h-[950px] w-full rounded-2xl"
-                    />
-                  )
-                ) : (
-                  <div className="flex h-[950px] items-center justify-center rounded-2xl bg-slate-100 px-6 text-center">
-                    <div>
-                      <h3 className="text-lg font-semibold text-slate-900">
-                        No preview available
-                      </h3>
-                      <p className="mt-2 text-sm leading-6 text-slate-600">
-                        This project does not currently have a preview file.
-                      </p>
-                    </div>
-                  </div>
-                )}
-              </div>
+          )}
+        </div>
 
               <div className="space-y-6 sm:space-y-8">
                 <div className="rounded-3xl border border-white/10 bg-[#0B1220] p-5 sm:p-6 shadow-[0_10px_40px_rgba(0,0,0,0.35)]">
