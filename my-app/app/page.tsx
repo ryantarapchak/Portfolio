@@ -1020,6 +1020,11 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            <div className="mt-10 border-t border-white/10 pt-6 pb-4">
+  <p className="text-center text-xs text-slate-500">
+    © 2026 Ryan Tarapchak. All rights reserved.
+  </p>
+</div>
           </div>
         </div>
       )}
