@@ -24,12 +24,11 @@ type Project = {
   title: string;
   subtitle: string;
   description: string;
+  pdf: string;
   featured: boolean;
   client: string;
   timeline: string;
   collaborators: string;
-  overview: string;
-  content: string[];
 };
 
 export default function Home() {
@@ -39,6 +38,7 @@ export default function Home() {
   const [resumeOpen, setResumeOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState("Sabakiball");
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [projectViewerOpen, setProjectViewerOpen] = useState(false);
 
   const sectionRefs: Record<SectionKey, React.RefObject<HTMLElement | null>> = {
     professional: useRef<HTMLElement>(null),
@@ -90,6 +90,13 @@ export default function Home() {
         });
       }
     }, 150);
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   const experience: ExperienceItem[] = [
@@ -186,63 +193,45 @@ export default function Home() {
       title: "Sabakiball",
       subtitle: "Featured Project • M&A Economic Model",
       description:
-        "Built an economic model and acquisition thesis for a patented sports business.",
+        "Built an economic model and acquisition thesis for a patented sports business, breaking down scalability, valuation, and buyer fit.",
+      pdf: "/econmodel.pdf",
       featured: true,
       client: "Sabakiball International",
       timeline: "Fall 2025",
       collaborators: "Founder + Leadership Team",
-      overview:
-        "Evaluated scalability, valuation, and acquisition positioning for a patented sports business.",
-      content: [
-        "Built an economic model to evaluate long-term value.",
-        "Analyzed recurring demand and scalability.",
-        "Positioned the company as a sport plus IP opportunity.",
-      ],
     },
     {
       title: "Burton Sensors",
       subtitle: "M&A Financial Model",
-      description: "Evaluated acquisition and financial impact.",
+      description:
+        "Built a financial model to evaluate a potential acquisition and its effect on value creation.",
+      pdf: "/burton.pdf",
       featured: false,
       client: "Academic Project",
       timeline: "2025",
       collaborators: "Graduate Coursework",
-      overview: "Built valuation model and assessed deal feasibility.",
-      content: [
-        "Built a DCF-based valuation model.",
-        "Analyzed acquisition impact on performance.",
-        "Ran sensitivity testing across assumptions.",
-      ],
     },
     {
       title: "CrowdStrike",
       subtitle: "Investment Pitch",
-      description: "Equity research and valuation analysis.",
+      description:
+        "Created an investment pitch covering valuation, company performance, and cybersecurity positioning.",
+      pdf: "/crowdstrike.pdf",
       featured: false,
       client: "Investment Club",
       timeline: "2025",
       collaborators: "Individual",
-      overview: "Built a full investment thesis and recommendation.",
-      content: [
-        "Reviewed financial performance and growth quality.",
-        "Compared valuation against expectations.",
-        "Assessed cybersecurity industry positioning.",
-      ],
     },
     {
       title: "SensoTech",
       subtitle: "Master Budget",
-      description: "Full budgeting and forecasting model.",
+      description:
+        "Built a full budgeting and forecasting model to connect operating decisions with financial performance.",
+      pdf: "/sensotech.pdf",
       featured: false,
       client: "Academic Project",
       timeline: "2025",
       collaborators: "Coursework",
-      overview: "Connected operating decisions to financial performance.",
-      content: [
-        "Built a master budget framework.",
-        "Linked sales, cost, and operations assumptions.",
-        "Showed how decisions impacted projected results.",
-      ],
     },
   ];
 
@@ -794,7 +783,10 @@ export default function Home() {
                     <button
                       key={project.title}
                       type="button"
-                      onClick={() => setSelectedProject(project.title)}
+                      onClick={() => {
+                        setSelectedProject(project.title);
+                        setProjectViewerOpen(true);
+                      }}
                       className={`block rounded-2xl border p-5 text-left transition duration-200 hover:-translate-y-1 ${
                         activeProject.title === project.title
                           ? "border-[#4B9CD3]/40 bg-[linear-gradient(135deg,rgba(75,156,211,0.14),rgba(255,255,255,0.04))] shadow-[0_0_30px_rgba(75,156,211,0.15)]"
@@ -831,97 +823,16 @@ export default function Home() {
                     </button>
                   ))}
                 </div>
-
-                <div className="mt-10 grid gap-6 lg:grid-cols-[minmax(0,1fr)_300px]">
-                  <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-6 sm:p-8">
-                    <p className="text-sm font-semibold uppercase tracking-[0.15em] text-[#7CC4FA]">
-                      Project Showcase
-                    </p>
-
-                    <h3 className="mt-3 text-3xl font-bold text-white">
-                      {activeProject.title}
-                    </h3>
-
-                    <p className="mt-2 text-base text-[#7CC4FA]">
-                      {activeProject.subtitle}
-                    </p>
-
-                    <p className="mt-5 leading-7 text-slate-300">
-                      {activeProject.overview}
-                    </p>
-
-                    <div className="mt-8 rounded-2xl border border-white/10 bg-[#091120] p-6">
-                      <h4 className="text-sm font-semibold uppercase tracking-[0.15em] text-slate-400">
-                        Embedded Project
-                      </h4>
-
-                      <div className="mt-4 space-y-4 text-slate-300">
-                        {activeProject.content.map((paragraph) => (
-                          <p key={paragraph} className="leading-7">
-                            • {paragraph}
-                          </p>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="space-y-6">
-                    <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-5">
-                      <h3 className="text-lg font-semibold text-white">
-                        Project Details
-                      </h3>
-
-                      <div className="mt-5 space-y-4 text-sm">
-                        <div>
-                          <p className="text-slate-400">Client</p>
-                          <p className="mt-1 text-white">{activeProject.client}</p>
-                        </div>
-
-                        <div>
-                          <p className="text-slate-400">Timeline</p>
-                          <p className="mt-1 text-white">
-                            {activeProject.timeline}
-                          </p>
-                        </div>
-
-                        <div>
-                          <p className="text-slate-400">Collaborators</p>
-                          <p className="mt-1 text-white">
-                            {activeProject.collaborators}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-5">
-                      <h3 className="text-lg font-semibold text-white">
-                        More Projects
-                      </h3>
-
-                      <div className="mt-4 space-y-3">
-                        {moreProjects.map((project) => (
-                          <button
-                            key={project.title}
-                            type="button"
-                            onClick={() => setSelectedProject(project.title)}
-                            className="w-full rounded-2xl border border-white/10 bg-white/[0.02] p-4 text-left transition hover:border-[#4B9CD3]/35 hover:bg-white/[0.05]"
-                          >
-                            <h4 className="text-sm font-semibold text-white">
-                              {project.title}
-                            </h4>
-                            <p className="mt-1 text-xs text-[#7CC4FA]">
-                              {project.subtitle}
-                            </p>
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </section>
             )}
           </section>
         </div>
+
+        <footer className="mt-14 border-t border-white/10 pt-6 pb-4">
+          <p className="text-center text-xs text-slate-500">
+            © 2026 Ryan Tarapchak. All rights reserved.
+          </p>
+        </footer>
       </div>
 
       {resumeOpen && (
@@ -958,6 +869,114 @@ export default function Home() {
           </div>
         </div>
       )}
+
+      {projectViewerOpen && (
+        <div className="fixed inset-0 z-[110] overflow-y-auto bg-[#050810]/95 px-4 py-6 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-[1700px]">
+            <div className="rounded-[28px] border border-white/10 bg-[linear-gradient(135deg,rgba(124,76,255,0.95),rgba(139,69,255,0.88),rgba(244,133,33,0.78))] px-6 py-8 shadow-[0_25px_80px_rgba(0,0,0,0.45)] sm:px-10 sm:py-12">
+              <div className="flex items-start justify-between gap-4">
+                <div className="max-w-4xl">
+                  <p className="text-sm font-semibold uppercase tracking-[0.14em] text-yellow-300">
+                    {activeProject.subtitle}
+                  </p>
+
+                  <h2 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+                    {activeProject.title}
+                  </h2>
+
+                  <p className="mt-4 max-w-3xl text-base leading-7 text-white/90 sm:text-lg">
+                    {activeProject.description}
+                  </p>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => setProjectViewerOpen(false)}
+                  className="rounded-xl border border-white/20 bg-black/15 px-4 py-2 text-sm font-semibold text-white transition hover:bg-black/25"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+
+            <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_360px]">
+              <div className="rounded-3xl border border-white/10 bg-white p-3 shadow-[0_10px_50px_rgba(0,0,0,0.35)]">
+                <iframe
+                  src={activeProject.pdf}
+                  title={activeProject.title}
+                  className="h-[950px] w-full rounded-2xl"
+                />
+              </div>
+
+              <div className="space-y-8">
+                <div className="rounded-3xl border border-white/10 bg-[#0B1220] p-6 shadow-[0_10px_40px_rgba(0,0,0,0.35)]">
+                  <h3 className="text-2xl font-bold text-white">
+                    Project Details
+                  </h3>
+
+                  <div className="mt-6 space-y-6">
+                    <div>
+                      <p className="text-sm text-slate-400">Client</p>
+                      <p className="mt-1 text-xl font-semibold text-white">
+                        {activeProject.client}
+                      </p>
+                    </div>
+
+                    <div>
+                      <p className="text-sm text-slate-400">Timeline</p>
+                      <p className="mt-1 text-xl font-semibold text-white">
+                        {activeProject.timeline}
+                      </p>
+                    </div>
+
+                    <div>
+                      <p className="text-sm text-slate-400">Collaborators</p>
+                      <p className="mt-1 text-xl font-semibold text-white">
+                        {activeProject.collaborators}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="rounded-3xl border border-white/10 bg-[#0B1220] p-6 shadow-[0_10px_40px_rgba(0,0,0,0.35)]">
+                  <h3 className="text-2xl font-bold text-white">
+                    More Projects
+                  </h3>
+
+                  <div className="mt-5 space-y-3">
+                    {moreProjects.map((project) => (
+                      <button
+                        key={project.title}
+                        type="button"
+                        onClick={() => setSelectedProject(project.title)}
+                        className="w-full rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-left transition hover:border-[#4B9CD3]/35 hover:bg-white/[0.06]"
+                      >
+                        <h4 className="text-base font-semibold text-white">
+                          {project.title}
+                        </h4>
+                        <p className="mt-1 text-sm text-[#7CC4FA]">
+                          {project.subtitle}
+                        </p>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <div className="fixed bottom-24 right-6 z-50 hidden sm:flex">
+        <button
+          type="button"
+          onClick={scrollToTop}
+          className="flex h-12 w-12 items-center justify-center rounded-full border border-[#4B9CD3]/30 bg-[#08101F]/85 text-xl font-bold text-[#B9E3FF] shadow-[0_0_25px_rgba(75,156,211,0.2)] backdrop-blur-md transition hover:-translate-y-1 hover:bg-[#0B1530]"
+          aria-label="Back to top"
+        >
+          ↑
+        </button>
+      </div>
 
       <div className="fixed bottom-6 right-6 z-50 hidden h-14 w-14 items-center justify-center rounded-full border border-[#4B9CD3]/30 bg-[#08101F]/85 text-sm font-semibold text-[#B9E3FF] shadow-[0_0_25px_rgba(75,156,211,0.2)] backdrop-blur-md sm:flex">
         {scrollProgress}%
