@@ -86,7 +86,7 @@ export default function Home() {
         "Produced a strategic economic model and acquisition thesis for a patented sport with 1M+ users and adoption in 300+ schools",
         "Quantified market size, unit economics, and TAM penetration to support sale positioning",
         "Identified and contacted 15+ potential buyers and helped facilitate introductory discussions",
-        "Developed supporting materials to advance Sabakiball’s M&A outreach",
+        "Developed acquisition materials to support buyer outreach and advance deal discussions",
       ],
       skills: [
         "M&A",
@@ -154,7 +154,7 @@ export default function Home() {
       title: "Sabakiball",
       subtitle: "Featured Project • M&A Economic Model",
       description:
-        "Built an economic model and acquisition thesis for a patented sport business, analyzing scalability, market opportunity, and buyer fit.",
+        "Built a full M&A economic model and acquisition thesis for a patented sports business, analyzing scalability, valuation drivers, and strategic buyer fit",
       pdf: "/econmodel.pdf",
       featured: true,
     },
@@ -306,13 +306,13 @@ export default function Home() {
 
             <div className="mt-6">
               <a
-  href="/resume.pdf"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="w-full flex items-center justify-center rounded-xl border border-[#4B9CD3]/35 bg-[#4B9CD3]/12 px-4 py-3 text-sm font-semibold text-[#B9E3FF] transition hover:-translate-y-0.5 hover:bg-[#4B9CD3]/18"
->
-  Resume
-</a>
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex items-center justify-center rounded-xl border border-[#4B9CD3]/35 bg-[#4B9CD3]/12 px-4 py-3 text-sm font-semibold text-[#B9E3FF] transition hover:-translate-y-0.5 hover:bg-[#4B9CD3]/18"
+              >
+                Resume
+              </a>
             </div>
 
             <div className="mt-6">
@@ -393,12 +393,8 @@ export default function Home() {
                   </h2>
 
                   <p className="mt-4 leading-7 text-slate-300">
-                    Master of Finance student with experience in financial
-                    analysis, valuation, and budgeting. I’ve worked on building
-                    models and analyzing real projects, helping support better
-                    business decisions. I like getting into the details,
-                    figuring out what’s actually driving results, and turning
-                    that into clear, useful insights.
+                    Penn State graduate student focused on financial modeling,
+                    valuation, and how businesses make decisions
                   </p>
                 </div>
 
@@ -728,15 +724,15 @@ export default function Home() {
                     href={featuredProject.pdf}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-8 block rounded-3xl border border-[#4B9CD3]/25 bg-[linear-gradient(135deg,rgba(75,156,211,0.16),rgba(255,255,255,0.04))] p-6 transition duration-200 hover:-translate-y-1 hover:border-[#4B9CD3]/45 hover:shadow-[0_0_35px_rgba(75,156,211,0.18)] sm:p-8"
+                    className="mt-8 block rounded-3xl border border-[#4B9CD3]/25 bg-[linear-gradient(135deg,rgba(75,156,211,0.16),rgba(255,255,255,0.04))] p-5 transition duration-200 hover:-translate-y-1 hover:border-[#4B9CD3]/45 hover:shadow-[0_0_35px_rgba(75,156,211,0.18)] sm:p-6"
                   >
-                    <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
+                    <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
                       <div className="max-w-2xl">
                         <p className="inline-flex rounded-full border border-[#4B9CD3]/30 bg-[#4B9CD3]/12 px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-[#B9E3FF]">
                           Featured Project
                         </p>
 
-                        <h3 className="mt-4 text-2xl font-semibold text-white sm:text-3xl">
+                        <h3 className="mt-3 text-2xl font-semibold text-white sm:text-[2rem]">
                           {featuredProject.title}
                         </h3>
 
@@ -744,7 +740,7 @@ export default function Home() {
                           {featuredProject.subtitle}
                         </p>
 
-                        <p className="mt-4 max-w-2xl leading-7 text-slate-300">
+                        <p className="mt-3 max-w-2xl leading-7 text-slate-300">
                           {featuredProject.description}
                         </p>
                       </div>
@@ -758,7 +754,7 @@ export default function Home() {
                   </a>
                 )}
 
-                <div className="mt-6 grid gap-4 md:grid-cols-2">
+                <div className="mt-10 grid gap-4 md:grid-cols-2">
                   {standardProjects.map((project) => (
                     <a
                       key={project.title}
