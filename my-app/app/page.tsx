@@ -238,7 +238,7 @@ export default function Home() {
       title: "SensoTech",
       subtitle: "Master Budget",
       description:
-        "Built a multi-sheet Excel master budget for a manufacturing firm, linking operating budgets to financial statements, with AI used to streamline calculations and improve its efficiency.",
+        "Built a multi-sheet Excel master budget for a manufacturing firm, linking operating budgets to financial statements, with AI used to streamline calculations all while improving its efficiency.",
       pdf: "/sensotech.pdf",
       featured: false,
       client: "Professor Sajay Samuel",
