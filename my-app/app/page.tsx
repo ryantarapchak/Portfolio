@@ -306,13 +306,13 @@ export default function Home() {
 
             <div className="mt-6">
               <a
-                href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-xl border border-[#4B9CD3]/35 bg-[#4B9CD3]/12 px-4 py-3 text-sm font-semibold text-[#B9E3FF] transition hover:-translate-y-0.5 hover:bg-[#4B9CD3]/18"
-              >
-                Resume
-              </a>
+  href="/resume.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="w-full flex items-center justify-center rounded-xl border border-[#4B9CD3]/35 bg-[#4B9CD3]/12 px-4 py-3 text-sm font-semibold text-[#B9E3FF] transition hover:-translate-y-0.5 hover:bg-[#4B9CD3]/18"
+>
+  Resume
+</a>
             </div>
 
             <div className="mt-6">
