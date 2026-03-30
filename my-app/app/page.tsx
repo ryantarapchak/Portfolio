@@ -297,9 +297,13 @@ export default function Home() {
               Ryan Tarapchak
             </h1>
 
-            <p className="mt-2 text-base text-[#7CC4FA] sm:text-lg">
-  The Pennsylvania State University <br />
-  Master of Finance
+            <p className="mt-2 text-[#7CC4FA]">
+  <span className="block text-sm sm:text-base">
+    The Pennsylvania State University
+  </span>
+  <span className="block text-xs sm:text-sm text-slate-400">
+    Master of Finance
+  </span>
 </p>
 
             <p className="mt-1 text-sm text-slate-400">
