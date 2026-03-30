@@ -154,7 +154,7 @@ export default function Home() {
       title: "Sabakiball",
       subtitle: "Featured Project • M&A Economic Model",
       description:
-        "Built a full M&A economic model and acquisition thesis for a patented sports business, analyzing scalability, valuation drivers, and strategic buyer fit",
+        "Built a full M&A model and acquisition thesis for a patented sports business, breaking down how it could scale, what it’s worth, and who the right buyer would be.",
       pdf: "/econmodel.pdf",
       featured: true,
     },
@@ -162,7 +162,7 @@ export default function Home() {
       title: "Burton Sensors",
       subtitle: "M&A Financial Model",
       description:
-        "Developed a financial model to evaluate acquisition value, operating assumptions, and deal-level financial impact.",
+        "Built a financial model to evaluate a potential acquisition, focusing on valuation and how the deal would actually impact the business.",
       pdf: "/burton.pdf",
       featured: false,
     },
@@ -170,7 +170,7 @@ export default function Home() {
       title: "CrowdStrike (CRWD)",
       subtitle: "Investment Pitch",
       description:
-        "Created an investment thesis supported by valuation work, financial analysis, and industry research.",
+        "Put together an investment pitch on CrowdStrike, analyzing its financials, valuation, and position in the cybersecurity space.",
       pdf: "/crowdstrike.pdf",
       featured: false,
     },
@@ -178,7 +178,7 @@ export default function Home() {
       title: "SensoTech",
       subtitle: "Master Budget",
       description:
-        "Built a master budget to forecast financial performance and support operating decision-making.",
+        "Built a master budget to project financial performance and better understand how operating decisions impact results.",
       pdf: "/sensotech.pdf",
       featured: false,
     },
@@ -393,7 +393,11 @@ export default function Home() {
                   </h2>
 
                   <p className="mt-4 leading-7 text-slate-300">
-                  Penn State graduate student with experience in financial analysis, valuation, and building models across both academic and real-world settings. I enjoy breaking down businesses, understanding what drives performance, and turning that into decisions.
+                    Penn State graduate student with experience in financial
+                    analysis, valuation, and building models across both
+                    academic and real-world settings. I enjoy breaking down
+                    businesses, understanding what drives performance, and
+                    turning that into decisions.
                   </p>
                 </div>
 
