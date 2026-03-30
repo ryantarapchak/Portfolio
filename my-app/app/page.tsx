@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type SectionKey =
   | "professional"
@@ -24,8 +24,12 @@ type Project = {
   title: string;
   subtitle: string;
   description: string;
-  pdf: string;
   featured: boolean;
+  client: string;
+  timeline: string;
+  collaborators: string;
+  overview: string;
+  content: string[];
 };
 
 export default function Home() {
@@ -33,6 +37,8 @@ export default function Home() {
   const [activeSection, setActiveSection] =
     useState<SectionKey>("professional");
   const [resumeOpen, setResumeOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState("Sabakiball");
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   const sectionRefs: Record<SectionKey, React.RefObject<HTMLElement | null>> = {
     professional: useRef<HTMLElement>(null),
@@ -42,6 +48,31 @@ export default function Home() {
     skills: useRef<HTMLElement>(null),
     portfolio: useRef<HTMLElement>(null),
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const docHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+
+      if (docHeight <= 0) {
+        setScrollProgress(0);
+        return;
+      }
+
+      const percent = Math.min(
+        100,
+        Math.max(0, Math.round((scrollTop / docHeight) * 100))
+      );
+
+      setScrollProgress(percent);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleSectionClick = (section: SectionKey) => {
     setActiveSection(section);
@@ -155,33 +186,63 @@ export default function Home() {
       title: "Sabakiball",
       subtitle: "Featured Project • M&A Economic Model",
       description:
-        "Built an economic model and acquisition thesis for a patented sports business, breaking down how it could scale, what it’s worth, and who the right buyer would be.",
-      pdf: "/econmodel.pdf",
+        "Built an economic model and acquisition thesis for a patented sports business.",
       featured: true,
+      client: "Sabakiball International",
+      timeline: "Fall 2025",
+      collaborators: "Founder + Leadership Team",
+      overview:
+        "Evaluated scalability, valuation, and acquisition positioning for a patented sports business.",
+      content: [
+        "Built an economic model to evaluate long-term value.",
+        "Analyzed recurring demand and scalability.",
+        "Positioned the company as a sport plus IP opportunity.",
+      ],
     },
     {
       title: "Burton Sensors",
       subtitle: "M&A Financial Model",
-      description:
-        "Built a financial model to evaluate a potential acquisition, focusing on valuation and how the deal would actually impact the business.",
-      pdf: "/burton.pdf",
+      description: "Evaluated acquisition and financial impact.",
       featured: false,
+      client: "Academic Project",
+      timeline: "2025",
+      collaborators: "Graduate Coursework",
+      overview: "Built valuation model and assessed deal feasibility.",
+      content: [
+        "Built a DCF-based valuation model.",
+        "Analyzed acquisition impact on performance.",
+        "Ran sensitivity testing across assumptions.",
+      ],
     },
     {
-      title: "CrowdStrike (CRWD)",
+      title: "CrowdStrike",
       subtitle: "Investment Pitch",
-      description:
-        "Put together an investment pitch on CrowdStrike, analyzing its financials, valuation, and position in the cybersecurity space.",
-      pdf: "/crowdstrike.pdf",
+      description: "Equity research and valuation analysis.",
       featured: false,
+      client: "Investment Club",
+      timeline: "2025",
+      collaborators: "Individual",
+      overview: "Built a full investment thesis and recommendation.",
+      content: [
+        "Reviewed financial performance and growth quality.",
+        "Compared valuation against expectations.",
+        "Assessed cybersecurity industry positioning.",
+      ],
     },
     {
       title: "SensoTech",
       subtitle: "Master Budget",
-      description:
-        "Built a master budget to project financial performance and better understand how operating decisions impact results.",
-      pdf: "/sensotech.pdf",
+      description: "Full budgeting and forecasting model.",
       featured: false,
+      client: "Academic Project",
+      timeline: "2025",
+      collaborators: "Coursework",
+      overview: "Connected operating decisions to financial performance.",
+      content: [
+        "Built a master budget framework.",
+        "Linked sales, cost, and operations assumptions.",
+        "Showed how decisions impacted projected results.",
+      ],
     },
   ];
 
@@ -194,8 +255,12 @@ export default function Home() {
     { key: "portfolio" as const, label: "Portfolio" },
   ];
 
-  const featuredProject = projects.find((project) => project.featured);
-  const standardProjects = projects.filter((project) => !project.featured);
+  const activeProject =
+    projects.find((project) => project.title === selectedProject) ?? projects[0];
+
+  const moreProjects = projects.filter(
+    (project) => project.title !== activeProject.title
+  );
 
   const renderExperienceCard = (job: ExperienceItem) => (
     <div
@@ -298,13 +363,13 @@ export default function Home() {
             </h1>
 
             <p className="mt-2 text-[#7CC4FA]">
-  <span className="block text-sm sm:text-base">
-    The Pennsylvania State University
-  </span>
-  <span className="block text-xs sm:text-sm text-slate-400">
-    Master of Finance
-  </span>
-</p>
+              <span className="block text-sm sm:text-base">
+                The Pennsylvania State University
+              </span>
+              <span className="block text-xs sm:text-sm text-slate-400">
+                Master of Finance
+              </span>
+            </p>
 
             <p className="mt-1 text-sm text-slate-400">
               Langhorne, Pennsylvania
@@ -460,7 +525,7 @@ export default function Home() {
               </div>
             )}
 
-            <div className="mt-10 border-t border-white/10 pt-6 flex items-center gap-2">
+            <div className="mt-10 flex items-center gap-2 border-t border-white/10 pt-6">
               <span className="h-2 w-2 rounded-full bg-[#4B9CD3] shadow-[0_0_8px_rgba(75,156,211,0.7)]" />
               <p className="text-sm text-slate-300">
                 Open to full-time opportunities
@@ -724,68 +789,134 @@ export default function Home() {
                   Portfolio
                 </h2>
 
-                {featuredProject && (
-                  <a
-                    href={featuredProject.pdf}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-8 block rounded-3xl border border-[#4B9CD3]/25 bg-[linear-gradient(135deg,rgba(75,156,211,0.16),rgba(255,255,255,0.04))] p-5 transition duration-200 hover:-translate-y-1 hover:border-[#4B9CD3]/45 hover:shadow-[0_0_35px_rgba(75,156,211,0.18)] sm:p-6"
-                  >
-                    <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
-                      <div className="max-w-2xl">
-                        <p className="inline-flex rounded-full border border-[#4B9CD3]/30 bg-[#4B9CD3]/12 px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-[#B9E3FF]">
-                          Featured Project
-                        </p>
+                <div className="mt-8 grid gap-4 md:grid-cols-2">
+                  {projects.map((project) => (
+                    <button
+                      key={project.title}
+                      type="button"
+                      onClick={() => setSelectedProject(project.title)}
+                      className={`block rounded-2xl border p-5 text-left transition duration-200 hover:-translate-y-1 ${
+                        activeProject.title === project.title
+                          ? "border-[#4B9CD3]/40 bg-[linear-gradient(135deg,rgba(75,156,211,0.14),rgba(255,255,255,0.04))] shadow-[0_0_30px_rgba(75,156,211,0.15)]"
+                          : "border-white/10 bg-white/[0.03] hover:border-[#4B9CD3]/35 hover:bg-white/[0.05]"
+                      }`}
+                    >
+                      <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
+                        <div className="max-w-2xl">
+                          {project.featured && (
+                            <p className="inline-flex rounded-full border border-[#4B9CD3]/30 bg-[#4B9CD3]/12 px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-[#B9E3FF]">
+                              Featured Project
+                            </p>
+                          )}
 
-                        <h3 className="mt-3 text-2xl font-semibold text-white sm:text-[2rem]">
-                          {featuredProject.title}
-                        </h3>
+                          <h3 className="mt-3 text-lg font-semibold text-white sm:text-xl">
+                            {project.title}
+                          </h3>
 
-                        <p className="mt-2 text-base font-medium text-[#7CC4FA]">
-                          {featuredProject.subtitle}
-                        </p>
+                          <p className="mt-1 text-sm font-medium text-[#7CC4FA]">
+                            {project.subtitle}
+                          </p>
 
-                        <p className="mt-3 max-w-2xl leading-7 text-slate-300">
-                          {featuredProject.description}
-                        </p>
+                          <p className="mt-3 text-sm leading-6 text-slate-300">
+                            {project.description}
+                          </p>
+                        </div>
+
+                        <div className="flex shrink-0 items-center">
+                          <span className="rounded-xl border border-white/15 bg-white/[0.05] px-4 py-3 text-sm font-semibold text-white">
+                            View Project
+                          </span>
+                        </div>
                       </div>
+                    </button>
+                  ))}
+                </div>
 
-                      <div className="flex shrink-0 items-center">
-                        <span className="rounded-xl border border-white/15 bg-white/[0.05] px-4 py-3 text-sm font-semibold text-white">
-                          View Project
-                        </span>
+                <div className="mt-10 grid gap-6 lg:grid-cols-[minmax(0,1fr)_300px]">
+                  <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-6 sm:p-8">
+                    <p className="text-sm font-semibold uppercase tracking-[0.15em] text-[#7CC4FA]">
+                      Project Showcase
+                    </p>
+
+                    <h3 className="mt-3 text-3xl font-bold text-white">
+                      {activeProject.title}
+                    </h3>
+
+                    <p className="mt-2 text-base text-[#7CC4FA]">
+                      {activeProject.subtitle}
+                    </p>
+
+                    <p className="mt-5 leading-7 text-slate-300">
+                      {activeProject.overview}
+                    </p>
+
+                    <div className="mt-8 rounded-2xl border border-white/10 bg-[#091120] p-6">
+                      <h4 className="text-sm font-semibold uppercase tracking-[0.15em] text-slate-400">
+                        Embedded Project
+                      </h4>
+
+                      <div className="mt-4 space-y-4 text-slate-300">
+                        {activeProject.content.map((paragraph) => (
+                          <p key={paragraph} className="leading-7">
+                            • {paragraph}
+                          </p>
+                        ))}
                       </div>
                     </div>
-                  </a>
-                )}
+                  </div>
 
-                <div className="mt-10 grid gap-4 md:grid-cols-2">
-                  {standardProjects.map((project) => (
-                    <a
-                      key={project.title}
-                      href={project.pdf}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition duration-200 hover:-translate-y-1 hover:border-[#4B9CD3]/35 hover:bg-white/[0.05] hover:shadow-[0_0_30px_rgba(75,156,211,0.12)]"
-                    >
-                      <div>
-                        <h3 className="text-lg font-semibold text-white">
-                          {project.title}
-                        </h3>
-                        <p className="mt-1 text-sm text-[#7CC4FA]">
-                          {project.subtitle}
-                        </p>
+                  <div className="space-y-6">
+                    <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-5">
+                      <h3 className="text-lg font-semibold text-white">
+                        Project Details
+                      </h3>
+
+                      <div className="mt-5 space-y-4 text-sm">
+                        <div>
+                          <p className="text-slate-400">Client</p>
+                          <p className="mt-1 text-white">{activeProject.client}</p>
+                        </div>
+
+                        <div>
+                          <p className="text-slate-400">Timeline</p>
+                          <p className="mt-1 text-white">
+                            {activeProject.timeline}
+                          </p>
+                        </div>
+
+                        <div>
+                          <p className="text-slate-400">Collaborators</p>
+                          <p className="mt-1 text-white">
+                            {activeProject.collaborators}
+                          </p>
+                        </div>
                       </div>
+                    </div>
 
-                      <p className="mt-4 text-sm leading-6 text-slate-300">
-                        {project.description}
-                      </p>
+                    <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-5">
+                      <h3 className="text-lg font-semibold text-white">
+                        More Projects
+                      </h3>
 
-                      <p className="mt-4 text-xs text-slate-400">
-                        View full project →
-                      </p>
-                    </a>
-                  ))}
+                      <div className="mt-4 space-y-3">
+                        {moreProjects.map((project) => (
+                          <button
+                            key={project.title}
+                            type="button"
+                            onClick={() => setSelectedProject(project.title)}
+                            className="w-full rounded-2xl border border-white/10 bg-white/[0.02] p-4 text-left transition hover:border-[#4B9CD3]/35 hover:bg-white/[0.05]"
+                          >
+                            <h4 className="text-sm font-semibold text-white">
+                              {project.title}
+                            </h4>
+                            <p className="mt-1 text-xs text-[#7CC4FA]">
+                              {project.subtitle}
+                            </p>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </section>
             )}
@@ -804,7 +935,7 @@ export default function Home() {
                   href="/resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-[#7CC4FA] hover:text-white transition"
+                  className="text-sm text-[#7CC4FA] transition hover:text-white"
                 >
                   Open in new tab
                 </a>
@@ -812,7 +943,7 @@ export default function Home() {
                 <button
                   type="button"
                   onClick={() => setResumeOpen(false)}
-                  className="rounded-lg border border-white/10 px-3 py-1 text-sm text-slate-300 hover:bg-white/[0.06] hover:text-white transition"
+                  className="rounded-lg border border-white/10 px-3 py-1 text-sm text-slate-300 transition hover:bg-white/[0.06] hover:text-white"
                 >
                   Close
                 </button>
@@ -827,6 +958,10 @@ export default function Home() {
           </div>
         </div>
       )}
+
+      <div className="fixed bottom-6 right-6 z-50 hidden h-14 w-14 items-center justify-center rounded-full border border-[#4B9CD3]/30 bg-[#08101F]/85 text-sm font-semibold text-[#B9E3FF] shadow-[0_0_25px_rgba(75,156,211,0.2)] backdrop-blur-md sm:flex">
+        {scrollProgress}%
+      </div>
     </main>
   );
 }
