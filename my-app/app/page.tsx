@@ -154,7 +154,7 @@ export default function Home() {
       title: "Sabakiball",
       subtitle: "Featured Project • M&A Economic Model",
       description:
-      "Built an economic model and acquisition thesis for a patented sports business, breaking down how it could scale, what it’s worth, and who the right buyer would be.",
+        "Built an economic model and acquisition thesis for a patented sports business, breaking down how it could scale, what it’s worth, and who the right buyer would be.",
       pdf: "/econmodel.pdf",
       featured: true,
     },
@@ -283,7 +283,7 @@ export default function Home() {
         </header>
 
         <div className="grid gap-6 lg:grid-cols-[340px_minmax(0,1fr)] lg:gap-10">
-          <aside className="h-fit rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.35)] backdrop-blur-sm sm:p-8">
+          <aside className="flex h-fit flex-col rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.35)] backdrop-blur-sm sm:p-8">
             <div className="mb-6 h-24 w-24 overflow-hidden rounded-full border-2 border-[#4B9CD3]/50 shadow-[0_0_40px_rgba(75,156,211,0.35)] sm:h-32 sm:w-32">
               <img
                 src="/headshot.png"
@@ -314,13 +314,6 @@ export default function Home() {
                 Resume
               </a>
             </div>
-
-            <div className="mt-3 flex items-center gap-2">
-  <span className="h-2 w-2 rounded-full bg-[#4B9CD3]" />
-  <p className="text-sm text-slate-300">
-    Open to full-time opportunities
-  </p>
-</div>
 
             <div className="mt-6">
               <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-[#7CC4FA]">
@@ -419,16 +412,6 @@ export default function Home() {
                     <li>• Financial statement analysis & business insights</li>
                   </ul>
                 </div>
-
-                <div className="mt-10 border-t border-white/10 pt-8">
-                  <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-[#7CC4FA]">
-                    Status
-                  </h2>
-
-                  <p className="mt-4 text-slate-200">
-                    Open to new opportunities
-                  </p>
-                </div>
               </>
             ) : (
               <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-5">
@@ -471,6 +454,13 @@ export default function Home() {
                 </div>
               </div>
             )}
+
+            <div className="mt-10 border-t border-white/10 pt-6 flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-[#4B9CD3] shadow-[0_0_8px_rgba(75,156,211,0.7)]" />
+              <p className="text-sm text-slate-300">
+                Open to full-time opportunities
+              </p>
+            </div>
           </aside>
 
           <section className="space-y-6 sm:space-y-8">
