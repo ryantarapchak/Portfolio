@@ -251,6 +251,9 @@ export default function Home() {
     (project) => project.title !== activeProject.title
   );
 
+  const featuredProject = projects.find((project) => project.featured);
+  const standardProjects = projects.filter((project) => !project.featured);
+
   const renderExperienceCard = (job: ExperienceItem) => (
     <div
       key={`${job.title}-${job.company}`}
@@ -778,8 +781,45 @@ export default function Home() {
                   Portfolio
                 </h2>
 
-                <div className="mt-8 grid gap-4 md:grid-cols-2">
-                  {projects.map((project) => (
+                {featuredProject && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSelectedProject(featuredProject.title);
+                      setProjectViewerOpen(true);
+                    }}
+                    className="mt-8 block w-full rounded-3xl border border-[#4B9CD3]/25 bg-[linear-gradient(135deg,rgba(75,156,211,0.16),rgba(255,255,255,0.04))] p-5 text-left transition duration-200 hover:-translate-y-1 hover:border-[#4B9CD3]/45 hover:shadow-[0_0_35px_rgba(75,156,211,0.18)] sm:p-6"
+                  >
+                    <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
+                      <div className="max-w-2xl">
+                        <p className="inline-flex rounded-full border border-[#4B9CD3]/30 bg-[#4B9CD3]/12 px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-[#B9E3FF]">
+                          Featured Project
+                        </p>
+
+                        <h3 className="mt-3 text-2xl font-semibold text-white sm:text-[2rem]">
+                          {featuredProject.title}
+                        </h3>
+
+                        <p className="mt-2 text-base font-medium text-[#7CC4FA]">
+                          {featuredProject.subtitle}
+                        </p>
+
+                        <p className="mt-3 max-w-2xl leading-7 text-slate-300">
+                          {featuredProject.description}
+                        </p>
+                      </div>
+
+                      <div className="flex shrink-0 items-center">
+                        <span className="rounded-xl border border-white/15 bg-white/[0.05] px-4 py-3 text-sm font-semibold text-white">
+                          View Project
+                        </span>
+                      </div>
+                    </div>
+                  </button>
+                )}
+
+                <div className="mt-10 grid gap-4 md:grid-cols-2">
+                  {standardProjects.map((project) => (
                     <button
                       key={project.title}
                       type="button"
@@ -787,39 +827,24 @@ export default function Home() {
                         setSelectedProject(project.title);
                         setProjectViewerOpen(true);
                       }}
-                      className={`block rounded-2xl border p-5 text-left transition duration-200 hover:-translate-y-1 ${
-                        activeProject.title === project.title
-                          ? "border-[#4B9CD3]/40 bg-[linear-gradient(135deg,rgba(75,156,211,0.14),rgba(255,255,255,0.04))] shadow-[0_0_30px_rgba(75,156,211,0.15)]"
-                          : "border-white/10 bg-white/[0.03] hover:border-[#4B9CD3]/35 hover:bg-white/[0.05]"
-                      }`}
+                      className="block rounded-2xl border border-white/10 bg-white/[0.03] p-5 text-left transition duration-200 hover:-translate-y-1 hover:border-[#4B9CD3]/35 hover:bg-white/[0.05] hover:shadow-[0_0_30px_rgba(75,156,211,0.12)]"
                     >
-                      <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
-                        <div className="max-w-2xl">
-                          {project.featured && (
-                            <p className="inline-flex rounded-full border border-[#4B9CD3]/30 bg-[#4B9CD3]/12 px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-[#B9E3FF]">
-                              Featured Project
-                            </p>
-                          )}
-
-                          <h3 className="mt-3 text-lg font-semibold text-white sm:text-xl">
-                            {project.title}
-                          </h3>
-
-                          <p className="mt-1 text-sm font-medium text-[#7CC4FA]">
-                            {project.subtitle}
-                          </p>
-
-                          <p className="mt-3 text-sm leading-6 text-slate-300">
-                            {project.description}
-                          </p>
-                        </div>
-
-                        <div className="flex shrink-0 items-center">
-                          <span className="rounded-xl border border-white/15 bg-white/[0.05] px-4 py-3 text-sm font-semibold text-white">
-                            View Project
-                          </span>
-                        </div>
+                      <div>
+                        <h3 className="text-lg font-semibold text-white">
+                          {project.title}
+                        </h3>
+                        <p className="mt-1 text-sm text-[#7CC4FA]">
+                          {project.subtitle}
+                        </p>
                       </div>
+
+                      <p className="mt-4 text-sm leading-6 text-slate-300">
+                        {project.description}
+                      </p>
+
+                      <p className="mt-4 text-xs text-slate-400">
+                        View Project →
+                      </p>
                     </button>
                   ))}
                 </div>
@@ -873,19 +898,20 @@ export default function Home() {
       {projectViewerOpen && (
         <div className="fixed inset-0 z-[110] overflow-y-auto bg-[#050810]/95 px-4 py-6 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-[1700px]">
-<div className="rounded-[28px] border border-[#4B9CD3]/20 bg-[linear-gradient(135deg,rgba(11,21,48,0.96),rgba(7,11,20,0.94),rgba(75,156,211,0.22))] px-6 py-8 shadow-[0_25px_80px_rgba(0,0,0,0.45)] sm:px-10 sm:py-12">              <div className="flex items-start justify-between gap-4">
+            <div className="rounded-[28px] border border-[#4B9CD3]/20 bg-[linear-gradient(135deg,rgba(11,21,48,0.96),rgba(7,11,20,0.94),rgba(75,156,211,0.22))] px-6 py-8 shadow-[0_25px_80px_rgba(0,0,0,0.45)] sm:px-10 sm:py-12">
+              <div className="flex items-start justify-between gap-4">
                 <div className="max-w-4xl">
                   <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[#7CC4FA]">
-  {activeProject.subtitle}
-</p>
+                    {activeProject.subtitle}
+                  </p>
 
                   <h2 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl">
                     {activeProject.title}
                   </h2>
 
                   <p className="mt-4 max-w-3xl text-base leading-7 text-slate-200 sm:text-lg">
-  {activeProject.description}
-</p>
+                    {activeProject.description}
+                  </p>
                 </div>
 
                 <button
@@ -966,20 +992,19 @@ export default function Home() {
         </div>
       )}
 
-      <div className="fixed bottom-24 right-7 z-50 hidden sm:flex">
-  <button
-    type="button"
-    onClick={scrollToTop}
-    className="flex h-8 w-8 items-center justify-center rounded-full border border-[#4B9CD3]/25 bg-[#08101F]/85 text-sm font-semibold text-[#B9E3FF] shadow-[0_0_18px_rgba(75,156,211,0.18)] backdrop-blur-md transition hover:-translate-y-0.5 hover:bg-[#0B1530]"
-    aria-label="Back to top"
-  >
-    ^
-  </button>
-</div>
-
-      <div className="fixed bottom-6 right-6 z-50 hidden h-14 w-14 items-center justify-center rounded-full border border-[#4B9CD3]/30 bg-[#08101F]/85 text-sm font-semibold text-[#B9E3FF] shadow-[0_0_25px_rgba(75,156,211,0.2)] backdrop-blur-md sm:flex">
-        {scrollProgress}%
-      </div>
+      {scrollProgress > 0 && (
+        <button
+          type="button"
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 z-50 hidden h-14 w-14 flex-col items-center justify-center rounded-full border border-[#4B9CD3]/30 bg-[#08101F]/85 text-[#B9E3FF] shadow-[0_0_25px_rgba(75,156,211,0.2)] backdrop-blur-md transition hover:-translate-y-1 hover:bg-[#0B1530] sm:flex"
+          aria-label="Back to top"
+        >
+          <span className="text-sm font-semibold leading-none">^</span>
+          <span className="mt-1 text-[9px] leading-none text-slate-300">
+            {scrollProgress}%
+          </span>
+        </button>
+      )}
     </main>
   );
 }
