@@ -1,20 +1,6 @@
 "use client";
 
 import { useRef, useState } from "react";
-import {
-  Briefcase,
-  GraduationCap,
-  Award,
-  Wrench,
-  FolderOpen,
-  Mail,
-  FileText,
-  Star,
-  MapPin,
-  Target,
-  User,
-  ChevronRight,
-} from "lucide-react";
 
 type SectionKey =
   | "professional"
@@ -38,7 +24,6 @@ type Project = {
   title: string;
   subtitle: string;
   description: string;
-  tags: string[];
   pdf: string;
   featured: boolean;
 };
@@ -170,7 +155,6 @@ export default function Home() {
       subtitle: "Featured Project • M&A Economic Model",
       description:
         "Built an economic model and acquisition thesis for a patented sport business, analyzing scalability, market opportunity, and buyer fit.",
-      tags: ["M&A", "Valuation", "Market Sizing", "Excel"],
       pdf: "/econmodel.pdf",
       featured: true,
     },
@@ -179,7 +163,6 @@ export default function Home() {
       subtitle: "M&A Financial Model",
       description:
         "Developed a financial model to evaluate acquisition value, operating assumptions, and deal-level financial impact.",
-      tags: ["Financial Modeling", "Acquisition Analysis", "Excel"],
       pdf: "/burton.pdf",
       featured: false,
     },
@@ -188,7 +171,6 @@ export default function Home() {
       subtitle: "Investment Pitch",
       description:
         "Created an investment thesis supported by valuation work, financial analysis, and industry research.",
-      tags: ["Equity Research", "Valuation", "Financial Analysis"],
       pdf: "/crowdstrike.pdf",
       featured: false,
     },
@@ -197,19 +179,18 @@ export default function Home() {
       subtitle: "Master Budget",
       description:
         "Built a master budget to forecast financial performance and support operating decision-making.",
-      tags: ["Budgeting", "Forecasting", "Corporate Finance"],
       pdf: "/sensotech.pdf",
       featured: false,
     },
   ];
 
   const navItems = [
-    { key: "professional" as const, label: "Professional Experience", icon: Briefcase },
-    { key: "leadership" as const, label: "Leadership Experience", icon: Star },
-    { key: "education" as const, label: "Education", icon: GraduationCap },
-    { key: "credentials" as const, label: "Credentials", icon: Award },
-    { key: "skills" as const, label: "Skills", icon: Wrench },
-    { key: "portfolio" as const, label: "Portfolio", icon: FolderOpen },
+    { key: "professional" as const, label: "Professional Experience" },
+    { key: "leadership" as const, label: "Leadership Experience" },
+    { key: "education" as const, label: "Education" },
+    { key: "credentials" as const, label: "Credentials" },
+    { key: "skills" as const, label: "Skills" },
+    { key: "portfolio" as const, label: "Portfolio" },
   ];
 
   const featuredProject = projects.find((project) => project.featured);
@@ -283,25 +264,20 @@ export default function Home() {
             </div>
 
             <nav className="hidden lg:flex lg:items-center lg:gap-3">
-              {navItems.map((item) => {
-                const Icon = item.icon;
-
-                return (
-                  <button
-                    key={item.key}
-                    type="button"
-                    onClick={() => handleSectionClick(item.key)}
-                    className={`inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold transition ${
-                      activeSection === item.key
-                        ? "bg-[#4B9CD3] text-[#041E42] shadow-[0_0_25px_rgba(124,196,250,0.35)]"
-                        : "border border-white/15 bg-white/[0.02] text-slate-200 hover:border-[#4B9CD3]/50 hover:bg-white/[0.06]"
-                    }`}
-                  >
-                    <Icon size={16} />
-                    {item.label}
-                  </button>
-                );
-              })}
+              {navItems.map((item) => (
+                <button
+                  key={item.key}
+                  type="button"
+                  onClick={() => handleSectionClick(item.key)}
+                  className={`rounded-xl px-4 py-2 text-sm font-semibold transition ${
+                    activeSection === item.key
+                      ? "bg-[#4B9CD3] text-[#041E42] shadow-[0_0_25px_rgba(124,196,250,0.35)]"
+                      : "border border-white/15 bg-white/[0.02] text-slate-200 hover:border-[#4B9CD3]/50 hover:bg-white/[0.06]"
+                  }`}
+                >
+                  {item.label}
+                </button>
+              ))}
             </nav>
           </div>
         </header>
@@ -324,42 +300,23 @@ export default function Home() {
               Penn State Master of Finance
             </p>
 
-            <p className="mt-1 inline-flex items-center gap-2 text-sm text-slate-400">
-              <MapPin size={14} />
+            <p className="mt-1 text-sm text-slate-400">
               Langhorne, Pennsylvania
             </p>
 
-            <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-3 lg:grid-cols-1">
+            <div className="mt-6">
               <a
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-xl border border-[#4B9CD3]/35 bg-[#4B9CD3]/12 px-4 py-3 text-sm font-semibold text-[#B9E3FF] transition hover:-translate-y-0.5 hover:bg-[#4B9CD3]/18"
+                className="inline-flex items-center justify-center rounded-xl border border-[#4B9CD3]/35 bg-[#4B9CD3]/12 px-4 py-3 text-sm font-semibold text-[#B9E3FF] transition hover:-translate-y-0.5 hover:bg-[#4B9CD3]/18"
               >
-                <FileText size={16} />
                 Resume
-              </a>
-
-              <a
-                href="https://www.linkedin.com/in/ryantarapchak"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/[0.02] px-4 py-3 text-sm font-semibold text-slate-200 transition hover:-translate-y-0.5 hover:border-[#4B9CD3]/50 hover:bg-white/[0.06]"
-              >
-              </a>
-
-              <a
-                href="mailto:ryantarapchak@gmail.com"
-                className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/[0.02] px-4 py-3 text-sm font-semibold text-slate-200 transition hover:-translate-y-0.5 hover:border-[#4B9CD3]/50 hover:bg-white/[0.06]"
-              >
-                <Mail size={16} />
-                Email
               </a>
             </div>
 
             <div className="mt-6">
-              <h2 className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-[#7CC4FA]">
-                <Target size={15} />
+              <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-[#7CC4FA]">
                 Target Roles
               </h2>
 
@@ -411,33 +368,27 @@ export default function Home() {
               </h2>
 
               <div className="mt-3 flex flex-wrap gap-2">
-                {navItems.map((item) => {
-                  const Icon = item.icon;
-
-                  return (
-                    <button
-                      key={item.key}
-                      type="button"
-                      onClick={() => handleSectionClick(item.key)}
-                      className={`inline-flex items-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold transition ${
-                        activeSection === item.key
-                          ? "bg-[#4B9CD3] text-[#041E42] shadow-[0_0_25px_rgba(124,196,250,0.35)]"
-                          : "border border-white/15 bg-white/[0.02] text-slate-200 hover:border-[#4B9CD3]/50 hover:bg-white/[0.06]"
-                      }`}
-                    >
-                      <Icon size={14} />
-                      {item.label}
-                    </button>
-                  );
-                })}
+                {navItems.map((item) => (
+                  <button
+                    key={item.key}
+                    type="button"
+                    onClick={() => handleSectionClick(item.key)}
+                    className={`rounded-xl px-3 py-2 text-xs font-semibold transition ${
+                      activeSection === item.key
+                        ? "bg-[#4B9CD3] text-[#041E42] shadow-[0_0_25px_rgba(124,196,250,0.35)]"
+                        : "border border-white/15 bg-white/[0.02] text-slate-200 hover:border-[#4B9CD3]/50 hover:bg-white/[0.06]"
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                ))}
               </div>
             </div>
 
             {sidebarView === "work" ? (
               <>
                 <div className="mt-10 border-t border-white/10 pt-8">
-                  <h2 className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-[#7CC4FA]">
-                    <User size={15} />
+                  <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-[#7CC4FA]">
                     About
                   </h2>
 
@@ -475,8 +426,7 @@ export default function Home() {
               </>
             ) : (
               <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-5">
-                <h2 className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-[#7CC4FA]">
-                  <Mail size={15} />
+                <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-[#7CC4FA]">
                   Contact Information
                 </h2>
 
@@ -782,8 +732,7 @@ export default function Home() {
                   >
                     <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
                       <div className="max-w-2xl">
-                        <p className="inline-flex items-center gap-2 rounded-full border border-[#4B9CD3]/30 bg-[#4B9CD3]/12 px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-[#B9E3FF]">
-                          <Star size={14} />
+                        <p className="inline-flex rounded-full border border-[#4B9CD3]/30 bg-[#4B9CD3]/12 px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-[#B9E3FF]">
                           Featured Project
                         </p>
 
@@ -798,23 +747,11 @@ export default function Home() {
                         <p className="mt-4 max-w-2xl leading-7 text-slate-300">
                           {featuredProject.description}
                         </p>
-
-                        <div className="mt-5 flex flex-wrap gap-2">
-                          {featuredProject.tags.map((tag) => (
-                            <span
-                              key={tag}
-                              className="rounded-full border border-[#4B9CD3]/25 bg-[#4B9CD3]/10 px-3 py-1 text-xs font-medium text-[#B9E3FF]"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
                       </div>
 
                       <div className="flex shrink-0 items-center">
-                        <span className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/[0.05] px-4 py-3 text-sm font-semibold text-white">
+                        <span className="rounded-xl border border-white/15 bg-white/[0.05] px-4 py-3 text-sm font-semibold text-white">
                           View Project
-                          <ChevronRight size={16} />
                         </span>
                       </div>
                     </div>
@@ -830,36 +767,21 @@ export default function Home() {
                       rel="noopener noreferrer"
                       className="block rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition duration-200 hover:-translate-y-1 hover:border-[#4B9CD3]/35 hover:bg-white/[0.05] hover:shadow-[0_0_30px_rgba(75,156,211,0.12)]"
                     >
-                      <div className="flex items-start justify-between gap-4">
-                        <div>
-                          <h3 className="text-lg font-semibold text-white">
-                            {project.title}
-                          </h3>
-                          <p className="mt-1 text-sm text-[#7CC4FA]">
-                            {project.subtitle}
-                          </p>
-                        </div>
-
-                        <FolderOpen size={18} className="mt-1 text-slate-400" />
+                      <div>
+                        <h3 className="text-lg font-semibold text-white">
+                          {project.title}
+                        </h3>
+                        <p className="mt-1 text-sm text-[#7CC4FA]">
+                          {project.subtitle}
+                        </p>
                       </div>
 
                       <p className="mt-4 text-sm leading-6 text-slate-300">
                         {project.description}
                       </p>
 
-                      <div className="mt-4 flex flex-wrap gap-2">
-                        {project.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="rounded-full border border-[#4B9CD3]/25 bg-[#4B9CD3]/10 px-3 py-1 text-xs font-medium text-[#B9E3FF]"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-
-                      <p className="mt-4 inline-flex items-center gap-1 text-xs text-slate-400">
-                        View full project <ChevronRight size={14} />
+                      <p className="mt-4 text-xs text-slate-400">
+                        View full project →
                       </p>
                     </a>
                   ))}
