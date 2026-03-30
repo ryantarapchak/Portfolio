@@ -222,7 +222,7 @@ export default function Home() {
       pdf: "/burton.pdf",
       featured: false,
       client: "Professor Lou Gattis",
-      timeline: "2025",
+      timeline: "Fall 2025",
       collaborators:
         "Ryan Tarapchak, Thor Skogum, Dionysis Petratos, and Zachary Nickolas",
     },
@@ -241,7 +241,7 @@ export default function Home() {
       title: "SensoTech",
       subtitle: "Master Budget",
       description:
-        "Built a multi-sheet Excel master budget for a manufacturing firm, linking operating budgets to financial statements, with AI used to streamline calculations while improving efficiency.",
+        "Built a multi-sheet Excel master budget for a manufacturing firm, linking operating budgets to financial statements, with AI used to streamline calculations while improving its efficiency.",
       pdf: "/sensotech.pdf",
       featured: false,
       client: "Professor Sajay Samuel",
