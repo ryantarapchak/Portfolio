@@ -94,26 +94,34 @@ export default function Home() {
   }, []);
 
   const handleSectionClick = (section: SectionKey) => {
-  setActiveSection(section);
+    setActiveSection(section);
 
-  setTimeout(() => {
-    const sectionEl = sectionRefs[section].current;
+    setTimeout(() => {
+      const sectionEl = sectionRefs[section].current;
 
-    if (sectionEl) {
-      const targetY =
-        sectionEl.getBoundingClientRect().top + window.scrollY - 95;
+      if (sectionEl) {
+        const targetY =
+          sectionEl.getBoundingClientRect().top + window.scrollY - 95;
 
-      const currentY = window.scrollY;
+        const currentY = window.scrollY;
 
-      if (targetY < currentY) {
-        window.scrollTo({
-          top: targetY,
-          behavior: "smooth",
-        });
+        if (isMobile) {
+          window.scrollTo({
+            top: targetY,
+            behavior: "smooth",
+          });
+          return;
+        }
+
+        if (targetY < currentY) {
+          window.scrollTo({
+            top: targetY,
+            behavior: "smooth",
+          });
+        }
       }
-    }
-  }, 150);
-};
+    }, 150);
+  };
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -249,8 +257,8 @@ export default function Home() {
     {
       title: "SensoTech",
       subtitle: "Master Budget Model",
-      description: 
-      "Built a multi-sheet Excel master budget for a manufacturing company, connecting sales, production, cost, cash, and projected financial statements. Included a separate file to highlight the formulas and structure behind the model.",
+      description:
+        "Built a multi-sheet Excel master budget for a manufacturing company, connecting sales, production, cost, cash, and projected financial statements. Included a separate file to highlight the formulas and structure behind the model.",
       pdf: "/sensotech.pdf",
       featured: false,
       client: "Dr. Sajay Samuel",
