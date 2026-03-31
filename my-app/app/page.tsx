@@ -740,7 +740,7 @@ export default function Home() {
                       },
                       {
                         title: "Tools & Programming",
-                        items: ["Excel (Advanced)", "Python", "VBA"],
+                        items: ["Excel (Advanced)", "Python", "VBA", "JavaScript"],
                       },
                       {
                         title: "Data & Analysis",
