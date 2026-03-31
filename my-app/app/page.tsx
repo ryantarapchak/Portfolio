@@ -262,7 +262,7 @@ export default function Home() {
     },
     {
       title: "Wrigley",
-      subtitle: "Valuation Model & M&A Analysis using DCF & Comparable Companies",
+      subtitle: "Valuation Model & M&A Analysis",
       description:
         "Built a valuation model for Wrigley using DCF and comparable company analysis, estimating intrinsic value and evaluating potential acquisition pricing.",
       featured: false,
