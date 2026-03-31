@@ -246,7 +246,7 @@ export default function Home() {
       title: "SensoTech",
       subtitle: "Master Budget Model",
       description: 
-      "Built a multi-sheet Excel master budget for a manufacturing company, connecting sales, production, cost, cash planning, and projected financial statements. Included a separate file to highlight the formulas and structure behind the model.",
+      "Built a multi-sheet Excel master budget for a manufacturing company, connecting sales, production, cost, cash, and projected financial statements. Included a separate file to highlight the formulas and structure behind the model.",
       pdf: "/sensotech.pdf",
       featured: false,
       client: "Dr. Sajay Samuel",
