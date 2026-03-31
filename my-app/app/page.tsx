@@ -253,9 +253,9 @@ export default function Home() {
       timeline: "Fall 2025",
       collaborators: "Ryan Tarapchak",
       files: [
-        { label: "Master Budget Workbook", path: "/masterbudget.xlsx" },
+        { label: "Master Budget Model", path: "/masterbudget.xlsx" },
         {
-          label: "Formula Workbook",
+          label: "Formulas",
           path: "/masterbudgetformulas.xlsx",
         },
       ],
