@@ -94,22 +94,26 @@ export default function Home() {
   }, []);
 
   const handleSectionClick = (section: SectionKey) => {
-    setActiveSection(section);
+  setActiveSection(section);
 
-    setTimeout(() => {
-      const sectionEl = sectionRefs[section].current;
+  setTimeout(() => {
+    const sectionEl = sectionRefs[section].current;
 
-      if (sectionEl) {
-        const targetY =
-          sectionEl.getBoundingClientRect().top + window.scrollY - 95;
+    if (sectionEl) {
+      const targetY =
+        sectionEl.getBoundingClientRect().top + window.scrollY - 95;
 
+      const currentY = window.scrollY;
+
+      if (targetY < currentY) {
         window.scrollTo({
           top: targetY,
           behavior: "smooth",
         });
       }
-    }, 150);
-  };
+    }
+  }, 150);
+};
 
   const scrollToTop = () => {
     window.scrollTo({
