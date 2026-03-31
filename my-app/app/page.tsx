@@ -245,8 +245,8 @@ export default function Home() {
     {
       title: "SensoTech",
       subtitle: "Master Budget Model",
-      description:
-        "Built a multi-sheet Excel master budget for a manufacturing company, connecting sales, production, cost, cash planning, and projected financial statements. Included a separate file to highlight the formulas and structure behind the model.",
+      description: 
+      "Built a multi-sheet Excel master budget for a manufacturing company, connecting sales, production, cost, cash planning, and projected financial statements. Included a separate file to highlight the formulas and structure behind the model.",
       pdf: "/sensotech.pdf",
       featured: false,
       client: "Professor Sajay Samuel",
@@ -262,7 +262,7 @@ export default function Home() {
     },
     {
       title: "Wrigley",
-      subtitle: "Valuation & M&A Analysis • DCF + Comparable Companies",
+      subtitle: "Valuation & M&A using DCF & Comparable Companies",
       description:
         "Built a valuation model for Wrigley using DCF and comparable company analysis, estimating intrinsic value and evaluating potential acquisition pricing.",
       featured: false,
