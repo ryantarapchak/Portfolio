@@ -226,7 +226,7 @@ export default function Home() {
         "Built a financial model to evaluate a potential acquisition and its effect on value creation.",
       pdf: "/burton.pdf",
       featured: false,
-      client: "Professor Lou Gattis",
+      client: "Dr. Lou Gattis",
       timeline: "Fall 2025",
       collaborators:
         "Ryan Tarapchak, Thor Skogum, Dionysis Petratos, and Zachary Nickolas",
@@ -249,7 +249,7 @@ export default function Home() {
       "Built a multi-sheet Excel master budget for a manufacturing company, connecting sales, production, cost, cash planning, and projected financial statements. Included a separate file to highlight the formulas and structure behind the model.",
       pdf: "/sensotech.pdf",
       featured: false,
-      client: "Professor Sajay Samuel",
+      client: "Dr. Sajay Samuel",
       timeline: "Fall 2025",
       collaborators: "Ryan Tarapchak",
       files: [
@@ -266,7 +266,7 @@ export default function Home() {
       description:
         "Built a valuation model for Wrigley using DCF and comparable company analysis, estimating intrinsic value and evaluating potential acquisition pricing.",
       featured: false,
-      client: "Professor Bharadwaj Kannan",
+      client: "Dr. Bharadwaj Kannan",
       timeline: "Spring 2026",
       collaborators:
         "Ryan Tarapchak, Shubh Savani, Thor Skogum, Dionysis Petratos, Zachary Nickolas, and Ryan Greathouse",
