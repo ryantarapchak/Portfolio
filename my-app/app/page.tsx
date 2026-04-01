@@ -130,6 +130,19 @@ export default function Home() {
     });
   };
 
+  const getFileHref = (path: string) => {
+    const isExcel = path.toLowerCase().endsWith(".xlsx");
+
+    if (isMobile && isExcel && typeof window !== "undefined") {
+      const absoluteUrl = `${window.location.origin}${path}`;
+      return `https://view.officeapps.live.com/op/view.aspx?src=${encodeURIComponent(
+        absoluteUrl
+      )}`;
+    }
+
+    return path;
+  };
+
   const experience: ExperienceItem[] = [
     {
       title: "Teaching Assistant",
@@ -219,7 +232,7 @@ export default function Home() {
     (job) => job.category === "leadership"
   );
 
-    const projects: Project[] = [
+  const projects: Project[] = [
     {
       title: "Sabakiball",
       subtitle: "Featured Project • M&A Economic Model",
@@ -979,7 +992,7 @@ export default function Home() {
                         {activeProject.files.map((file) => (
                           <a
                             key={file.path}
-                            href={file.path}
+                            href={getFileHref(file.path)}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex rounded-xl border border-white/15 bg-white/[0.05] px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/[0.09]"
@@ -1015,7 +1028,7 @@ export default function Home() {
                       </p>
 
                       <a
-                        href={activeViewerSrc}
+                        href={getFileHref(activeViewerSrc)}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="mt-5 inline-flex rounded-xl border border-[#4B9CD3]/30 bg-[#0B1530] px-4 py-3 text-sm font-semibold text-[#B9E3FF] transition hover:bg-[#10214A]"
