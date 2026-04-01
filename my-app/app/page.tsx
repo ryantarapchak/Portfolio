@@ -219,7 +219,7 @@ export default function Home() {
     (job) => job.category === "leadership"
   );
 
-  const projects: Project[] = [
+    const projects: Project[] = [
     {
       title: "Sabakiball",
       subtitle: "Featured Project • M&A Economic Model",
@@ -242,6 +242,7 @@ export default function Home() {
       timeline: "Fall 2025",
       collaborators:
         "Ryan Tarapchak, Thor Skogum, Dionysis Petratos, and Zachary Nickolas",
+      files: [{ label: "Valuation Model", path: "/burton.xlsx" }],
     },
     {
       title: "CrowdStrike",
