@@ -281,10 +281,6 @@ export default function Home() {
       collaborators: "Ryan Tarapchak",
       files: [
         { label: "Master Budget Model", path: "/masterbudget.xlsx" },
-        {
-          label: "Formulas",
-          path: "/masterbudgetformulas.xlsx",
-        },
       ],
     },
     {
