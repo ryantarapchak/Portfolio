@@ -245,17 +245,17 @@ export default function Home() {
       collaborators: "Ryan Tarapchak and Zachary Nickolas",
     },
     {
-      title: "Burton Sensors",
-      subtitle: "M&A Financial Model",
+      title: "Bed Bath & Beyond",
+      subtitle: "Capital Structure & Valuation Analysis",
       description:
-        "Built a financial model to evaluate a potential acquisition and its effect on value creation.",
-      pdf: "/burton.pdf",
+      "Analyzed Bed Bath & Beyond’s capital structure to evaluate how excess cash, debt, and payout decisions impact firm value, risk, and shareholder returns.",
+      pdf: "/bedbath&beyond.pdf",
       featured: false,
-      client: "Dr. Lou Gattis",
-      timeline: "Fall 2025",
+      client: "Dr. Bharadwaj Kannan",
+      timeline: "Spring 2026",
       collaborators:
         "Ryan Tarapchak, Thor Skogum, Dionysis Petratos, and Zachary Nickolas",
-      files: [{ label: "Valuation Model", path: "/burton.xlsx" }],
+      files: [{ label: "Capital Structure Model", path: "/bedbath&beyond.xlsx" }],
     },
     {
       title: "CrowdStrike",
