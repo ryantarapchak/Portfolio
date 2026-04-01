@@ -455,7 +455,7 @@ export default function Home() {
                 {[
                   "Financial Analyst",
                   "Corporate Finance",
-                  "Investment Banking",
+                  "Investment Banking Analyst",
                 ].map((role) => (
                   <span
                     key={role}
