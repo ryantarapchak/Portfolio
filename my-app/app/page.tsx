@@ -254,7 +254,7 @@ export default function Home() {
       client: "Dr. Bharadwaj Kannan",
       timeline: "Spring 2026",
       collaborators:
-        "Ryan Tarapchak, Thor Skogum, Dionysis Petratos, and Zachary Nickolas",
+        "Ryan Tarapchak, Shubh Savani, Thor Skogum, Dionysis Petratos, and Zachary Nickolas",
       files: [{ label: "Capital Structure Model", path: "/bedbath&beyond.xlsx" }],
     },
     {
