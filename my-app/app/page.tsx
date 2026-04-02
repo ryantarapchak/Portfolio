@@ -459,7 +459,7 @@ export default function Home() {
               <button
                 type="button"
                 onClick={() => setSidebarView("work")}
-                className={`rounded-xl px-4 py-2 text-sm font-semibold transition ${
+                className={`rounded-xl px-4 py-2 text-sm font-medium transition ${
                   sidebarView === "work"
                     ? "bg-[#4B9CD3] text-[#041E42] shadow-[0_0_25px_rgba(124,196,250,0.35)]"
                     : "border border-white/15 bg-white/[0.02] text-slate-200 hover:border-[#4B9CD3]/50 hover:bg-white/[0.06]"
