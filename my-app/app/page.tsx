@@ -245,7 +245,6 @@ export default function Home() {
       timeline: "Fall 2025",
       collaborators: "Ryan Tarapchak and Zachary Nickolas",
       files: [{ label: "Economic Model", path: "/econmodel.pdf" }],
-      tags: ["Valuation", "Market Sizing", "M&A"],
     },
     {
       title: "Bed Bath & Beyond",
@@ -259,7 +258,6 @@ export default function Home() {
       collaborators:
         "Ryan Tarapchak, Shubh Savani, Thor Skogum, Dionysis Petratos, and Zachary Nickolas",
       files: [{ label: "Capital Structure Model", path: "/bedbath&beyond.xlsx" }],
-      tags: ["Capital Structure", "Valuation", "Corporate Finance"],
     },
     {
       title: "CrowdStrike",
@@ -271,7 +269,6 @@ export default function Home() {
       client: "Nittany Lion Investment Club",
       timeline: "Spring 2025",
       collaborators: "Ryan Tarapchak",
-      tags: ["Equity Research", "Valuation", "Pitch"],
     },
     {
       title: "SensoTech",
@@ -284,7 +281,6 @@ export default function Home() {
       timeline: "Fall 2025",
       collaborators: "Ryan Tarapchak",
       files: [{ label: "Master Budget Model", path: "/masterbudget.xlsx" }],
-      tags: ["Budgeting", "Forecasting", "Excel Model"],
     },
     {
       title: "Wrigley",
@@ -298,7 +294,6 @@ export default function Home() {
         "Ryan Tarapchak, Shubh Savani, Thor Skogum, Dionysis Petratos, Zachary Nickolas, and Ryan Greathouse",
       presentation: "/wrigleypresentation.pdf",
       files: [{ label: "Valuation Model", path: "/wrigley.xlsx" }],
-      tags: ["DCF", "Comps", "M&A"],
     },
   ];
 
