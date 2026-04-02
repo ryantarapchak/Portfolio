@@ -150,12 +150,11 @@ export default function Home() {
       company: "The Pennsylvania State University",
       date: "Aug 2025 – Present",
       description:
-        "Lead weekly labs and support business capstone students through instruction, grading, and team-based financial analysis guidance.",
+        "Lead weekly labs for business capstone students, guiding team-based decision-making through a multi-functional business simulation"     
       achievements: [
-        "Lead and prepared weekly labs for 50+ business capstone students, creating lesson plans on financial modeling and strategy",
+        "Lead and prepare weekly labs for 50+ business capstone students, creating lesson plans on financial modeling and strategy",
         "Grade 200+ assignments monthly using Canvas SpeedGrader, Excel, and SharePoint",
-        "Advise 20+ student teams on financial analysis, credit risk, and investment evaluation",
-        "Enhance student decision-making and simulation performance through real-world case insights",
+        "Advise 20+ student teams on financial analysis, risk, and investment evaluation",
       ],
       skills: ["Financial Modeling", "Strategy", "Leadership", "Excel"],
       category: "professional",
@@ -165,17 +164,15 @@ export default function Home() {
       company: "Sabakiball International, LLC",
       date: "Oct 2025 – Dec 2025",
       description:
-        "Supported early-stage M&A outreach and strategic analysis for a patented sport business by building economic models and acquisition materials.",
+        "Supported early-stage M&A outreach and strategy for a patented sport business by building an economic model containing acquisition materials.",
       achievements: [
-        "Produced a strategic economic model and acquisition thesis for a patented sport with 1M+ users and adoption in 300+ schools",
-        "Quantified market size, unit economics, and TAM penetration to support sale positioning",
+        "Produced an economic model and acquisition thesis for a patented sport with 1M+ users and adoption in 300+ schools",
+        "Quantified market size, unit economics, and TAM penetration to support its positioning and valuation in acquisition discussions",
         "Identified and contacted 15+ potential buyers and helped facilitate introductory discussions",
-        "Developed acquisition materials to support buyer outreach and advance deal discussions",
       ],
       skills: [
         "M&A",
         "Economic Modeling",
-        "Market Analysis",
         "Outreach",
         "Valuation",
       ],
@@ -186,17 +183,16 @@ export default function Home() {
       company: "City of Philadelphia",
       date: "June 2025 – Aug 2025",
       description:
-        "Performed financial and operational analysis on grant-funded projects and built tools to support funding visibility and data-driven decisions.",
+        "Performed financial and operational analysis on grant-funded projects and built tools to support funding visibility and data-driven decisions for the city's commerce department.",
       achievements: [
         "Conducted financial and operational analysis for 10 grant-funded projects using Excel and Quickbase",
-        "Built and maintained a $10M project database in Excel tracking 30+ performance metrics",
-        "Designed 10 digital project profiles in Canva to improve visibility across commerce initiatives",
+        "Built an Excel file to track 30+ key data points across projects with a combined budget of $10M, improving visibility and reporting for the department", 
+        "Designed 10 digital project profiles in Canva to showcase project impact and outcomes for stakeholders and the public",
         "Created and managed a $100K project budget using Excel to model ROI, credit feasibility, and risk mitigation strategies",
       ],
       skills: [
         "Financial Analysis",
         "Excel",
-        "Quickbase",
         "Budgeting",
         "ROI Modeling",
       ],
@@ -207,18 +203,17 @@ export default function Home() {
       company: "Business Leaders for Change",
       date: "Aug 2025 – Present",
       description:
-        "Manage budgeting, transactions, and funding coordination for a student organization serving thousands of students through annual events.",
+        "Manage budgeting, transactions, and funding for a graduate student organization serving thousands of students through annual events.",
       achievements: [
-        "Oversee $10K in budgets for four annual events reaching 8,000+ students",
-        "Use Excel to track spending, improve efficiency, and help raise participation by 30%",
+        "Oversee $5K in budgets for three annual events reaching 8,000+ students",
+        "Use Excel to track spending, improve efficiency, and help raise involvement by over 50%",
         "Manage and reconcile 100+ financial transactions in the ASA account",
-        "Collaborate with executives and external stakeholders to secure $10K+ in funding while maintaining compliance and transparency",
+        "Collaborate with executives and external stakeholders to secure funding and sponsorships for events",
       ],
       skills: [
         "Budgeting",
         "Leadership",
         "Excel",
-        "Financial Tracking",
         "Stakeholder Management",
       ],
       category: "leadership",
@@ -891,7 +886,7 @@ export default function Home() {
 
                       <div className="flex shrink-0 items-center pt-1">
                         <span className="rounded-2xl border border-white/15 bg-white/[0.06] px-5 py-3 text-sm font-semibold text-white">
-                          View Case Study
+                          View Project
                         </span>
                       </div>
                     </div>
