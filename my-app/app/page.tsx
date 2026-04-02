@@ -36,6 +36,7 @@ type Project = {
   client: string;
   timeline: string;
   collaborators: string;
+  tags?: string[];
 };
 
 export default function Home() {
@@ -244,12 +245,13 @@ export default function Home() {
       timeline: "Fall 2025",
       collaborators: "Ryan Tarapchak and Zachary Nickolas",
       files: [{ label: "Economic Model", path: "/econmodel.pdf" }],
+      tags: ["Valuation", "Market Sizing", "M&A"],
     },
     {
       title: "Bed Bath & Beyond",
       subtitle: "Capital Structure & Valuation Analysis",
       description:
-      "Analyzed Bed Bath & Beyond’s capital structure to evaluate how excess cash, debt, and payout decisions impact firm value, risk, and shareholder returns.",
+        "Analyzed Bed Bath & Beyond’s capital structure to evaluate how excess cash, debt, and payout decisions impact firm value, risk, and shareholder returns.",
       pdf: "/bedbath&beyond.pdf",
       featured: false,
       client: "Dr. Bharadwaj Kannan",
@@ -257,6 +259,7 @@ export default function Home() {
       collaborators:
         "Ryan Tarapchak, Shubh Savani, Thor Skogum, Dionysis Petratos, and Zachary Nickolas",
       files: [{ label: "Capital Structure Model", path: "/bedbath&beyond.xlsx" }],
+      tags: ["Capital Structure", "Valuation", "Corporate Finance"],
     },
     {
       title: "CrowdStrike",
@@ -268,6 +271,7 @@ export default function Home() {
       client: "Nittany Lion Investment Club",
       timeline: "Spring 2025",
       collaborators: "Ryan Tarapchak",
+      tags: ["Equity Research", "Valuation", "Pitch"],
     },
     {
       title: "SensoTech",
@@ -279,9 +283,8 @@ export default function Home() {
       client: "Dr. Sajay Samuel",
       timeline: "Fall 2025",
       collaborators: "Ryan Tarapchak",
-      files: [
-        { label: "Master Budget Model", path: "/masterbudget.xlsx" },
-      ],
+      files: [{ label: "Master Budget Model", path: "/masterbudget.xlsx" }],
+      tags: ["Budgeting", "Forecasting", "Excel Model"],
     },
     {
       title: "Wrigley",
@@ -295,6 +298,7 @@ export default function Home() {
         "Ryan Tarapchak, Shubh Savani, Thor Skogum, Dionysis Petratos, Zachary Nickolas, and Ryan Greathouse",
       presentation: "/wrigleypresentation.pdf",
       files: [{ label: "Valuation Model", path: "/wrigley.xlsx" }],
+      tags: ["DCF", "Comps", "M&A"],
     },
   ];
 
@@ -327,7 +331,9 @@ export default function Home() {
     >
       <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
         <div>
-          <h3 className="text-xl font-semibold text-white">{job.title}</h3>
+          <h3 className="text-xl font-semibold tracking-tight text-white">
+            {job.title}
+          </h3>
           <p className="text-[#7CC4FA]">{job.company}</p>
         </div>
 
@@ -336,10 +342,10 @@ export default function Home() {
         </p>
       </div>
 
-      <p className="mt-4 leading-7 text-slate-300">{job.description}</p>
+      <p className="mt-4 leading-7 text-slate-300/95">{job.description}</p>
 
       <div className="mt-5">
-        <h4 className="text-sm font-semibold uppercase tracking-[0.15em] text-slate-400">
+        <h4 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-400">
           Achievements
         </h4>
 
@@ -351,7 +357,7 @@ export default function Home() {
       </div>
 
       <div className="mt-5">
-        <h4 className="text-sm font-semibold uppercase tracking-[0.15em] text-slate-400">
+        <h4 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-400">
           Skills
         </h4>
 
@@ -382,7 +388,7 @@ export default function Home() {
                 <span className="text-[#7CC4FA]">Ryan</span> Tarapchak
               </h1>
 
-              <span className="text-xs text-slate-400 sm:text-sm">
+              <span className="text-xs text-slate-400/90 sm:text-sm">
                 Finance Graduate Student
               </span>
             </div>
@@ -424,12 +430,12 @@ export default function Home() {
               <span className="block text-sm sm:text-base">
                 The Pennsylvania State University
               </span>
-              <span className="block text-xs sm:text-sm text-slate-400">
+              <span className="block text-xs text-slate-400/90 sm:text-sm">
                 Master of Finance
               </span>
             </p>
 
-            <p className="mt-1 text-sm text-slate-400">
+            <p className="mt-1 text-sm text-slate-400/90">
               Langhorne, Pennsylvania
             </p>
 
@@ -444,7 +450,7 @@ export default function Home() {
             </div>
 
             <div className="mt-6">
-              <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-[#7CC4FA]">
+              <h2 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#7CC4FA]">
                 Target Roles
               </h2>
 
@@ -491,7 +497,7 @@ export default function Home() {
             </div>
 
             <div className="mt-6 lg:hidden">
-              <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-[#7CC4FA]">
+              <h2 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#7CC4FA]">
                 Sections
               </h2>
 
@@ -516,11 +522,11 @@ export default function Home() {
             {sidebarView === "work" ? (
               <>
                 <div className="mt-10 border-t border-white/10 pt-8">
-                  <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-[#7CC4FA]">
+                  <h2 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#7CC4FA]">
                     About
                   </h2>
 
-                  <p className="mt-4 leading-7 text-slate-300">
+                  <p className="mt-4 leading-7 text-slate-300/95">
                     Penn State graduate student with experience in financial
                     analysis, valuation, and building models across both
                     academic and real-world settings. I enjoy breaking down
@@ -530,7 +536,7 @@ export default function Home() {
                 </div>
 
                 <div className="mt-10 border-t border-white/10 pt-8">
-                  <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-[#7CC4FA]">
+                  <h2 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#7CC4FA]">
                     Focus
                   </h2>
 
@@ -543,13 +549,13 @@ export default function Home() {
               </>
             ) : (
               <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-5">
-                <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-[#7CC4FA]">
+                <h2 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#7CC4FA]">
                   Contact Information
                 </h2>
 
                 <div className="mt-4 space-y-4 text-sm text-slate-300">
                   <div>
-                    <p className="text-slate-400">Email</p>
+                    <p className="text-slate-400/90">Email</p>
                     <a
                       href="mailto:ryantarapchak@gmail.com"
                       className="text-white transition hover:text-[#7CC4FA]"
@@ -559,7 +565,7 @@ export default function Home() {
                   </div>
 
                   <div>
-                    <p className="text-slate-400">Phone</p>
+                    <p className="text-slate-400/90">Phone</p>
                     <a
                       href="tel:2159628332"
                       className="text-white transition hover:text-[#7CC4FA]"
@@ -569,7 +575,7 @@ export default function Home() {
                   </div>
 
                   <div>
-                    <p className="text-slate-400">LinkedIn</p>
+                    <p className="text-slate-400/90">LinkedIn</p>
                     <a
                       href="https://www.linkedin.com/in/ryantarapchak"
                       target="_blank"
@@ -597,7 +603,7 @@ export default function Home() {
                 ref={sectionRefs.professional}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
-                <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+                <h2 className="text-3xl font-bold tracking-[-0.02em] text-white sm:text-[2.2rem]">
                   Professional Experience
                 </h2>
 
@@ -612,7 +618,7 @@ export default function Home() {
                 ref={sectionRefs.leadership}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
-                <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+                <h2 className="text-3xl font-bold tracking-[-0.02em] text-white sm:text-[2.2rem]">
                   Leadership Experience
                 </h2>
 
@@ -627,7 +633,7 @@ export default function Home() {
                 ref={sectionRefs.education}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
-                <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+                <h2 className="text-3xl font-bold tracking-[-0.02em] text-white sm:text-[2.2rem]">
                   Education
                 </h2>
 
@@ -639,10 +645,10 @@ export default function Home() {
                     <p className="mt-2 text-[#7CC4FA]">
                       The Pennsylvania State University
                     </p>
-                    <p className="mt-2 text-sm text-slate-400">
+                    <p className="mt-2 text-sm text-slate-400/90">
                       Smeal College of Business
                     </p>
-                    <p className="mt-2 text-sm text-slate-400">
+                    <p className="mt-2 text-sm text-slate-400/90">
                       Expected Graduation: May 2026
                     </p>
                   </div>
@@ -654,14 +660,14 @@ export default function Home() {
                     <p className="mt-2 text-[#7CC4FA]">
                       East Carolina University
                     </p>
-                    <p className="mt-2 text-sm text-slate-400">
+                    <p className="mt-2 text-sm text-slate-400/90">
                       The College of Business
                     </p>
-                    <p className="mt-2 text-sm text-slate-400">
+                    <p className="mt-2 text-sm text-slate-400/90">
                       Graduated: May 2025
                     </p>
-                    <p className="mt-2 text-sm text-slate-400">GPA: 3.88</p>
-                    <p className="mt-2 text-sm text-slate-400">
+                    <p className="mt-2 text-sm text-slate-400/90">GPA: 3.88</p>
+                    <p className="mt-2 text-sm text-slate-400/90">
                       Magna Cum Laude
                     </p>
                   </div>
@@ -674,7 +680,7 @@ export default function Home() {
                 ref={sectionRefs.credentials}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
-                <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+                <h2 className="text-3xl font-bold tracking-[-0.02em] text-white sm:text-[2.2rem]">
                   Certifications & Credentials
                 </h2>
 
@@ -686,7 +692,7 @@ export default function Home() {
                     <p className="mt-1 text-sm text-[#7CC4FA]">
                       Truist Leadership Institute
                     </p>
-                    <p className="mt-2 text-sm text-slate-300">
+                    <p className="mt-2 text-sm text-slate-300/95">
                       A selective leadership development program focused on
                       professional growth, communication, and team-based
                       leadership skills.
@@ -698,7 +704,7 @@ export default function Home() {
                       Microsoft Office Specialist (MOS): Excel 2016
                     </h3>
                     <p className="mt-1 text-sm text-[#7CC4FA]">Microsoft</p>
-                    <p className="mt-2 text-sm text-slate-300">
+                    <p className="mt-2 text-sm text-slate-300/95">
                       A performance-based certification demonstrating
                       proficiency in Excel, including data analysis, financial
                       modeling, and advanced spreadsheet functions.
@@ -713,7 +719,7 @@ export default function Home() {
                 ref={sectionRefs.skills}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
-                <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+                <h2 className="text-3xl font-bold tracking-[-0.02em] text-white sm:text-[2.2rem]">
                   Skills & Expertise
                 </h2>
 
@@ -843,7 +849,7 @@ export default function Home() {
                 ref={sectionRefs.portfolio}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
-                <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+                <h2 className="text-3xl font-bold tracking-[-0.02em] text-white sm:text-[2.2rem]">
                   Portfolio
                 </h2>
 
@@ -854,37 +860,50 @@ export default function Home() {
                       setSelectedProject(featuredProject.title);
                       setProjectViewerOpen(true);
                     }}
-                    className="mt-8 block w-full rounded-3xl border border-[#4B9CD3]/25 bg-[linear-gradient(135deg,rgba(75,156,211,0.16),rgba(255,255,255,0.04))] p-5 text-left transition duration-200 hover:-translate-y-1 hover:border-[#4B9CD3]/45 hover:shadow-[0_0_35px_rgba(75,156,211,0.18)] sm:p-6"
+                    className="mt-8 block w-full overflow-hidden rounded-[32px] border border-[#4B9CD3]/30 bg-[linear-gradient(135deg,rgba(75,156,211,0.22),rgba(255,255,255,0.05),rgba(8,16,31,0.55))] p-6 text-left transition duration-300 hover:-translate-y-1 hover:border-[#7CC4FA]/45 hover:shadow-[0_0_45px_rgba(75,156,211,0.18)] sm:p-8"
                   >
-                    <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
-                      <div className="max-w-2xl">
-                        <p className="inline-flex rounded-full border border-[#4B9CD3]/30 bg-[#4B9CD3]/12 px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-[#B9E3FF]">
+                    <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
+                      <div className="max-w-3xl">
+                        <p className="inline-flex rounded-full border border-[#4B9CD3]/35 bg-[#4B9CD3]/12 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#B9E3FF]">
                           Featured Project
                         </p>
 
-                        <h3 className="mt-3 text-2xl font-semibold text-white sm:text-[2rem]">
+                        <h3 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-[2.4rem]">
                           {featuredProject.title}
                         </h3>
 
-                        <p className="mt-2 text-base font-medium text-[#7CC4FA]">
+                        <p className="mt-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#7CC4FA] sm:text-sm">
                           {featuredProject.subtitle}
                         </p>
 
-                        <p className="mt-3 max-w-2xl leading-7 text-slate-300">
+                        <p className="mt-4 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg">
                           {featuredProject.description}
                         </p>
+
+                        {featuredProject.tags && featuredProject.tags.length > 0 && (
+                          <div className="mt-5 flex flex-wrap gap-2">
+                            {featuredProject.tags.map((tag) => (
+                              <span
+                                key={tag}
+                                className="rounded-full border border-[#7CC4FA]/20 bg-[#7CC4FA]/8 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.12em] text-[#B9E3FF]"
+                              >
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                        )}
                       </div>
 
                       <div className="flex shrink-0 items-center pt-1">
-                        <span className="rounded-xl border border-white/15 bg-white/[0.05] px-4 py-3 text-sm font-semibold text-white">
-                          View Project
+                        <span className="rounded-2xl border border-white/15 bg-white/[0.06] px-5 py-3 text-sm font-semibold text-white">
+                          View Case Study
                         </span>
                       </div>
                     </div>
                   </button>
                 )}
 
-                <div className="mt-10 grid gap-4 md:grid-cols-2">
+                <div className="mt-10 grid gap-5 md:grid-cols-2">
                   {standardProjects.map((project) => (
                     <button
                       key={project.title}
@@ -893,13 +912,13 @@ export default function Home() {
                         setSelectedProject(project.title);
                         setProjectViewerOpen(true);
                       }}
-                      className="block rounded-2xl border border-white/10 bg-white/[0.03] p-5 text-left transition duration-200 hover:-translate-y-1 hover:border-[#4B9CD3]/35 hover:bg-white/[0.05] hover:shadow-[0_0_30px_rgba(75,156,211,0.12)]"
+                      className="group block rounded-[26px] border border-white/10 bg-white/[0.03] p-5 text-left transition duration-300 hover:-translate-y-1 hover:border-[#4B9CD3]/35 hover:bg-white/[0.05] hover:shadow-[0_0_30px_rgba(75,156,211,0.10)]"
                     >
                       <div>
-                        <h3 className="text-lg font-semibold text-white">
+                        <h3 className="text-xl font-semibold tracking-tight text-white">
                           {project.title}
                         </h3>
-                        <p className="mt-1 text-sm text-[#7CC4FA]">
+                        <p className="mt-1 text-xs font-semibold uppercase tracking-[0.14em] text-[#7CC4FA]">
                           {project.subtitle}
                         </p>
                       </div>
@@ -908,7 +927,20 @@ export default function Home() {
                         {project.description}
                       </p>
 
-                      <p className="mt-4 text-xs text-slate-400">
+                      {project.tags && project.tags.length > 0 && (
+                        <div className="mt-4 flex flex-wrap gap-2">
+                          {project.tags.map((tag) => (
+                            <span
+                              key={tag}
+                              className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[10px] font-medium uppercase tracking-[0.12em] text-slate-300"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+
+                      <p className="mt-5 text-xs font-semibold uppercase tracking-[0.12em] text-slate-400 transition group-hover:text-[#B9E3FF]">
                         View Project →
                       </p>
                     </button>
