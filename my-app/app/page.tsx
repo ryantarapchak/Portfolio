@@ -732,7 +732,7 @@ export default function Home() {
                       {
                         title: "Corporate Finance",
                         items: [
-                          "Financial Statement Analysis",
+                          "Financial Analysis",
                           "Forecasting & Budgeting",
                           "Investment Analysis",
                         ],
@@ -803,7 +803,6 @@ export default function Home() {
                         items: [
                           "Leading group projects",
                           "Working closely with teams",
-                          "Coordinating across stakeholders",
                         ],
                       },
                       {
