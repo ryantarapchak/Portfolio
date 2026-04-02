@@ -413,7 +413,7 @@ export default function Home() {
               <img
                 src="/headshot.png"
                 alt="Ryan Tarapchak"
-                className="h-full w-full object-cover object-top"
+                className="h-full w-full object-cover object-[center_20%] scale-90"
               />
             </div>
 
