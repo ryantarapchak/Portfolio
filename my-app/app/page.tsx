@@ -150,7 +150,7 @@ export default function Home() {
       company: "The Pennsylvania State University",
       date: "Aug 2025 – Present",
       description:
-        "Lead weekly labs for business capstone students, guiding team-based decision-making through a multi-functional business simulation"     
+        "Lead weekly labs for business capstone students, guiding team-based decision-making through a multi-functional business simulation",
       achievements: [
         "Lead and prepare weekly labs for 50+ business capstone students, creating lesson plans on financial modeling and strategy",
         "Grade 200+ assignments monthly using Canvas SpeedGrader, Excel, and SharePoint",
