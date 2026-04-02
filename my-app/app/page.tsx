@@ -95,35 +95,21 @@ export default function Home() {
   }, []);
 
   const handleSectionClick = (section: SectionKey) => {
-    setActiveSection(section);
+  setActiveSection(section);
 
-    setTimeout(() => {
-      const sectionEl = sectionRefs[section].current;
+  setTimeout(() => {
+    const sectionEl = sectionRefs[section].current;
 
-      if (sectionEl) {
-        const targetY =
-          sectionEl.getBoundingClientRect().top + window.scrollY - 95;
+    if (sectionEl) {
+      const targetY = sectionEl.getBoundingClientRect().top + window.scrollY;
 
-        const currentY = window.scrollY;
-
-        if (isMobile) {
-          window.scrollTo({
-            top: targetY,
-            behavior: "smooth",
-          });
-          return;
-        }
-
-        if (targetY < currentY) {
-          window.scrollTo({
-            top: targetY,
-            behavior: "smooth",
-          });
-        }
-      }
-    }, 150);
-  };
-
+      window.scrollTo({
+        top: targetY,
+        behavior: "smooth",
+      });
+    }
+  }, 150);
+};
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
