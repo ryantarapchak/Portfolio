@@ -252,7 +252,7 @@ export default function Home() {
       "Analyzed Bed Bath & Beyond’s capital structure to evaluate how excess cash, debt, and payout decisions impact firm value, risk, and shareholder returns.",
       pdf: "/bedbath&beyond.pdf",
       featured: false,
-      advisor: "Dr. Bharadwaj Kannan",
+      client: "Dr. Bharadwaj Kannan",
       timeline: "Spring 2026",
       collaborators:
         "Ryan Tarapchak, Shubh Savani, Thor Skogum, Dionysis Petratos, and Zachary Nickolas",
@@ -266,7 +266,7 @@ export default function Home() {
       pdf: "/crowdstrike.pdf",
       featured: false,
       client: "Nittany Lion Investment Club",
-      timeline: "Spring 2026",
+      timeline: "Spring 2025",
       collaborators: "Ryan Tarapchak",
     },
     {
@@ -276,7 +276,7 @@ export default function Home() {
         "Built a multi-sheet Excel master budget for a manufacturing company, connecting sales, production, cost, cash, and projected financial statements. Included a separate file to highlight the formulas and structure behind the model.",
       pdf: "/sensotech.pdf",
       featured: false,
-      advisor: "Dr. Sajay Samuel",
+      client: "Dr. Sajay Samuel",
       timeline: "Fall 2025",
       collaborators: "Ryan Tarapchak",
       files: [
@@ -289,7 +289,7 @@ export default function Home() {
       description:
         "Built a valuation model for Wrigley using DCF and comparable company analysis, estimating intrinsic value and evaluating potential acquisition pricing.",
       featured: false,
-      advisor: "Dr. Bharadwaj Kannan",
+      client: "Dr. Bharadwaj Kannan",
       timeline: "Spring 2026",
       collaborators:
         "Ryan Tarapchak, Shubh Savani, Thor Skogum, Dionysis Petratos, Zachary Nickolas, and Ryan Greathouse",
