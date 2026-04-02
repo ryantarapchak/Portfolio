@@ -47,6 +47,7 @@ export default function Home() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [projectViewerOpen, setProjectViewerOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [sidebarLockedFlash, setSidebarLockedFlash] = useState(false);
 
   const sectionRefs: Record<SectionKey, React.RefObject<HTMLElement | null>> = {
     professional: useRef<HTMLElement>(null),
@@ -142,6 +143,20 @@ export default function Home() {
 
     return path;
   };
+
+  const triggerSidebarLockFlash = () => {
+  if (isMobile) return;
+
+  setSidebarLockedFlash(false);
+
+  requestAnimationFrame(() => {
+    setSidebarLockedFlash(true);
+
+    window.setTimeout(() => {
+      setSidebarLockedFlash(false);
+    }, 1800);
+  });
+};
 
   const experience: ExperienceItem[] = [
     {
@@ -406,8 +421,27 @@ export default function Home() {
           </div>
         </header>
 
-        <div className="grid gap-6 lg:grid-cols-[340px_minmax(0,1fr)] lg:gap-10">
-          <aside className="flex h-fit flex-col rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.35)] backdrop-blur-sm sm:p-8">
+                        <div className="grid gap-6 lg:grid-cols-[340px_minmax(0,1fr)] lg:gap-10">
+          <aside
+            onClick={!isMobile ? triggerSidebarLockFlash : undefined}
+            className={`relative flex h-fit flex-col rounded-3xl border bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.35)] backdrop-blur-sm transition-all duration-500 sm:p-8 ${
+              sidebarLockedFlash
+                ? "border-[#7CC4FA]/60 shadow-[0_0_0_1px_rgba(124,196,250,0.18),0_0_40px_rgba(75,156,211,0.22),0_10px_40px_rgba(0,0,0,0.35)]"
+                : "border-white/10"
+            }`}
+          >
+            {sidebarLockedFlash && (
+              <>
+                <div className="pointer-events-none absolute inset-0 rounded-3xl border border-[#7CC4FA]/20 animate-[sidebarPulse_1.8s_ease-out_forwards]" />
+                <div className="pointer-events-none absolute left-3 top-3 h-8 w-8 rounded-tl-2xl border-l-2 border-t-2 border-[#7CC4FA] animate-[cornerIn_0.45s_ease-out_forwards]" />
+                <div className="pointer-events-none absolute right-3 top-3 h-8 w-8 rounded-tr-2xl border-r-2 border-t-2 border-[#7CC4FA] animate-[cornerIn_0.45s_ease-out_forwards]" />
+                <div className="pointer-events-none absolute bottom-3 left-3 h-8 w-8 rounded-bl-2xl border-b-2 border-l-2 border-[#7CC4FA] animate-[cornerIn_0.45s_ease-out_forwards]" />
+                <div className="pointer-events-none absolute bottom-3 right-3 h-8 w-8 rounded-br-2xl border-b-2 border-r-2 border-[#7CC4FA] animate-[cornerIn_0.45s_ease-out_forwards]" />
+                <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-[#7CC4FA] to-transparent opacity-80 animate-[lineSweepX_0.55s_ease-out_forwards]" />
+                <div className="pointer-events-none absolute inset-y-8 left-0 w-px bg-gradient-to-b from-transparent via-[#7CC4FA] to-transparent opacity-80 animate-[lineSweepY_0.55s_ease-out_forwards]" />
+              </>
+            )}
+
             <div className="mb-6 h-24 w-24 overflow-hidden rounded-full border-2 border-[#4B9CD3]/50 shadow-[0_0_40px_rgba(75,156,211,0.35)] sm:h-32 sm:w-32">
               <img
                 src="/headshot.png"
@@ -467,7 +501,10 @@ export default function Home() {
             <div className="mt-8 flex gap-3">
               <button
                 type="button"
-                onClick={() => setSidebarView("work")}
+                onClick={() => {
+  setSidebarView("work");
+  triggerSidebarLockFlash();
+}}
                 className={`rounded-xl px-4 py-2 text-sm font-semibold transition ${
                   sidebarView === "work"
                     ? "bg-[#4B9CD3] text-[#041E42] shadow-[0_0_25px_rgba(124,196,250,0.35)]"
@@ -479,7 +516,10 @@ export default function Home() {
 
               <button
                 type="button"
-                onClick={() => setSidebarView("contact")}
+                onClick={() => {
+  setSidebarView("contact");
+  triggerSidebarLockFlash();
+}}
                 className={`rounded-xl px-4 py-2 text-sm font-medium transition ${
                   sidebarView === "contact"
                     ? "bg-[#4B9CD3] text-[#041E42] shadow-[0_0_25px_rgba(124,196,250,0.35)]"
@@ -1134,6 +1174,63 @@ export default function Home() {
           </span>
         </button>
       )}
+      <style jsx global>{`
+  @keyframes cornerIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.7);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes sidebarPulse {
+    0% {
+      opacity: 0;
+      transform: scale(0.985);
+    }
+    20% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    70% {
+      opacity: 0.8;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1.01);
+    }
+  }
+
+  @keyframes lineSweepX {
+    0% {
+      opacity: 0;
+      transform: scaleX(0.15);
+      transform-origin: center;
+    }
+    100% {
+      opacity: 1;
+      transform: scaleX(1);
+      transform-origin: center;
+    }
+  }
+
+  @keyframes lineSweepY {
+    0% {
+      opacity: 0;
+      transform: scaleY(0.15);
+      transform-origin: center;
+    }
+    100% {
+      opacity: 1;
+      transform: scaleY(1);
+      transform-origin: center;
+    }
+  }
+`}</style>
     </main>
   );
 }
