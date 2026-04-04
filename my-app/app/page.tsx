@@ -588,7 +588,7 @@ export default function Home() {
                 ref={sectionRefs.professional}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
-                <h2 className="text-3xl font-bold tracking-[-0.02em] text-white sm:text-[2.2rem]">
+                <h2 className="text-3xl font-bold tracking-[-0.02em] text-white sm:texttext-[1.7rem] font-bold tracking-[-0.02em] text-white sm:text-[1.9rem]-[2.2rem]">
                   Professional Experience
                 </h2>
 
@@ -603,7 +603,7 @@ export default function Home() {
                 ref={sectionRefs.leadership}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
-                <h2 className="text-3xl font-bold tracking-[-0.02em] text-white sm:text-[2.2rem]">
+                <h2 className="text-3xl font-bold tracking-[-0.02em] text-[1.7rem] font-bold tracking-[-0.02em] text-white sm:text-[1.9rem]-white sm:text-[2.2rem]">
                   Leadership Experience
                 </h2>
 
@@ -618,7 +618,7 @@ export default function Home() {
                 ref={sectionRefs.education}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
-                <h2 className="text-3xl font-bold tracking-[-0.02em] text-white sm:text-[2.2rem]">
+                <h2 className="text-3xl font-bold tracking-[-0.02em] text-text-[1.7rem] font-bold tracking-[-0.02em] text-white sm:text-[1.9rem] sm:text-[2.2rem]">
                   Education
                 </h2>
 
@@ -665,7 +665,7 @@ export default function Home() {
                 ref={sectionRefs.credentials}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
-                <h2 className="text-3xl font-bold tracking-[-0.02em] text-white sm:text-[2.2rem]">
+                <h2 className="text-3xl font-bold tracking-[-0.02em] text-[1.7rem] font-bold tracking-[-0.02em] text-white sm:text-[1.9rem]-white sm:text-[2.2rem]">
                   Certifications & Credentials
                 </h2>
 
@@ -704,7 +704,7 @@ export default function Home() {
                 ref={sectionRefs.skills}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
-                <h2 className="text-3xl font-bold tracking-[-0.02em] text-white sm:text-[2.2rem]">
+                <h2 className="text-3xl font-bold tracking-[-0.02em] text-[1.7rem] font-bold tracking-[-0.02em] text-white sm:text-[1.9rem]-white sm:text-[2.2rem]">
                   Skills & Expertise
                 </h2>
 
@@ -833,7 +833,7 @@ export default function Home() {
                 ref={sectionRefs.portfolio}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
-                <h2 className="text-3xl font-bold tracking-[-0.02em] text-white sm:text-[2.2rem]">
+                <h2 className="text-3xl font-bold tracking-[-0.02em] text-text-[1.7rem] font-bold tracking-[-0.02em] text-white sm:text-[1.9rem] sm:text-[2.2rem]">
                   Portfolio
                 </h2>
 
