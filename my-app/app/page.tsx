@@ -95,30 +95,31 @@ export default function Home() {
   }, []);
 
   const handleSectionClick = (section: SectionKey) => {
-  setActiveSection(section);
+    setActiveSection(section);
 
-  setTimeout(() => {
-    if (isMobile) {
-      const sectionEl = sectionRefs[section].current;
+    setTimeout(() => {
+      if (isMobile) {
+        const sectionEl = sectionRefs[section].current;
 
-      if (sectionEl) {
-        const targetY = sectionEl.getBoundingClientRect().top + window.scrollY;
+        if (sectionEl) {
+          const targetY = sectionEl.getBoundingClientRect().top + window.scrollY;
 
-        window.scrollTo({
-          top: targetY,
-          behavior: "smooth",
-        });
+          window.scrollTo({
+            top: targetY,
+            behavior: "smooth",
+          });
+        }
+
+        return;
       }
 
-      return;
-    }
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }, 150);
+  };
 
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  }, 150);
-};
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -181,7 +182,7 @@ export default function Home() {
         "Performed financial and operational analysis on grant-funded projects and built tools to support funding visibility and data-driven decisions for the city's commerce department.",
       achievements: [
         "Conducted financial and operational analysis for 10 grant-funded projects using Excel and Quickbase",
-        "Built an Excel file to track 30+ key data points across projects with a combined budget of $10M, improving visibility and reporting for the department", 
+        "Built an Excel file to track 30+ key data points across projects with a combined budget of $10M, improving visibility and reporting for the department",
         "Designed 10 digital project profiles in Canva to showcase project impact and outcomes for stakeholders and the public",
         "Created and managed a $100K project budget using Excel to model ROI, credit feasibility, and risk mitigation strategies",
       ],
@@ -588,7 +589,7 @@ export default function Home() {
                 ref={sectionRefs.professional}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
-                <h2 className="text-3xl font-bold tracking-[-0.02em] text-white sm:texttext-[1.7rem] font-bold tracking-[-0.02em] text-white sm:text-[1.9rem]-[2.2rem]">
+                <h2 className="text-[1.7rem] font-bold tracking-[-0.02em] text-white sm:text-[1.9rem]">
                   Professional Experience
                 </h2>
 
@@ -603,7 +604,7 @@ export default function Home() {
                 ref={sectionRefs.leadership}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
-                <h2 className="text-3xl font-bold tracking-[-0.02em] text-[1.7rem] font-bold tracking-[-0.02em] text-white sm:text-[1.9rem]-white sm:text-[2.2rem]">
+                <h2 className="text-[1.7rem] font-bold tracking-[-0.02em] text-white sm:text-[1.9rem]">
                   Leadership Experience
                 </h2>
 
@@ -618,7 +619,7 @@ export default function Home() {
                 ref={sectionRefs.education}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
-                <h2 className="text-3xl font-bold tracking-[-0.02em] text-text-[1.7rem] font-bold tracking-[-0.02em] text-white sm:text-[1.9rem] sm:text-[2.2rem]">
+                <h2 className="text-[1.7rem] font-bold tracking-[-0.02em] text-white sm:text-[1.9rem]">
                   Education
                 </h2>
 
@@ -665,7 +666,7 @@ export default function Home() {
                 ref={sectionRefs.credentials}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
-                <h2 className="text-3xl font-bold tracking-[-0.02em] text-[1.7rem] font-bold tracking-[-0.02em] text-white sm:text-[1.9rem]-white sm:text-[2.2rem]">
+                <h2 className="text-[1.7rem] font-bold tracking-[-0.02em] text-white sm:text-[1.9rem]">
                   Certifications & Credentials
                 </h2>
 
@@ -704,7 +705,7 @@ export default function Home() {
                 ref={sectionRefs.skills}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
-                <h2 className="text-3xl font-bold tracking-[-0.02em] text-[1.7rem] font-bold tracking-[-0.02em] text-white sm:text-[1.9rem]-white sm:text-[2.2rem]">
+                <h2 className="text-[1.7rem] font-bold tracking-[-0.02em] text-white sm:text-[1.9rem]">
                   Skills & Expertise
                 </h2>
 
@@ -833,7 +834,7 @@ export default function Home() {
                 ref={sectionRefs.portfolio}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
-                <h2 className="text-3xl font-bold tracking-[-0.02em] text-text-[1.7rem] font-bold tracking-[-0.02em] text-white sm:text-[1.9rem] sm:text-[2.2rem]">
+                <h2 className="text-[1.7rem] font-bold tracking-[-0.02em] text-white sm:text-[1.9rem]">
                   Portfolio
                 </h2>
 
