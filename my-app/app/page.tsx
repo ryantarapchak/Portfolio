@@ -39,37 +39,11 @@ type Project = {
   tags?: string[];
 };
 
-const typeStyles = {
-  pageTitle:
-    "text-2xl font-bold tracking-tight text-white sm:text-3xl",
-  sectionTitle:
-    "text-3xl font-bold tracking-[-0.02em] text-white sm:text-[2.2rem]",
-  cardTitle:
-    "text-xl font-semibold tracking-tight text-white",
-  subCardTitle:
-    "text-lg font-semibold tracking-tight text-white",
-  heroProjectTitle:
-    "text-3xl font-bold tracking-tight text-white sm:text-[2.4rem]",
-  overlayTitle:
-    "text-3xl font-bold tracking-tight text-white sm:text-5xl",
-  accentLabel:
-    "text-[11px] font-semibold uppercase tracking-[0.22em] text-[#7CC4FA]",
-  accentSubLabel:
-    "text-xs font-semibold uppercase tracking-[0.14em] text-[#7CC4FA] sm:text-sm",
-  mutedLabel:
-    "text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-400",
-  body:
-    "leading-7 text-slate-300/95",
-  bodyLg:
-    "text-base leading-7 text-slate-300 sm:text-lg",
-  bodySm:
-    "text-sm leading-6 text-slate-300",
-  meta:
-    "text-sm text-slate-400/90",
-  detailValue:
-    "mt-1 text-lg font-semibold tracking-tight text-white sm:text-xl",
-  pill:
-    "rounded-full border border-[#4B9CD3]/25 bg-[#4B9CD3]/10 px-3 py-1 text-xs font-medium text-[#B9E3FF]",
+const portfolioFont = {
+  title: "text-xl font-semibold tracking-tight text-white",
+  subtitle:
+    "mt-1 text-xs font-semibold uppercase tracking-[0.14em] text-[#7CC4FA]",
+  body: "text-sm leading-6 text-slate-300",
 };
 
 export default function Home() {
@@ -350,7 +324,7 @@ export default function Home() {
     >
       <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
         <div>
-          <h3 className={typeStyles.cardTitle}>{job.title}</h3>
+          <h3 className={portfolioFont.title}>{job.title}</h3>
           <p className="text-[#7CC4FA]">{job.company}</p>
         </div>
 
@@ -359,10 +333,12 @@ export default function Home() {
         </p>
       </div>
 
-      <p className={`mt-4 ${typeStyles.body}`}>{job.description}</p>
+      <p className={`mt-4 ${portfolioFont.body}`}>{job.description}</p>
 
       <div className="mt-5">
-        <h4 className={typeStyles.mutedLabel}>Achievements</h4>
+        <h4 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-400">
+          Achievements
+        </h4>
 
         <ul className="mt-3 space-y-2 text-slate-300">
           {job.achievements.map((item) => (
@@ -372,11 +348,16 @@ export default function Home() {
       </div>
 
       <div className="mt-5">
-        <h4 className={typeStyles.mutedLabel}>Skills</h4>
+        <h4 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-400">
+          Skills
+        </h4>
 
         <div className="mt-3 flex flex-wrap gap-2">
           {job.skills.map((skill) => (
-            <span key={skill} className={typeStyles.pill}>
+            <span
+              key={skill}
+              className="rounded-full border border-[#4B9CD3]/25 bg-[#4B9CD3]/10 px-3 py-1 text-xs font-medium text-[#B9E3FF]"
+            >
               {skill}
             </span>
           ))}
@@ -386,7 +367,7 @@ export default function Home() {
   );
 
   return (
-    <main className="min-h-screen bg-[#070B14] font-sans text-slate-200 antialiased">
+    <main className="min-h-screen bg-[#070B14] text-slate-200">
       <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(75,156,211,0.16),transparent_30%),radial-gradient(circle_at_top_right,rgba(255,255,255,0.05),transparent_22%),linear-gradient(to_bottom,#070B14,#0B1530_55%,#08101F)]" />
       <div className="pointer-events-none fixed inset-0 -z-10 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:32px_32px] opacity-[0.06]" />
 
@@ -394,11 +375,11 @@ export default function Home() {
         <header className="mb-4 border-b border-white/10 bg-[#070B14]/80 py-4 backdrop-blur-md lg:sticky lg:top-0 lg:z-50 lg:mb-4">
           <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
             <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-4">
-              <h1 className="text-xl font-bold tracking-tight text-white sm:text-2xl">
+              <h1 className="text-xl font-bold text-white sm:text-2xl">
                 <span className="text-[#7CC4FA]">Ryan</span> Tarapchak
               </h1>
 
-              <span className={typeStyles.meta}>
+              <span className="text-xs text-slate-400/90 sm:text-sm">
                 Finance Graduate Student
               </span>
             </div>
@@ -432,7 +413,7 @@ export default function Home() {
               />
             </div>
 
-            <h1 className={typeStyles.pageTitle}>
+            <h1 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
               Ryan Tarapchak
             </h1>
 
@@ -440,12 +421,12 @@ export default function Home() {
               <span className="block text-sm sm:text-base">
                 The Pennsylvania State University
               </span>
-              <span className={typeStyles.meta}>
+              <span className="block text-xs text-slate-400/90 sm:text-sm">
                 Master of Finance
               </span>
             </p>
 
-            <p className={`mt-1 ${typeStyles.meta}`}>
+            <p className="mt-1 text-sm text-slate-400/90">
               Langhorne, Pennsylvania
             </p>
 
@@ -453,14 +434,14 @@ export default function Home() {
               <button
                 type="button"
                 onClick={() => setResumeOpen(true)}
-                className="flex w-full items-center justify-center rounded-xl border border-[#4B9CD3]/35 bg-[#4B9CD3]/12 px-4 py-3 text-sm font-semibold text-[#B9E3FF] transition hover:-translate-y-0.5 hover:bg-[#4B9CD3]/18"
+                className="w-full flex items-center justify-center rounded-xl border border-[#4B9CD3]/35 bg-[#4B9CD3]/12 px-4 py-3 text-sm font-semibold text-[#B9E3FF] transition hover:-translate-y-0.5 hover:bg-[#4B9CD3]/18"
               >
                 Resume
               </button>
             </div>
 
             <div className="mt-6">
-              <h2 className={typeStyles.accentLabel}>
+              <h2 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#7CC4FA]">
                 Target Roles
               </h2>
 
@@ -472,7 +453,7 @@ export default function Home() {
                 ].map((role) => (
                   <span
                     key={role}
-                    className={typeStyles.pill}
+                    className="rounded-full border border-[#4B9CD3]/25 bg-[#4B9CD3]/10 px-3 py-1 text-xs font-medium text-[#B9E3FF]"
                   >
                     {role}
                   </span>
@@ -507,7 +488,7 @@ export default function Home() {
             </div>
 
             <div className="mt-6 lg:hidden">
-              <h2 className={typeStyles.accentLabel}>
+              <h2 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#7CC4FA]">
                 Sections
               </h2>
 
@@ -532,11 +513,11 @@ export default function Home() {
             {sidebarView === "work" ? (
               <>
                 <div className="mt-10 border-t border-white/10 pt-8">
-                  <h2 className={typeStyles.accentLabel}>
+                  <h2 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#7CC4FA]">
                     About
                   </h2>
 
-                  <p className={`mt-4 ${typeStyles.body}`}>
+                  <p className={`mt-4 ${portfolioFont.body}`}>
                     Penn State graduate student with experience in financial
                     analysis, valuation, and building models across both
                     academic and real-world settings. I enjoy breaking down
@@ -546,7 +527,7 @@ export default function Home() {
                 </div>
 
                 <div className="mt-10 border-t border-white/10 pt-8">
-                  <h2 className={typeStyles.accentLabel}>
+                  <h2 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#7CC4FA]">
                     Focus
                   </h2>
 
@@ -559,13 +540,13 @@ export default function Home() {
               </>
             ) : (
               <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-5">
-                <h2 className={typeStyles.accentLabel}>
+                <h2 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#7CC4FA]">
                   Contact Information
                 </h2>
 
                 <div className="mt-4 space-y-4 text-sm text-slate-300">
                   <div>
-                    <p className={typeStyles.meta}>Email</p>
+                    <p className="text-slate-400/90">Email</p>
                     <a
                       href="mailto:ryantarapchak@gmail.com"
                       className="text-white transition hover:text-[#7CC4FA]"
@@ -575,7 +556,7 @@ export default function Home() {
                   </div>
 
                   <div>
-                    <p className={typeStyles.meta}>Phone</p>
+                    <p className="text-slate-400/90">Phone</p>
                     <a
                       href="tel:2159628332"
                       className="text-white transition hover:text-[#7CC4FA]"
@@ -585,7 +566,7 @@ export default function Home() {
                   </div>
 
                   <div>
-                    <p className={typeStyles.meta}>LinkedIn</p>
+                    <p className="text-slate-400/90">LinkedIn</p>
                     <a
                       href="https://www.linkedin.com/in/ryantarapchak"
                       target="_blank"
@@ -613,9 +594,7 @@ export default function Home() {
                 ref={sectionRefs.professional}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
-                <h2 className={typeStyles.sectionTitle}>
-                  Professional Experience
-                </h2>
+                <h2 className={portfolioFont.title}>Professional Experience</h2>
 
                 <div className="mt-8 space-y-8">
                   {professionalExperience.map(renderExperienceCard)}
@@ -628,9 +607,7 @@ export default function Home() {
                 ref={sectionRefs.leadership}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
-                <h2 className={typeStyles.sectionTitle}>
-                  Leadership Experience
-                </h2>
+                <h2 className={portfolioFont.title}>Leadership Experience</h2>
 
                 <div className="mt-8 space-y-8">
                   {leadershipExperience.map(renderExperienceCard)}
@@ -643,43 +620,33 @@ export default function Home() {
                 ref={sectionRefs.education}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
-                <h2 className={typeStyles.sectionTitle}>
-                  Education
-                </h2>
+                <h2 className={portfolioFont.title}>Education</h2>
 
                 <div className="mt-8 grid gap-6 md:grid-cols-2">
                   <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition hover:border-[#4B9CD3]/35 hover:bg-white/[0.05]">
-                    <h3 className={typeStyles.subCardTitle}>
-                      Master of Finance
-                    </h3>
+                    <h3 className={portfolioFont.title}>Master of Finance</h3>
                     <p className="mt-2 text-[#7CC4FA]">
                       The Pennsylvania State University
                     </p>
-                    <p className={`mt-2 ${typeStyles.meta}`}>
+                    <p className={portfolioFont.body}>
                       Smeal College of Business
                     </p>
-                    <p className={`mt-2 ${typeStyles.meta}`}>
+                    <p className={portfolioFont.body}>
                       Expected Graduation: May 2026
                     </p>
                   </div>
 
                   <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition hover:border-[#4B9CD3]/35 hover:bg-white/[0.05]">
-                    <h3 className={typeStyles.subCardTitle}>
+                    <h3 className={portfolioFont.title}>
                       Bachelor of Science in Business Administration
                     </h3>
                     <p className="mt-2 text-[#7CC4FA]">
                       East Carolina University
                     </p>
-                    <p className={`mt-2 ${typeStyles.meta}`}>
-                      The College of Business
-                    </p>
-                    <p className={`mt-2 ${typeStyles.meta}`}>
-                      Graduated: May 2025
-                    </p>
-                    <p className={`mt-2 ${typeStyles.meta}`}>GPA: 3.88</p>
-                    <p className={`mt-2 ${typeStyles.meta}`}>
-                      Magna Cum Laude
-                    </p>
+                    <p className={portfolioFont.body}>The College of Business</p>
+                    <p className={portfolioFont.body}>Graduated: May 2025</p>
+                    <p className={portfolioFont.body}>GPA: 3.88</p>
+                    <p className={portfolioFont.body}>Magna Cum Laude</p>
                   </div>
                 </div>
               </section>
@@ -690,19 +657,19 @@ export default function Home() {
                 ref={sectionRefs.credentials}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
-                <h2 className={typeStyles.sectionTitle}>
+                <h2 className={portfolioFont.title}>
                   Certifications & Credentials
                 </h2>
 
                 <div className="mt-8 space-y-6">
                   <div className="rounded-xl border border-white/10 bg-white/[0.02] p-5">
-                    <h3 className={typeStyles.subCardTitle}>
+                    <h3 className={portfolioFont.title}>
                       Truist Emerging Leaders Certification
                     </h3>
                     <p className="mt-1 text-sm text-[#7CC4FA]">
                       Truist Leadership Institute
                     </p>
-                    <p className={`mt-2 ${typeStyles.bodySm}`}>
+                    <p className={portfolioFont.body}>
                       A selective leadership development program focused on
                       professional growth, communication, and team-based
                       leadership skills.
@@ -710,11 +677,11 @@ export default function Home() {
                   </div>
 
                   <div className="rounded-xl border border-white/10 bg-white/[0.02] p-5">
-                    <h3 className={typeStyles.subCardTitle}>
+                    <h3 className={portfolioFont.title}>
                       Microsoft Office Specialist (MOS): Excel 2016
                     </h3>
                     <p className="mt-1 text-sm text-[#7CC4FA]">Microsoft</p>
-                    <p className={`mt-2 ${typeStyles.bodySm}`}>
+                    <p className={portfolioFont.body}>
                       A performance-based certification demonstrating
                       proficiency in Excel, including data analysis, financial
                       modeling, and advanced spreadsheet functions.
@@ -729,15 +696,11 @@ export default function Home() {
                 ref={sectionRefs.skills}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
-                <h2 className={typeStyles.sectionTitle}>
-                  Skills & Expertise
-                </h2>
+                <h2 className={portfolioFont.title}>Skills & Expertise</h2>
 
                 <div className="mt-8 grid gap-10 md:grid-cols-2">
                   <div className="space-y-6">
-                    <h3 className="text-lg font-semibold tracking-tight text-[#7CC4FA]">
-                      Technical Skills
-                    </h3>
+                    <h3 className={portfolioFont.title}>Technical Skills</h3>
 
                     {[
                       {
@@ -779,15 +742,13 @@ export default function Home() {
                       },
                     ].map((section) => (
                       <div key={section.title}>
-                        <p className="text-sm font-semibold tracking-tight text-slate-400">
-                          {section.title}
-                        </p>
+                        <p className={portfolioFont.subtitle}>{section.title}</p>
 
                         <div className="mt-2 flex flex-wrap gap-2">
                           {section.items.map((item) => (
                             <span
                               key={item}
-                              className={typeStyles.pill}
+                              className="rounded-full border border-[#4B9CD3]/25 bg-[#4B9CD3]/10 px-3 py-1 text-xs text-[#B9E3FF]"
                             >
                               {item}
                             </span>
@@ -798,9 +759,7 @@ export default function Home() {
                   </div>
 
                   <div className="space-y-6">
-                    <h3 className="text-lg font-semibold tracking-tight text-[#7CC4FA]">
-                      Professional Skills
-                    </h3>
+                    <h3 className={portfolioFont.title}>Professional Skills</h3>
 
                     {[
                       {
@@ -837,11 +796,9 @@ export default function Home() {
                         key={section.title}
                         className="rounded-xl border border-white/10 bg-white/[0.02] p-4"
                       >
-                        <p className="text-sm font-semibold tracking-tight text-slate-400">
-                          {section.title}
-                        </p>
+                        <p className={portfolioFont.subtitle}>{section.title}</p>
 
-                        <ul className="mt-2 space-y-1 text-sm text-slate-300">
+                        <ul className={`mt-2 space-y-1 ${portfolioFont.body}`}>
                           {section.items.map((item) => (
                             <li key={item}>• {item}</li>
                           ))}
@@ -858,9 +815,7 @@ export default function Home() {
                 ref={sectionRefs.portfolio}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
-                <h2 className={typeStyles.sectionTitle}>
-                  Portfolio
-                </h2>
+                <h2 className={portfolioFont.title}>Portfolio</h2>
 
                 {featuredProject && (
                   <button
@@ -877,15 +832,15 @@ export default function Home() {
                           Featured Project
                         </p>
 
-                        <h3 className={`mt-4 ${typeStyles.heroProjectTitle}`}>
+                        <h3 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-[2.4rem]">
                           {featuredProject.title}
                         </h3>
 
-                        <p className={`mt-2 ${typeStyles.accentSubLabel}`}>
+                        <p className="mt-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#7CC4FA] sm:text-sm">
                           {featuredProject.subtitle}
                         </p>
 
-                        <p className={`mt-4 max-w-2xl ${typeStyles.bodyLg}`}>
+                        <p className="mt-4 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg">
                           {featuredProject.description}
                         </p>
 
@@ -924,7 +879,7 @@ export default function Home() {
                       className="group block rounded-[26px] border border-white/10 bg-white/[0.03] p-5 text-left transition duration-300 hover:-translate-y-1 hover:border-[#4B9CD3]/35 hover:bg-white/[0.05] hover:shadow-[0_0_30px_rgba(75,156,211,0.10)]"
                     >
                       <div>
-                        <h3 className={typeStyles.cardTitle}>
+                        <h3 className="text-xl font-semibold tracking-tight text-white">
                           {project.title}
                         </h3>
                         <p className="mt-1 text-xs font-semibold uppercase tracking-[0.14em] text-[#7CC4FA]">
@@ -932,7 +887,7 @@ export default function Home() {
                         </p>
                       </div>
 
-                      <p className={`mt-4 ${typeStyles.bodySm}`}>
+                      <p className="mt-4 text-sm leading-6 text-slate-300">
                         {project.description}
                       </p>
 
@@ -971,7 +926,7 @@ export default function Home() {
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 px-4">
           <div className="relative h-[90vh] w-full max-w-5xl rounded-2xl border border-white/10 bg-[#0B1220] shadow-2xl">
             <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
-              <h3 className="text-sm font-semibold tracking-tight text-white">Resume</h3>
+              <h3 className="text-sm font-semibold text-white">Resume</h3>
 
               <div className="flex items-center gap-3">
                 <a
@@ -1012,11 +967,11 @@ export default function Home() {
                     {activeProject.subtitle}
                   </p>
 
-                  <h2 className={`mt-4 ${typeStyles.overlayTitle}`}>
+                  <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-5xl">
                     {activeProject.title}
                   </h2>
 
-                  <p className={`mt-4 max-w-3xl ${typeStyles.bodyLg}`}>
+                  <p className="mt-4 max-w-3xl text-base leading-7 text-slate-200 sm:text-lg">
                     {activeProject.description}
                   </p>
 
@@ -1058,7 +1013,7 @@ export default function Home() {
                 {activeViewerSrc ? (
                   isMobile ? (
                     <div className="rounded-2xl bg-slate-100 p-6 text-center">
-                      <h3 className="text-lg font-semibold tracking-tight text-slate-900">
+                      <h3 className="text-lg font-semibold text-slate-900">
                         {activeProject.title}
                       </h3>
                       <p className="mt-2 text-sm leading-6 text-slate-600">
@@ -1084,7 +1039,7 @@ export default function Home() {
                 ) : (
                   <div className="flex h-[950px] items-center justify-center rounded-2xl bg-slate-100 px-6 text-center">
                     <div>
-                      <h3 className="text-lg font-semibold tracking-tight text-slate-900">
+                      <h3 className="text-lg font-semibold text-slate-900">
                         No preview available
                       </h3>
                       <p className="mt-2 text-sm leading-6 text-slate-600">
@@ -1096,37 +1051,37 @@ export default function Home() {
               </div>
 
               <div className="space-y-6 sm:space-y-8">
-                <div className="rounded-3xl border border-white/10 bg-[#0B1220] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.35)] sm:p-6">
-                  <h3 className="text-2xl font-bold tracking-tight text-white">
+                <div className="rounded-3xl border border-white/10 bg-[#0B1220] p-5 sm:p-6 shadow-[0_10px_40px_rgba(0,0,0,0.35)]">
+                  <h3 className="text-2xl font-bold text-white">
                     Project Details
                   </h3>
 
                   <div className="mt-6 space-y-6">
                     <div>
-                      <p className={typeStyles.meta}>Client</p>
-                      <p className={typeStyles.detailValue}>
+                      <p className="text-sm text-slate-400">Client</p>
+                      <p className="mt-1 text-lg font-semibold text-white sm:text-xl">
                         {activeProject.client}
                       </p>
                     </div>
 
                     <div>
-                      <p className={typeStyles.meta}>Timeline</p>
-                      <p className={typeStyles.detailValue}>
+                      <p className="text-sm text-slate-400">Timeline</p>
+                      <p className="mt-1 text-lg font-semibold text-white sm:text-xl">
                         {activeProject.timeline}
                       </p>
                     </div>
 
                     <div>
-                      <p className={typeStyles.meta}>Collaborators</p>
-                      <p className={typeStyles.detailValue}>
+                      <p className="text-sm text-slate-400">Collaborators</p>
+                      <p className="mt-1 text-lg font-semibold text-white sm:text-xl">
                         {activeProject.collaborators}
                       </p>
                     </div>
                   </div>
                 </div>
 
-                <div className="rounded-3xl border border-white/10 bg-[#0B1220] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.35)] sm:p-6">
-                  <h3 className="text-2xl font-bold tracking-tight text-white">
+                <div className="rounded-3xl border border-white/10 bg-[#0B1220] p-5 sm:p-6 shadow-[0_10px_40px_rgba(0,0,0,0.35)]">
+                  <h3 className="text-2xl font-bold text-white">
                     More Projects
                   </h3>
 
@@ -1138,7 +1093,7 @@ export default function Home() {
                         onClick={() => setSelectedProject(project.title)}
                         className="w-full rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-left transition hover:border-[#4B9CD3]/35 hover:bg-white/[0.06]"
                       >
-                        <h4 className="text-base font-semibold tracking-tight text-white">
+                        <h4 className="text-base font-semibold text-white">
                           {project.title}
                         </h4>
                         <p className="mt-1 text-sm text-[#7CC4FA]">
