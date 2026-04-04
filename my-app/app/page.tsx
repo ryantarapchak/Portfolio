@@ -39,13 +39,6 @@ type Project = {
   tags?: string[];
 };
 
-const portfolioFont = {
-  title: "text-xl font-semibold tracking-tight text-white",
-  subtitle:
-    "mt-1 text-xs font-semibold uppercase tracking-[0.14em] text-[#7CC4FA]",
-  body: "text-sm leading-6 text-slate-300",
-};
-
 export default function Home() {
   const [sidebarView, setSidebarView] = useState<"work" | "contact">("work");
   const [activeSection, setActiveSection] =
@@ -102,31 +95,30 @@ export default function Home() {
   }, []);
 
   const handleSectionClick = (section: SectionKey) => {
-    setActiveSection(section);
+  setActiveSection(section);
 
-    setTimeout(() => {
-      if (isMobile) {
-        const sectionEl = sectionRefs[section].current;
+  setTimeout(() => {
+    if (isMobile) {
+      const sectionEl = sectionRefs[section].current;
 
-        if (sectionEl) {
-          const targetY = sectionEl.getBoundingClientRect().top + window.scrollY;
+      if (sectionEl) {
+        const targetY = sectionEl.getBoundingClientRect().top + window.scrollY;
 
-          window.scrollTo({
-            top: targetY,
-            behavior: "smooth",
-          });
-        }
-
-        return;
+        window.scrollTo({
+          top: targetY,
+          behavior: "smooth",
+        });
       }
 
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    }, 150);
-  };
+      return;
+    }
 
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, 150);
+};
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -189,7 +181,7 @@ export default function Home() {
         "Performed financial and operational analysis on grant-funded projects and built tools to support funding visibility and data-driven decisions for the city's commerce department.",
       achievements: [
         "Conducted financial and operational analysis for 10 grant-funded projects using Excel and Quickbase",
-        "Built an Excel file to track 30+ key data points across projects with a combined budget of $10M, improving visibility and reporting for the department",
+        "Built an Excel file to track 30+ key data points across projects with a combined budget of $10M, improving visibility and reporting for the department", 
         "Designed 10 digital project profiles in Canva to showcase project impact and outcomes for stakeholders and the public",
         "Created and managed a $100K project budget using Excel to model ROI, credit feasibility, and risk mitigation strategies",
       ],
@@ -324,7 +316,9 @@ export default function Home() {
     >
       <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
         <div>
-          <h3 className={portfolioFont.title}>{job.title}</h3>
+          <h3 className="text-xl font-semibold tracking-tight text-white">
+            {job.title}
+          </h3>
           <p className="text-[#7CC4FA]">{job.company}</p>
         </div>
 
@@ -333,7 +327,7 @@ export default function Home() {
         </p>
       </div>
 
-      <p className={`mt-4 ${portfolioFont.body}`}>{job.description}</p>
+      <p className="mt-4 leading-7 text-slate-300/95">{job.description}</p>
 
       <div className="mt-5">
         <h4 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-400">
@@ -517,7 +511,7 @@ export default function Home() {
                     About
                   </h2>
 
-                  <p className={`mt-4 ${portfolioFont.body}`}>
+                  <p className="mt-4 leading-7 text-slate-300/95">
                     Penn State graduate student with experience in financial
                     analysis, valuation, and building models across both
                     academic and real-world settings. I enjoy breaking down
@@ -594,7 +588,9 @@ export default function Home() {
                 ref={sectionRefs.professional}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
-                <h2 className={portfolioFont.title}>Professional Experience</h2>
+                <h2 className="text-3xl font-bold tracking-[-0.02em] text-white sm:text-[2.2rem]">
+                  Professional Experience
+                </h2>
 
                 <div className="mt-8 space-y-8">
                   {professionalExperience.map(renderExperienceCard)}
@@ -607,7 +603,9 @@ export default function Home() {
                 ref={sectionRefs.leadership}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
-                <h2 className={portfolioFont.title}>Leadership Experience</h2>
+                <h2 className="text-3xl font-bold tracking-[-0.02em] text-white sm:text-[2.2rem]">
+                  Leadership Experience
+                </h2>
 
                 <div className="mt-8 space-y-8">
                   {leadershipExperience.map(renderExperienceCard)}
@@ -620,33 +618,43 @@ export default function Home() {
                 ref={sectionRefs.education}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
-                <h2 className={portfolioFont.title}>Education</h2>
+                <h2 className="text-3xl font-bold tracking-[-0.02em] text-white sm:text-[2.2rem]">
+                  Education
+                </h2>
 
                 <div className="mt-8 grid gap-6 md:grid-cols-2">
                   <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition hover:border-[#4B9CD3]/35 hover:bg-white/[0.05]">
-                    <h3 className={portfolioFont.title}>Master of Finance</h3>
+                    <h3 className="text-lg font-semibold text-white">
+                      Master of Finance
+                    </h3>
                     <p className="mt-2 text-[#7CC4FA]">
                       The Pennsylvania State University
                     </p>
-                    <p className={portfolioFont.body}>
+                    <p className="mt-2 text-sm text-slate-400/90">
                       Smeal College of Business
                     </p>
-                    <p className={portfolioFont.body}>
+                    <p className="mt-2 text-sm text-slate-400/90">
                       Expected Graduation: May 2026
                     </p>
                   </div>
 
                   <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition hover:border-[#4B9CD3]/35 hover:bg-white/[0.05]">
-                    <h3 className={portfolioFont.title}>
+                    <h3 className="text-lg font-semibold text-white">
                       Bachelor of Science in Business Administration
                     </h3>
                     <p className="mt-2 text-[#7CC4FA]">
                       East Carolina University
                     </p>
-                    <p className={portfolioFont.body}>The College of Business</p>
-                    <p className={portfolioFont.body}>Graduated: May 2025</p>
-                    <p className={portfolioFont.body}>GPA: 3.88</p>
-                    <p className={portfolioFont.body}>Magna Cum Laude</p>
+                    <p className="mt-2 text-sm text-slate-400/90">
+                      The College of Business
+                    </p>
+                    <p className="mt-2 text-sm text-slate-400/90">
+                      Graduated: May 2025
+                    </p>
+                    <p className="mt-2 text-sm text-slate-400/90">GPA: 3.88</p>
+                    <p className="mt-2 text-sm text-slate-400/90">
+                      Magna Cum Laude
+                    </p>
                   </div>
                 </div>
               </section>
@@ -657,19 +665,19 @@ export default function Home() {
                 ref={sectionRefs.credentials}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
-                <h2 className={portfolioFont.title}>
+                <h2 className="text-3xl font-bold tracking-[-0.02em] text-white sm:text-[2.2rem]">
                   Certifications & Credentials
                 </h2>
 
                 <div className="mt-8 space-y-6">
                   <div className="rounded-xl border border-white/10 bg-white/[0.02] p-5">
-                    <h3 className={portfolioFont.title}>
+                    <h3 className="text-lg font-semibold text-white">
                       Truist Emerging Leaders Certification
                     </h3>
                     <p className="mt-1 text-sm text-[#7CC4FA]">
                       Truist Leadership Institute
                     </p>
-                    <p className={portfolioFont.body}>
+                    <p className="mt-2 text-sm text-slate-300/95">
                       A selective leadership development program focused on
                       professional growth, communication, and team-based
                       leadership skills.
@@ -677,11 +685,11 @@ export default function Home() {
                   </div>
 
                   <div className="rounded-xl border border-white/10 bg-white/[0.02] p-5">
-                    <h3 className={portfolioFont.title}>
+                    <h3 className="text-lg font-semibold text-white">
                       Microsoft Office Specialist (MOS): Excel 2016
                     </h3>
                     <p className="mt-1 text-sm text-[#7CC4FA]">Microsoft</p>
-                    <p className={portfolioFont.body}>
+                    <p className="mt-2 text-sm text-slate-300/95">
                       A performance-based certification demonstrating
                       proficiency in Excel, including data analysis, financial
                       modeling, and advanced spreadsheet functions.
@@ -696,11 +704,15 @@ export default function Home() {
                 ref={sectionRefs.skills}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
-                <h2 className={portfolioFont.title}>Skills & Expertise</h2>
+                <h2 className="text-3xl font-bold tracking-[-0.02em] text-white sm:text-[2.2rem]">
+                  Skills & Expertise
+                </h2>
 
                 <div className="mt-8 grid gap-10 md:grid-cols-2">
                   <div className="space-y-6">
-                    <h3 className={portfolioFont.title}>Technical Skills</h3>
+                    <h3 className="text-lg font-semibold text-[#7CC4FA]">
+                      Technical Skills
+                    </h3>
 
                     {[
                       {
@@ -742,7 +754,9 @@ export default function Home() {
                       },
                     ].map((section) => (
                       <div key={section.title}>
-                        <p className={portfolioFont.subtitle}>{section.title}</p>
+                        <p className="text-sm font-semibold text-slate-400">
+                          {section.title}
+                        </p>
 
                         <div className="mt-2 flex flex-wrap gap-2">
                           {section.items.map((item) => (
@@ -759,7 +773,9 @@ export default function Home() {
                   </div>
 
                   <div className="space-y-6">
-                    <h3 className={portfolioFont.title}>Professional Skills</h3>
+                    <h3 className="text-lg font-semibold text-[#7CC4FA]">
+                      Professional Skills
+                    </h3>
 
                     {[
                       {
@@ -796,9 +812,11 @@ export default function Home() {
                         key={section.title}
                         className="rounded-xl border border-white/10 bg-white/[0.02] p-4"
                       >
-                        <p className={portfolioFont.subtitle}>{section.title}</p>
+                        <p className="text-sm font-semibold text-slate-400">
+                          {section.title}
+                        </p>
 
-                        <ul className={`mt-2 space-y-1 ${portfolioFont.body}`}>
+                        <ul className="mt-2 space-y-1 text-sm text-slate-300">
                           {section.items.map((item) => (
                             <li key={item}>• {item}</li>
                           ))}
@@ -815,7 +833,9 @@ export default function Home() {
                 ref={sectionRefs.portfolio}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
-                <h2 className={portfolioFont.title}>Portfolio</h2>
+                <h2 className="text-3xl font-bold tracking-[-0.02em] text-white sm:text-[2.2rem]">
+                  Portfolio
+                </h2>
 
                 {featuredProject && (
                   <button
