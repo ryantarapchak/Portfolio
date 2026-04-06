@@ -258,7 +258,7 @@ export default function Home() {
       pdf: "/crowdstrike.pdf",
       featured: false,
       client: "Nittany Lion Investment Club",
-      timeline: "Spring 2025",
+      timeline: "Spring 2026",
       collaborators: "Ryan Tarapchak",
     },
     {
