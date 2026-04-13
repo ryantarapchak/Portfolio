@@ -251,13 +251,13 @@ export default function Home() {
       files: [{ label: "Capital Structure Model", path: "/bedbath&beyond.xlsx" }],
     },
     {
-      title: "CrowdStrike",
-      subtitle: "Investment Pitch",
+      title: "CrowdStrike (CRWD)",
+      subtitle: "Equity Research Pitch",
       description:
-        "Created and presented an investment pitch covering valuation, company performance, and cybersecurity positioning.",
+        "Developed and presented a long-term BUY thesis based on recurring revenue growth, platform expansion, and margin scalability”,
       pdf: "/crowdstrike.pdf",
       featured: false,
-      client: "Nittany Lion Investment Club",
+      client: "Nittany Investment Club",
       timeline: "Spring 2026",
       collaborators: "Ryan Tarapchak",
     },
