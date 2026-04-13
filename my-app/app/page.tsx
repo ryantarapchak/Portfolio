@@ -121,28 +121,6 @@ export default function Home() {
 
   const handleSectionClick = (section: SectionKey) => {
     setActiveSection(section);
-
-    setTimeout(() => {
-      if (isMobile) {
-        const sectionEl = sectionRefs[section].current;
-
-        if (sectionEl) {
-          const targetY = sectionEl.getBoundingClientRect().top + window.scrollY;
-
-          window.scrollTo({
-            top: targetY,
-            behavior: "smooth",
-          });
-        }
-
-        return;
-      }
-
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    }, 150);
   };
 
   const scrollToTop = () => {
