@@ -121,33 +121,9 @@ export default function Home() {
 
   const getSectionHeaderY = (section: SectionKey) => {
     const sectionEl = sectionRefs[section].current;
-
     if (!sectionEl) return 0;
 
     return sectionEl.getBoundingClientRect().top + window.scrollY - 100;
-  };
-
-  const smoothScrollTo = (targetY: number, duration = 1100) => {
-    const startY = window.scrollY;
-    const diff = targetY - startY;
-    const startTime = performance.now();
-
-    const easeInOutCubic = (t: number) =>
-      t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-
-    const step = (currentTime: number) => {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = easeInOutCubic(progress);
-
-      window.scrollTo(0, startY + diff * eased);
-
-      if (progress < 1) {
-        requestAnimationFrame(step);
-      }
-    };
-
-    requestAnimationFrame(step);
   };
 
   const handleSectionClick = (section: SectionKey) => {
@@ -155,13 +131,19 @@ export default function Home() {
 
     requestAnimationFrame(() => {
       const targetY = getSectionHeaderY(section);
-      smoothScrollTo(targetY, 1100);
+      window.scrollTo({
+        top: targetY,
+        behavior: "smooth",
+      });
     });
   };
 
   const scrollToTop = () => {
     const targetY = getSectionHeaderY(activeSection);
-    smoothScrollTo(targetY, 1100);
+    window.scrollTo({
+      top: targetY,
+      behavior: "smooth",
+    });
   };
 
   const getFileHref = (path: string) => {
