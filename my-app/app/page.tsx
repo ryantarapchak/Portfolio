@@ -84,29 +84,32 @@ export default function Home() {
   };
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight =
-        document.documentElement.scrollHeight - window.innerHeight;
+  const handleScroll = () => {
+    const startOffset = 100;
+    const rawScrollTop = window.scrollY;
+    const adjustedScrollTop = Math.max(0, rawScrollTop - startOffset);
 
-      if (docHeight <= 0) {
-        setScrollProgress(0);
-        return;
-      }
+    const docHeight =
+      document.documentElement.scrollHeight - window.innerHeight - startOffset;
 
-      const percent = Math.min(
-        100,
-        Math.max(0, Math.round((scrollTop / docHeight) * 100))
-      );
+    if (docHeight <= 0) {
+      setScrollProgress(0);
+      return;
+    }
 
-      setScrollProgress(percent);
-    };
+    const percent = Math.min(
+      100,
+      Math.max(0, Math.round((adjustedScrollTop / docHeight) * 100))
+    );
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
+    setScrollProgress(percent);
+  };
 
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  window.addEventListener("scroll", handleScroll);
+  handleScroll();
+
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
 
   useEffect(() => {
     const checkMobile = () => {
