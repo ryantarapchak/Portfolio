@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 type SectionKey =
@@ -56,6 +57,30 @@ export default function Home() {
     credentials: useRef<HTMLElement>(null),
     skills: useRef<HTMLElement>(null),
     portfolio: useRef<HTMLElement>(null),
+  };
+
+  const sectionMotion = {
+    initial: { opacity: 0, y: 24 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.55, ease: "easeOut" as const },
+  };
+
+  const inViewMotion = {
+    initial: { opacity: 0, y: 24 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, amount: 0.2 },
+    transition: { duration: 0.55, ease: "easeOut" as const },
+  };
+
+  const cardHover = {
+    whileHover: { y: -6, scale: 1.01 },
+    transition: { type: "spring" as const, stiffness: 260, damping: 20 },
+  };
+
+  const subtleHover = {
+    whileHover: { y: -2, scale: 1.02 },
+    whileTap: { scale: 0.98 },
+    transition: { type: "spring" as const, stiffness: 260, damping: 18 },
   };
 
   useEffect(() => {
@@ -311,8 +336,9 @@ export default function Home() {
     activeProject.presentation || activeProject.pdf || undefined;
 
   const renderExperienceCard = (job: ExperienceItem) => (
-    <div
+    <motion.div
       key={`${job.title}-${job.company}`}
+      {...cardHover}
       className="border-b border-white/10 pb-8 last:border-0"
     >
       <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
@@ -358,7 +384,7 @@ export default function Home() {
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 
   return (
@@ -381,10 +407,13 @@ export default function Home() {
 
             <nav className="hidden lg:flex lg:items-center lg:gap-3">
               {navItems.map((item) => (
-                <button
+                <motion.button
                   key={item.key}
                   type="button"
                   onClick={() => handleSectionClick(item.key)}
+                  whileHover={{ y: -2, scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ type: "spring", stiffness: 260, damping: 18 }}
                   className={`rounded-xl px-4 py-2 text-sm font-semibold transition ${
                     activeSection === item.key
                       ? "bg-[#4B9CD3] text-[#041E42] shadow-[0_0_25px_rgba(124,196,250,0.35)]"
@@ -392,7 +421,7 @@ export default function Home() {
                   }`}
                 >
                   {item.label}
-                </button>
+                </motion.button>
               ))}
             </nav>
           </div>
@@ -400,13 +429,18 @@ export default function Home() {
 
         <div className="grid gap-6 lg:grid-cols-[340px_minmax(0,1fr)] lg:gap-10">
           <aside className="flex h-fit flex-col rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.35)] backdrop-blur-sm sm:p-8">
-            <div className="mb-6 h-24 w-24 overflow-hidden rounded-full border-2 border-[#4B9CD3]/50 shadow-[0_0_40px_rgba(75,156,211,0.35)] sm:h-32 sm:w-32">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="mb-6 h-24 w-24 overflow-hidden rounded-full border-2 border-[#4B9CD3]/50 shadow-[0_0_40px_rgba(75,156,211,0.35)] sm:h-32 sm:w-32"
+            >
               <img
                 src="/headshot.png"
                 alt="Ryan Tarapchak"
                 className="h-full w-full object-cover object-top"
               />
-            </div>
+            </motion.div>
 
             <h1 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
               Ryan Tarapchak
@@ -426,13 +460,16 @@ export default function Home() {
             </p>
 
             <div className="mt-6">
-              <button
+              <motion.button
                 type="button"
                 onClick={() => setResumeOpen(true)}
-                className="w-full flex items-center justify-center rounded-xl border border-[#4B9CD3]/35 bg-[#4B9CD3]/12 px-4 py-3 text-sm font-semibold text-[#B9E3FF] transition hover:-translate-y-0.5 hover:bg-[#4B9CD3]/18"
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ type: "spring", stiffness: 260, damping: 18 }}
+                className="flex w-full items-center justify-center rounded-xl border border-[#4B9CD3]/35 bg-[#4B9CD3]/12 px-4 py-3 text-sm font-semibold text-[#B9E3FF] transition hover:bg-[#4B9CD3]/18"
               >
                 Resume
-              </button>
+              </motion.button>
             </div>
 
             <div className="mt-6">
@@ -446,20 +483,23 @@ export default function Home() {
                   "Corporate Finance",
                   "Investment Banking Analyst",
                 ].map((role) => (
-                  <span
+                  <motion.span
                     key={role}
+                    whileHover={{ y: -2, scale: 1.03 }}
+                    transition={{ type: "spring", stiffness: 260, damping: 18 }}
                     className="rounded-full border border-[#4B9CD3]/25 bg-[#4B9CD3]/10 px-3 py-1 text-xs font-medium text-[#B9E3FF]"
                   >
                     {role}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
             </div>
 
             <div className="mt-8 flex gap-3">
-              <button
+              <motion.button
                 type="button"
                 onClick={() => setSidebarView("work")}
+                {...subtleHover}
                 className={`rounded-xl px-4 py-2 text-sm font-semibold transition ${
                   sidebarView === "work"
                     ? "bg-[#4B9CD3] text-[#041E42] shadow-[0_0_25px_rgba(124,196,250,0.35)]"
@@ -467,11 +507,12 @@ export default function Home() {
                 }`}
               >
                 About Me
-              </button>
+              </motion.button>
 
-              <button
+              <motion.button
                 type="button"
                 onClick={() => setSidebarView("contact")}
+                {...subtleHover}
                 className={`rounded-xl px-4 py-2 text-sm font-semibold transition ${
                   sidebarView === "contact"
                     ? "bg-[#4B9CD3] text-[#041E42] shadow-[0_0_25px_rgba(124,196,250,0.35)]"
@@ -479,7 +520,7 @@ export default function Home() {
                 }`}
               >
                 Contact
-              </button>
+              </motion.button>
             </div>
 
             <div className="mt-6 lg:hidden">
@@ -489,10 +530,13 @@ export default function Home() {
 
               <div className="mt-3 flex flex-wrap gap-2">
                 {navItems.map((item) => (
-                  <button
+                  <motion.button
                     key={item.key}
                     type="button"
                     onClick={() => handleSectionClick(item.key)}
+                    whileHover={{ y: -2, scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    transition={{ type: "spring", stiffness: 260, damping: 18 }}
                     className={`rounded-xl px-3 py-2 text-xs font-semibold transition ${
                       activeSection === item.key
                         ? "bg-[#4B9CD3] text-[#041E42] shadow-[0_0_25px_rgba(124,196,250,0.35)]"
@@ -500,14 +544,17 @@ export default function Home() {
                     }`}
                   >
                     {item.label}
-                  </button>
+                  </motion.button>
                 ))}
               </div>
             </div>
 
             {sidebarView === "work" ? (
               <>
-                <div className="mt-10 border-t border-white/10 pt-8">
+                <motion.div
+                  {...inViewMotion}
+                  className="mt-10 border-t border-white/10 pt-8"
+                >
                   <h2 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#7CC4FA]">
                     About
                   </h2>
@@ -519,9 +566,12 @@ export default function Home() {
                     businesses, understanding what drives performance, and
                     turning that into decisions.
                   </p>
-                </div>
+                </motion.div>
 
-                <div className="mt-10 border-t border-white/10 pt-8">
+                <motion.div
+                  {...inViewMotion}
+                  className="mt-10 border-t border-white/10 pt-8"
+                >
                   <h2 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#7CC4FA]">
                     Focus
                   </h2>
@@ -531,10 +581,13 @@ export default function Home() {
                     <li>• Forecasting and budgeting</li>
                     <li>• Breaking down company performance</li>
                   </ul>
-                </div>
+                </motion.div>
               </>
             ) : (
-              <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-5">
+              <motion.div
+                {...sectionMotion}
+                className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-5"
+              >
                 <h2 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#7CC4FA]">
                   Contact Information
                 </h2>
@@ -572,21 +625,26 @@ export default function Home() {
                     </a>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             )}
 
-            <div className="mt-10 flex items-center gap-2 border-t border-white/10 pt-6">
+            <motion.div
+              {...inViewMotion}
+              className="mt-10 flex items-center gap-2 border-t border-white/10 pt-6"
+            >
               <span className="h-2 w-2 rounded-full bg-[#4B9CD3] shadow-[0_0_8px_rgba(75,156,211,0.7)]" />
               <p className="text-sm text-slate-300">
                 Open to full-time opportunities
               </p>
-            </div>
+            </motion.div>
           </aside>
 
           <section className="space-y-6 sm:space-y-8">
             {activeSection === "professional" && (
-              <section
+              <motion.section
+                key="professional"
                 ref={sectionRefs.professional}
+                {...sectionMotion}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
                 <h2 className="text-[1.7rem] font-bold tracking-[-0.02em] text-white sm:text-[1.9rem]">
@@ -596,12 +654,14 @@ export default function Home() {
                 <div className="mt-8 space-y-8">
                   {professionalExperience.map(renderExperienceCard)}
                 </div>
-              </section>
+              </motion.section>
             )}
 
             {activeSection === "leadership" && (
-              <section
+              <motion.section
+                key="leadership"
                 ref={sectionRefs.leadership}
+                {...sectionMotion}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
                 <h2 className="text-[1.7rem] font-bold tracking-[-0.02em] text-white sm:text-[1.9rem]">
@@ -611,12 +671,14 @@ export default function Home() {
                 <div className="mt-8 space-y-8">
                   {leadershipExperience.map(renderExperienceCard)}
                 </div>
-              </section>
+              </motion.section>
             )}
 
             {activeSection === "education" && (
-              <section
+              <motion.section
+                key="education"
                 ref={sectionRefs.education}
+                {...sectionMotion}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
                 <h2 className="text-[1.7rem] font-bold tracking-[-0.02em] text-white sm:text-[1.9rem]">
@@ -624,7 +686,10 @@ export default function Home() {
                 </h2>
 
                 <div className="mt-8 grid gap-6 md:grid-cols-2">
-                  <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition hover:border-[#4B9CD3]/35 hover:bg-white/[0.05]">
+                  <motion.div
+                    {...cardHover}
+                    className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition hover:border-[#4B9CD3]/35 hover:bg-white/[0.05]"
+                  >
                     <h3 className="text-lg font-semibold text-white">
                       Master of Finance
                     </h3>
@@ -637,9 +702,12 @@ export default function Home() {
                     <p className="mt-2 text-sm text-slate-400/90">
                       Expected Graduation: May 2026
                     </p>
-                  </div>
+                  </motion.div>
 
-                  <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition hover:border-[#4B9CD3]/35 hover:bg-white/[0.05]">
+                  <motion.div
+                    {...cardHover}
+                    className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition hover:border-[#4B9CD3]/35 hover:bg-white/[0.05]"
+                  >
                     <h3 className="text-lg font-semibold text-white">
                       Bachelor of Science in Business Administration
                     </h3>
@@ -656,14 +724,16 @@ export default function Home() {
                     <p className="mt-2 text-sm text-slate-400/90">
                       Magna Cum Laude
                     </p>
-                  </div>
+                  </motion.div>
                 </div>
-              </section>
+              </motion.section>
             )}
 
             {activeSection === "credentials" && (
-              <section
+              <motion.section
+                key="credentials"
                 ref={sectionRefs.credentials}
+                {...sectionMotion}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
                 <h2 className="text-[1.7rem] font-bold tracking-[-0.02em] text-white sm:text-[1.9rem]">
@@ -671,7 +741,10 @@ export default function Home() {
                 </h2>
 
                 <div className="mt-8 space-y-6">
-                  <div className="rounded-xl border border-white/10 bg-white/[0.02] p-5">
+                  <motion.div
+                    {...cardHover}
+                    className="rounded-xl border border-white/10 bg-white/[0.02] p-5"
+                  >
                     <h3 className="text-lg font-semibold text-white">
                       Truist Emerging Leaders Certification
                     </h3>
@@ -683,9 +756,12 @@ export default function Home() {
                       professional growth, communication, and team-based
                       leadership skills.
                     </p>
-                  </div>
+                  </motion.div>
 
-                  <div className="rounded-xl border border-white/10 bg-white/[0.02] p-5">
+                  <motion.div
+                    {...cardHover}
+                    className="rounded-xl border border-white/10 bg-white/[0.02] p-5"
+                  >
                     <h3 className="text-lg font-semibold text-white">
                       Microsoft Office Specialist (MOS): Excel 2016
                     </h3>
@@ -695,14 +771,16 @@ export default function Home() {
                       proficiency in Excel, including data analysis, financial
                       modeling, and advanced spreadsheet functions.
                     </p>
-                  </div>
+                  </motion.div>
                 </div>
-              </section>
+              </motion.section>
             )}
 
             {activeSection === "skills" && (
-              <section
+              <motion.section
+                key="skills"
                 ref={sectionRefs.skills}
+                {...sectionMotion}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
                 <h2 className="text-[1.7rem] font-bold tracking-[-0.02em] text-white sm:text-[1.9rem]">
@@ -754,22 +832,28 @@ export default function Home() {
                         ],
                       },
                     ].map((section) => (
-                      <div key={section.title}>
+                      <motion.div key={section.title} {...inViewMotion}>
                         <p className="text-sm font-semibold text-slate-400">
                           {section.title}
                         </p>
 
                         <div className="mt-2 flex flex-wrap gap-2">
                           {section.items.map((item) => (
-                            <span
+                            <motion.span
                               key={item}
+                              whileHover={{ y: -2, scale: 1.03 }}
+                              transition={{
+                                type: "spring",
+                                stiffness: 260,
+                                damping: 18,
+                              }}
                               className="rounded-full border border-[#4B9CD3]/25 bg-[#4B9CD3]/10 px-3 py-1 text-xs text-[#B9E3FF]"
                             >
                               {item}
-                            </span>
+                            </motion.span>
                           ))}
                         </div>
-                      </div>
+                      </motion.div>
                     ))}
                   </div>
 
@@ -809,8 +893,9 @@ export default function Home() {
                         ],
                       },
                     ].map((section) => (
-                      <div
+                      <motion.div
                         key={section.title}
+                        {...cardHover}
                         className="rounded-xl border border-white/10 bg-white/[0.02] p-4"
                       >
                         <p className="text-sm font-semibold text-slate-400">
@@ -822,16 +907,18 @@ export default function Home() {
                             <li key={item}>• {item}</li>
                           ))}
                         </ul>
-                      </div>
+                      </motion.div>
                     ))}
                   </div>
                 </div>
-              </section>
+              </motion.section>
             )}
 
             {activeSection === "portfolio" && (
-              <section
+              <motion.section
+                key="portfolio"
                 ref={sectionRefs.portfolio}
+                {...sectionMotion}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
                 <h2 className="text-[1.7rem] font-bold tracking-[-0.02em] text-white sm:text-[1.9rem]">
@@ -839,13 +926,14 @@ export default function Home() {
                 </h2>
 
                 {featuredProject && (
-                  <button
+                  <motion.button
                     type="button"
                     onClick={() => {
                       setSelectedProject(featuredProject.title);
                       setProjectViewerOpen(true);
                     }}
-                    className="mt-8 block w-full overflow-hidden rounded-[32px] border border-[#4B9CD3]/30 bg-[linear-gradient(135deg,rgba(75,156,211,0.22),rgba(255,255,255,0.05),rgba(8,16,31,0.55))] p-6 text-left transition duration-300 hover:-translate-y-1 hover:border-[#7CC4FA]/45 hover:shadow-[0_0_45px_rgba(75,156,211,0.18)] sm:p-8"
+                    {...cardHover}
+                    className="mt-8 block w-full overflow-hidden rounded-[32px] border border-[#4B9CD3]/30 bg-[linear-gradient(135deg,rgba(75,156,211,0.22),rgba(255,255,255,0.05),rgba(8,16,31,0.55))] p-6 text-left transition duration-300 hover:border-[#7CC4FA]/45 hover:shadow-[0_0_45px_rgba(75,156,211,0.18)] sm:p-8"
                   >
                     <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
                       <div className="max-w-3xl">
@@ -885,19 +973,41 @@ export default function Home() {
                         </span>
                       </div>
                     </div>
-                  </button>
+                  </motion.button>
                 )}
 
-                <div className="mt-10 grid gap-5 md:grid-cols-2">
+                <motion.div
+                  initial="hidden"
+                  animate="visible"
+                  variants={{
+                    hidden: {},
+                    visible: {
+                      transition: {
+                        staggerChildren: 0.08,
+                      },
+                    },
+                  }}
+                  className="mt-10 grid gap-5 md:grid-cols-2"
+                >
                   {standardProjects.map((project) => (
-                    <button
+                    <motion.button
                       key={project.title}
                       type="button"
                       onClick={() => {
                         setSelectedProject(project.title);
                         setProjectViewerOpen(true);
                       }}
-                      className="group block rounded-[26px] border border-white/10 bg-white/[0.03] p-5 text-left transition duration-300 hover:-translate-y-1 hover:border-[#4B9CD3]/35 hover:bg-white/[0.05] hover:shadow-[0_0_30px_rgba(75,156,211,0.10)]"
+                      variants={{
+                        hidden: { opacity: 0, y: 24 },
+                        visible: {
+                          opacity: 1,
+                          y: 0,
+                          transition: { duration: 0.45, ease: "easeOut" },
+                        },
+                      }}
+                      whileHover={{ y: -6, scale: 1.01 }}
+                      transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                      className="group block rounded-[26px] border border-white/10 bg-white/[0.03] p-5 text-left transition duration-300 hover:border-[#4B9CD3]/35 hover:bg-white/[0.05] hover:shadow-[0_0_30px_rgba(75,156,211,0.10)]"
                     >
                       <div>
                         <h3 className="text-xl font-semibold tracking-tight text-white">
@@ -928,15 +1038,15 @@ export default function Home() {
                       <p className="mt-5 text-xs font-semibold uppercase tracking-[0.12em] text-slate-400 transition group-hover:text-[#B9E3FF]">
                         View Project →
                       </p>
-                    </button>
+                    </motion.button>
                   ))}
-                </div>
-              </section>
+                </motion.div>
+              </motion.section>
             )}
           </section>
         </div>
 
-        <footer className="mt-14 border-t border-white/10 pt-6 pb-4">
+        <footer className="mt-14 border-t border-white/10 pb-4 pt-6">
           <p className="text-center text-xs text-slate-500">
             © 2026 Ryan Tarapchak. All rights reserved.
           </p>
@@ -945,7 +1055,13 @@ export default function Home() {
 
       {resumeOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 px-4">
-          <div className="relative h-[90vh] w-full max-w-5xl rounded-2xl border border-white/10 bg-[#0B1220] shadow-2xl">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.97, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.97, y: 20 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="relative h-[90vh] w-full max-w-5xl rounded-2xl border border-white/10 bg-[#0B1220] shadow-2xl"
+          >
             <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
               <h3 className="text-sm font-semibold text-white">Resume</h3>
 
@@ -959,13 +1075,16 @@ export default function Home() {
                   Open in new tab
                 </a>
 
-                <button
+                <motion.button
                   type="button"
                   onClick={() => setResumeOpen(false)}
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  transition={{ type: "spring", stiffness: 260, damping: 18 }}
                   className="rounded-lg border border-white/10 px-3 py-1 text-sm text-slate-300 transition hover:bg-white/[0.06] hover:text-white"
                 >
                   Close
-                </button>
+                </motion.button>
               </div>
             </div>
 
@@ -974,13 +1093,18 @@ export default function Home() {
               className="h-[calc(90vh-57px)] w-full rounded-b-2xl"
               title="Resume PDF"
             />
-          </div>
+          </motion.div>
         </div>
       )}
 
       {projectViewerOpen && (
         <div className="fixed inset-0 z-[110] overflow-y-auto bg-[#050810]/95 px-3 py-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-[1700px]">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
+            className="mx-auto max-w-[1700px]"
+          >
             <div className="rounded-[28px] border border-[#4B9CD3]/20 bg-[linear-gradient(135deg,rgba(11,21,48,0.96),rgba(7,11,20,0.94),rgba(75,156,211,0.22))] px-6 py-8 shadow-[0_25px_80px_rgba(0,0,0,0.45)] sm:px-10 sm:py-12">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                 <div className="max-w-4xl">
@@ -1004,33 +1128,48 @@ export default function Home() {
 
                       <div className="flex flex-wrap gap-3">
                         {activeProject.files.map((file) => (
-                          <a
+                          <motion.a
                             key={file.path}
                             href={getFileHref(file.path)}
                             target="_blank"
                             rel="noopener noreferrer"
+                            whileHover={{ y: -2, scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                            transition={{
+                              type: "spring",
+                              stiffness: 260,
+                              damping: 18,
+                            }}
                             className="inline-flex rounded-xl border border-white/15 bg-white/[0.05] px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/[0.09]"
                           >
                             {file.label}
-                          </a>
+                          </motion.a>
                         ))}
                       </div>
                     </div>
                   )}
                 </div>
 
-                <button
+                <motion.button
                   type="button"
                   onClick={() => setProjectViewerOpen(false)}
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  transition={{ type: "spring", stiffness: 260, damping: 18 }}
                   className="w-fit rounded-xl border border-white/20 bg-black/15 px-4 py-2 text-sm font-semibold text-white transition hover:bg-black/25"
                 >
                   Close
-                </button>
+                </motion.button>
               </div>
             </div>
 
             <div className="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1fr)_360px]">
-              <div className="rounded-3xl border border-white/10 bg-white p-3 shadow-[0_10px_50px_rgba(0,0,0,0.35)]">
+              <motion.div
+                initial={{ opacity: 0, x: -16 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.35, ease: "easeOut" }}
+                className="rounded-3xl border border-white/10 bg-white p-3 shadow-[0_10px_50px_rgba(0,0,0,0.35)]"
+              >
                 {activeViewerSrc ? (
                   isMobile ? (
                     <div className="rounded-2xl bg-slate-100 p-6 text-center">
@@ -1069,10 +1208,15 @@ export default function Home() {
                     </div>
                   </div>
                 )}
-              </div>
+              </motion.div>
 
-              <div className="space-y-6 sm:space-y-8">
-                <div className="rounded-3xl border border-white/10 bg-[#0B1220] p-5 sm:p-6 shadow-[0_10px_40px_rgba(0,0,0,0.35)]">
+              <motion.div
+                initial={{ opacity: 0, x: 16 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.35, ease: "easeOut" }}
+                className="space-y-6 sm:space-y-8"
+              >
+                <div className="rounded-3xl border border-white/10 bg-[#0B1220] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.35)] sm:p-6">
                   <h3 className="text-2xl font-bold text-white">
                     Project Details
                   </h3>
@@ -1101,17 +1245,24 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="rounded-3xl border border-white/10 bg-[#0B1220] p-5 sm:p-6 shadow-[0_10px_40px_rgba(0,0,0,0.35)]">
+                <div className="rounded-3xl border border-white/10 bg-[#0B1220] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.35)] sm:p-6">
                   <h3 className="text-2xl font-bold text-white">
                     More Projects
                   </h3>
 
                   <div className="mt-5 space-y-3">
                     {moreProjects.map((project) => (
-                      <button
+                      <motion.button
                         key={project.title}
                         type="button"
                         onClick={() => setSelectedProject(project.title)}
+                        whileHover={{ y: -4, scale: 1.01 }}
+                        whileTap={{ scale: 0.98 }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 260,
+                          damping: 20,
+                        }}
                         className="w-full rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-left transition hover:border-[#4B9CD3]/35 hover:bg-white/[0.06]"
                       >
                         <h4 className="text-base font-semibold text-white">
@@ -1120,27 +1271,30 @@ export default function Home() {
                         <p className="mt-1 text-sm text-[#7CC4FA]">
                           {project.subtitle}
                         </p>
-                      </button>
+                      </motion.button>
                     ))}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
 
-            <div className="mt-10 border-t border-white/10 pt-6 pb-4">
+            <div className="mt-10 border-t border-white/10 pb-4 pt-6">
               <p className="text-center text-xs text-slate-500">
                 © 2026 Ryan Tarapchak. All rights reserved.
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
       )}
 
       {scrollProgress > 0 && (
-        <button
+        <motion.button
           type="button"
           onClick={scrollToTop}
-          className="fixed bottom-5 right-5 z-50 flex h-12 w-12 flex-col items-center justify-center rounded-full border border-[#4B9CD3]/30 bg-[#08101F]/85 text-[#B9E3FF] shadow-[0_0_25px_rgba(75,156,211,0.2)] backdrop-blur-md transition hover:-translate-y-1 hover:bg-[#0B1530] sm:bottom-6 sm:right-6 sm:h-14 sm:w-14"
+          whileHover={{ y: -3, scale: 1.04 }}
+          whileTap={{ scale: 0.96 }}
+          transition={{ type: "spring", stiffness: 260, damping: 18 }}
+          className="fixed bottom-5 right-5 z-50 flex h-12 w-12 flex-col items-center justify-center rounded-full border border-[#4B9CD3]/30 bg-[#08101F]/85 text-[#B9E3FF] shadow-[0_0_25px_rgba(75,156,211,0.2)] backdrop-blur-md transition hover:bg-[#0B1530] sm:bottom-6 sm:right-6 sm:h-14 sm:w-14"
           aria-label="Back to top"
         >
           <span className="text-xs font-semibold leading-none sm:text-sm">
@@ -1149,7 +1303,7 @@ export default function Home() {
           <span className="mt-1 text-[8px] leading-none text-slate-300 sm:text-[9px]">
             {scrollProgress}%
           </span>
-        </button>
+        </motion.button>
       )}
     </main>
   );
