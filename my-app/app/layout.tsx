@@ -18,12 +18,9 @@ export const metadata: Metadata = {
   description:
     "Master of Finance student specializing in financial analysis, valuation, and M&A.",
   icons: {
-    icon: [
-      { url: "/favicon-v2.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-v2.png", sizes: "16x16", type: "image/png" },
-    ],
-    shortcut: "/favicon-v2.png",
-    apple: "/favicon-v2.png",
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
   },
   openGraph: {
     title: "Ryan Tarapchak | Portfolio",
@@ -52,10 +49,9 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-v2.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-v2.png" />
-        <link rel="shortcut icon" href="/favicon-v2.png" />
-        <link rel="apple-touch-icon" href="/favicon-v2.png" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/favicon.ico" />
       </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
