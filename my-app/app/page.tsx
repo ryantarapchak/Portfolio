@@ -120,10 +120,25 @@ export default function Home() {
   }, []);
 
   const handleSectionClick = (section: SectionKey) => {
-  setActiveSection(section);
+    setActiveSection(section);
 
-  setTimeout(() => {
-    const sectionEl = sectionRefs[section].current;
+    setTimeout(() => {
+      const sectionEl = sectionRefs[section].current;
+
+      if (sectionEl) {
+        const y =
+          sectionEl.getBoundingClientRect().top + window.scrollY - 100;
+
+        window.scrollTo({
+          top: y,
+          behavior: "smooth",
+        });
+      }
+    }, 50);
+  };
+
+  const scrollToTop = () => {
+    const sectionEl = sectionRefs[activeSection].current;
 
     if (sectionEl) {
       const y =
@@ -134,14 +149,6 @@ export default function Home() {
         behavior: "smooth",
       });
     }
-  }, 50);
-};
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
   };
 
   const getFileHref = (path: string) => {
