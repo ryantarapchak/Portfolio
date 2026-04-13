@@ -17,12 +17,6 @@ export const metadata: Metadata = {
   title: "Ryan Tarapchak | Portfolio",
   description:
     "Master of Finance student specializing in financial analysis, valuation, and M&A.",
-
-  // ✅ THIS IS THE ONLY THING YOU NEEDED TO ADD
-  icons: {
-    icon: "/favicon.png",
-  },
-
   openGraph: {
     title: "Ryan Tarapchak | Portfolio",
     description:
@@ -31,7 +25,6 @@ export const metadata: Metadata = {
     siteName: "Ryan Tarapchak Portfolio",
     type: "website",
   },
-
   twitter: {
     card: "summary_large_image",
     title: "Ryan Tarapchak | Portfolio",
@@ -42,9 +35,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html
       lang="en"
