@@ -119,15 +119,21 @@ export default function Home() {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
+  const getSectionHeaderY = (section: SectionKey) => {
+    const sectionEl = sectionRefs[section].current;
+
+    if (!sectionEl) return 0;
+
+    return sectionEl.getBoundingClientRect().top + window.scrollY - 100;
+  };
+
   const smoothScrollTo = (targetY: number, duration = 1100) => {
     const startY = window.scrollY;
     const diff = targetY - startY;
     const startTime = performance.now();
 
     const easeInOutCubic = (t: number) =>
-      t < 0.5
-        ? 4 * t * t * t
-        : 1 - Math.pow(-2 * t + 2, 3) / 2;
+      t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
     const step = (currentTime: number) => {
       const elapsed = currentTime - startTime;
@@ -146,11 +152,16 @@ export default function Home() {
 
   const handleSectionClick = (section: SectionKey) => {
     setActiveSection(section);
-    smoothScrollTo(0, 1100);
+
+    requestAnimationFrame(() => {
+      const targetY = getSectionHeaderY(section);
+      smoothScrollTo(targetY, 1100);
+    });
   };
 
   const scrollToTop = () => {
-    smoothScrollTo(0, 1100);
+    const targetY = getSectionHeaderY(activeSection);
+    smoothScrollTo(targetY, 1100);
   };
 
   const getFileHref = (path: string) => {
@@ -192,12 +203,7 @@ export default function Home() {
         "Quantified market size, unit economics, and TAM penetration to support its positioning and valuation in acquisition discussions",
         "Identified and contacted 15+ potential buyers and helped facilitate introductory discussions",
       ],
-      skills: [
-        "M&A",
-        "Economic Modeling",
-        "Outreach",
-        "Valuation",
-      ],
+      skills: ["M&A", "Economic Modeling", "Outreach", "Valuation"],
       category: "professional",
     },
     {
@@ -212,12 +218,7 @@ export default function Home() {
         "Designed 10 digital project profiles in Canva to showcase project impact and outcomes for stakeholders and the public",
         "Created and managed a $100K project budget using Excel to model ROI, credit feasibility, and risk mitigation strategies",
       ],
-      skills: [
-        "Financial Analysis",
-        "Excel",
-        "Budgeting",
-        "ROI Modeling",
-      ],
+      skills: ["Financial Analysis", "Excel", "Budgeting", "ROI Modeling"],
       category: "professional",
     },
     {
@@ -232,12 +233,7 @@ export default function Home() {
         "Manage and reconcile 100+ financial transactions in the ASA account",
         "Collaborate with executives and external stakeholders to secure funding and sponsorships for events",
       ],
-      skills: [
-        "Budgeting",
-        "Leadership",
-        "Excel",
-        "Stakeholder Management",
-      ],
+      skills: ["Budgeting", "Leadership", "Excel", "Stakeholder Management"],
       category: "leadership",
     },
   ];
@@ -274,7 +270,9 @@ export default function Home() {
       timeline: "Spring 2026",
       collaborators:
         "Ryan Tarapchak, Shubh Savani, Thor Skogum, Dionysis Petratos, and Zachary Nickolas",
-      files: [{ label: "Capital Structure Model", path: "/bedbath&beyond.xlsx" }],
+      files: [
+        { label: "Capital Structure Model", path: "/bedbath&beyond.xlsx" },
+      ],
     },
     {
       title: "CrowdStrike (CRWD)",
@@ -822,7 +820,12 @@ export default function Home() {
                       },
                       {
                         title: "Tools & Programming",
-                        items: ["Excel (Advanced)", "Python", "VBA", "JavaScript"],
+                        items: [
+                          "Excel (Advanced)",
+                          "Python",
+                          "VBA",
+                          "JavaScript",
+                        ],
                       },
                       {
                         title: "Data & Analysis",
@@ -954,18 +957,19 @@ export default function Home() {
                           {featuredProject.description}
                         </p>
 
-                        {featuredProject.tags && featuredProject.tags.length > 0 && (
-                          <div className="mt-5 flex flex-wrap gap-2">
-                            {featuredProject.tags.map((tag) => (
-                              <span
-                                key={tag}
-                                className="rounded-full border border-[#7CC4FA]/20 bg-[#7CC4FA]/8 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.12em] text-[#B9E3FF]"
-                              >
-                                {tag}
-                              </span>
-                            ))}
-                          </div>
-                        )}
+                        {featuredProject.tags &&
+                          featuredProject.tags.length > 0 && (
+                            <div className="mt-5 flex flex-wrap gap-2">
+                              {featuredProject.tags.map((tag) => (
+                                <span
+                                  key={tag}
+                                  className="rounded-full border border-[#7CC4FA]/20 bg-[#7CC4FA]/8 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.12em] text-[#B9E3FF]"
+                                >
+                                  {tag}
+                                </span>
+                              ))}
+                            </div>
+                          )}
                       </div>
 
                       <div className="flex shrink-0 items-center pt-1">
@@ -1296,7 +1300,7 @@ export default function Home() {
           whileTap={{ scale: 0.96 }}
           transition={{ type: "spring", stiffness: 260, damping: 18 }}
           className="fixed bottom-5 right-5 z-50 flex h-12 w-12 flex-col items-center justify-center rounded-full border border-[#4B9CD3]/30 bg-[#08101F]/85 text-[#B9E3FF] shadow-[0_0_25px_rgba(75,156,211,0.2)] backdrop-blur-md transition hover:bg-[#0B1530] sm:bottom-6 sm:right-6 sm:h-14 sm:w-14"
-          aria-label="Back to top"
+          aria-label="Back to section header"
         >
           <span className="text-xs font-semibold leading-none sm:text-sm">
             ^
