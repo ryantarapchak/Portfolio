@@ -427,11 +427,13 @@ export default function Home() {
               transition={{ duration: 0.5, ease: "easeOut" }}
               className="mb-6 h-24 w-24 overflow-hidden rounded-full border-2 border-[#4B9CD3]/50 shadow-[0_0_40px_rgba(75,156,211,0.35)] sm:h-32 sm:w-32"
             >
-              <img
-  src="/headshot.png"
-  alt="Ryan Tarapchak"
-  className="w-48 h-48 rounded-full object-cover object-[50%_30%]"
-/>
+              <div className="w-48 h-48 rounded-full overflow-hidden border-2 border-blue-500">
+  <img
+    src="/headshot.png"
+    alt="Ryan Tarapchak"
+    className="w-full h-full object-cover object-[50%_20%] scale-125"
+  />
+</div>
             </motion.div>
 
             <h1 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
