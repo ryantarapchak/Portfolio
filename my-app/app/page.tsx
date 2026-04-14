@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type SectionKey =
   | "professional"
@@ -49,6 +49,15 @@ export default function Home() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [projectViewerOpen, setProjectViewerOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+
+  const sectionRefs: Record<SectionKey, React.RefObject<HTMLElement | null>> = {
+    professional: useRef<HTMLElement>(null),
+    leadership: useRef<HTMLElement>(null),
+    education: useRef<HTMLElement>(null),
+    credentials: useRef<HTMLElement>(null),
+    skills: useRef<HTMLElement>(null),
+    portfolio: useRef<HTMLElement>(null),
+  };
 
   const sectionMotion = {
     initial: { opacity: 0, y: 24 },
@@ -113,14 +122,37 @@ export default function Home() {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
+  const getSectionHeaderY = (section: SectionKey) => {
+    const sectionEl = sectionRefs[section].current;
+    if (!sectionEl) return 0;
+
+    return sectionEl.getBoundingClientRect().top + window.scrollY - 100;
+  };
+
   const handleSectionClick = (section: SectionKey) => {
-    if (section === activeSection) return;
     setActiveSection(section);
+
+    requestAnimationFrame(() => {
+      const targetY = getSectionHeaderY(section);
+      window.scrollTo({
+        top: targetY,
+        behavior: "smooth",
+      });
+    });
   };
 
   const scrollToTop = () => {
+    if (isMobile) {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+      return;
+    }
+
+    const targetY = getSectionHeaderY(activeSection);
     window.scrollTo({
-      top: 0,
+      top: targetY,
       behavior: "smooth",
     });
   };
@@ -603,6 +635,7 @@ export default function Home() {
             {activeSection === "professional" && (
               <motion.section
                 key="professional"
+                ref={sectionRefs.professional}
                 {...sectionMotion}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
@@ -619,6 +652,7 @@ export default function Home() {
             {activeSection === "leadership" && (
               <motion.section
                 key="leadership"
+                ref={sectionRefs.leadership}
                 {...sectionMotion}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
@@ -635,6 +669,7 @@ export default function Home() {
             {activeSection === "education" && (
               <motion.section
                 key="education"
+                ref={sectionRefs.education}
                 {...sectionMotion}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
@@ -689,6 +724,7 @@ export default function Home() {
             {activeSection === "credentials" && (
               <motion.section
                 key="credentials"
+                ref={sectionRefs.credentials}
                 {...sectionMotion}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
@@ -735,6 +771,7 @@ export default function Home() {
             {activeSection === "skills" && (
               <motion.section
                 key="skills"
+                ref={sectionRefs.skills}
                 {...sectionMotion}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
@@ -877,6 +914,7 @@ export default function Home() {
             {activeSection === "portfolio" && (
               <motion.section
                 key="portfolio"
+                ref={sectionRefs.portfolio}
                 {...sectionMotion}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:p-8"
               >
@@ -1255,7 +1293,7 @@ export default function Home() {
           whileTap={{ scale: 0.96 }}
           transition={{ type: "spring", stiffness: 260, damping: 18 }}
           className="fixed bottom-5 right-5 z-50 flex h-12 w-12 flex-col items-center justify-center rounded-full border border-[#4B9CD3]/30 bg-[#08101F]/85 text-[#B9E3FF] shadow-[0_0_25px_rgba(75,156,211,0.2)] backdrop-blur-md transition hover:bg-[#0B1530] sm:bottom-6 sm:right-6 sm:h-14 sm:w-14"
-          aria-label="Back to top"
+          aria-label="Back to section header"
         >
           <span className="text-xs font-semibold leading-none sm:text-sm">
             ^
