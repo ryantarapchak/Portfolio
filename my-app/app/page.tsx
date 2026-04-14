@@ -84,32 +84,32 @@ export default function Home() {
   };
 
   useEffect(() => {
-  const handleScroll = () => {
-    const startOffset = 100;
-    const rawScrollTop = window.scrollY;
-    const adjustedScrollTop = Math.max(0, rawScrollTop - startOffset);
+    const handleScroll = () => {
+      const startOffset = 100;
+      const rawScrollTop = window.scrollY;
+      const adjustedScrollTop = Math.max(0, rawScrollTop - startOffset);
 
-    const docHeight =
-      document.documentElement.scrollHeight - window.innerHeight - startOffset;
+      const docHeight =
+        document.documentElement.scrollHeight - window.innerHeight - startOffset;
 
-    if (docHeight <= 0) {
-      setScrollProgress(0);
-      return;
-    }
+      if (docHeight <= 0) {
+        setScrollProgress(0);
+        return;
+      }
 
-    const percent = Math.min(
-      100,
-      Math.max(0, Math.round((adjustedScrollTop / docHeight) * 100))
-    );
+      const percent = Math.min(
+        100,
+        Math.max(0, Math.round((adjustedScrollTop / docHeight) * 100))
+      );
 
-    setScrollProgress(percent);
-  };
+      setScrollProgress(percent);
+    };
 
-  window.addEventListener("scroll", handleScroll);
-  handleScroll();
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
 
-  return () => window.removeEventListener("scroll", handleScroll);
-}, []);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -142,20 +142,20 @@ export default function Home() {
   };
 
   const scrollToTop = () => {
-  if (isMobile) {
+    if (isMobile) {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+      return;
+    }
+
+    const targetY = getSectionHeaderY(activeSection);
     window.scrollTo({
-      top: 0,
+      top: targetY,
       behavior: "smooth",
     });
-    return;
-  }
-
-  const targetY = getSectionHeaderY(activeSection);
-  window.scrollTo({
-    top: targetY,
-    behavior: "smooth",
-  });
-};
+  };
 
   const getFileHref = (path: string) => {
     const isExcel = path.toLowerCase().endsWith(".xlsx");
@@ -384,9 +384,9 @@ export default function Home() {
       <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(75,156,211,0.16),transparent_30%),radial-gradient(circle_at_top_right,rgba(255,255,255,0.05),transparent_22%),linear-gradient(to_bottom,#070B14,#0B1530_55%,#08101F)]" />
       <div className="pointer-events-none fixed inset-0 -z-10 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:32px_32px] opacity-[0.06]" />
 
-      <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-8">
-        <header className="mb-4 border-b border-white/10 bg-[#070B14]/80 py-4 backdrop-blur-md lg:sticky lg:top-0 lg:z-50 lg:mb-4">
-          <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+      <div className="mx-auto max-w-7xl px-4 pt-2 pb-6 sm:px-6 sm:pt-3 sm:pb-8">
+        <header className="mb-3 border-b border-white/10 bg-[#070B14]/80 py-2 backdrop-blur-md lg:sticky lg:top-0 lg:z-50 lg:mb-4">
+          <div className="flex flex-col gap-2 lg:flex-row lg:items-center lg:justify-between">
             <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-4">
               <h1 className="text-xl font-bold text-white sm:text-2xl">
                 <span className="text-[#7CC4FA]">Ryan</span> Tarapchak
@@ -432,7 +432,6 @@ export default function Home() {
                 alt="Ryan Tarapchak"
                 className="h-full w-full object-cover object-top"
               />
-
             </motion.div>
 
             <h1 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
