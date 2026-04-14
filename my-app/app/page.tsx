@@ -123,11 +123,14 @@ export default function Home() {
   }, []);
 
   const getSectionHeaderY = (section: SectionKey) => {
-    const sectionEl = sectionRefs[section].current;
-    if (!sectionEl) return 0;
+  const sectionEl = sectionRefs[section].current;
+  if (!sectionEl) return 0;
 
-    return sectionEl.getBoundingClientRect().top + window.scrollY - 100;
-  };
+  const header = document.querySelector("header");
+  const headerHeight = header ? header.getBoundingClientRect().height : 0;
+
+  return sectionEl.getBoundingClientRect().top + window.scrollY - headerHeight - 8;
+};
 
   const handleSectionClick = (section: SectionKey) => {
     setActiveSection(section);
