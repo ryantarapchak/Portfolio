@@ -431,7 +431,7 @@ export default function Home() {
   <img
     src="/headshot.png"
     alt="Ryan Tarapchak"
-    className="w-full h-full object-cover object-[30%_50%] scale-95"
+    className="w-full h-full object-cover object-[25%_48%] scale-85"
   />
 </div>
             </motion.div>
