@@ -142,12 +142,20 @@ export default function Home() {
   };
 
   const scrollToTop = () => {
-    const targetY = getSectionHeaderY(activeSection);
+  if (isMobile) {
     window.scrollTo({
-      top: targetY,
+      top: 0,
       behavior: "smooth",
     });
-  };
+    return;
+  }
+
+  const targetY = getSectionHeaderY(activeSection);
+  window.scrollTo({
+    top: targetY,
+    behavior: "smooth",
+  });
+};
 
   const getFileHref = (path: string) => {
     const isExcel = path.toLowerCase().endsWith(".xlsx");
