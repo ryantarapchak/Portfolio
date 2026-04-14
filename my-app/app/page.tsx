@@ -427,7 +427,6 @@ export default function Home() {
               transition={{ duration: 0.5, ease: "easeOut" }}
               className="mb-6 h-24 w-24 overflow-hidden rounded-full border-2 border-[#4B9CD3]/50 shadow-[0_0_40px_rgba(75,156,211,0.35)] sm:h-32 sm:w-32"
             >
-              className="mb-6 h-24 w-24 overflow-hidden rounded-full border-2 border-[#4B9CD3]/50 shadow-[0_0_40px_rgba(75,156,211,0.35)] sm:h-32 sm:w-32"
               <img
                 src="/headshot.png"
                 alt="Ryan Tarapchak"
