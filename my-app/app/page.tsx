@@ -272,7 +272,7 @@ export default function Home() {
       subtitle: "Equity Research Pitch",
       description:
         "Developed and presented a long-term BUY thesis based on recurring revenue growth, platform expansion, and margin scalability.",
-      pdf: "/crowdstrike.pdf",
+      pdf: "/crowdstrike.pptx",
       featured: false,
       client: "Nittany Investment Club",
       timeline: "Spring 2026",
