@@ -18,7 +18,6 @@ export const metadata: Metadata = {
   description:
     "Master of Finance student specializing in financial analysis, valuation, and M&A.",
 
-  // ✅ CLEAN favicon setup (this is all you need now)
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
@@ -32,6 +31,14 @@ export const metadata: Metadata = {
     url: "https://ryantarapchak.vercel.app",
     siteName: "Ryan Tarapchak Portfolio",
     type: "website",
+    images: [
+      {
+        url: "/preview.png",
+        width: 1200,
+        height: 630,
+        alt: "Ryan Tarapchak Portfolio Preview",
+      },
+    ],
   },
 
   twitter: {
@@ -39,6 +46,7 @@ export const metadata: Metadata = {
     title: "Ryan Tarapchak | Portfolio",
     description:
       "Master of Finance student specializing in financial analysis, valuation, and M&A.",
+    images: ["/preview.png"],
   },
 };
 
