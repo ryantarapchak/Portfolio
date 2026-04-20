@@ -245,12 +245,11 @@ export default function Home() {
       subtitle: "Featured Project • M&A Economic Model",
       description:
         "Built an economic model and acquisition thesis for a patented sports business, breaking down scalability, valuation, and buyer fit.",
-      pdf: "/dealsheet.pdf",
+      pdf: "/econmodel.pdf",
       featured: true,
       client: "Sabakiball International, LLC",
       timeline: "Fall 2025",
       collaborators: "Ryan Tarapchak and Zachary Nickolas",
-      files: [{ label: "Economic Model", path: "/econmodel.pdf" }],
     },
     {
       title: "Bed Bath & Beyond",
