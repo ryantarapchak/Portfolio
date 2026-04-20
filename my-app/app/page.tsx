@@ -780,30 +780,30 @@ export default function Home() {
                     </h3>
 
                     {[
-                      {
+                     {
   title: "Financial Analysis & Modeling",
   items: [
-    "Financial Modeling (DCF, Comparable Company Analysis, Precedent Transactions)",
+    "Financial Modeling",
     "Financial Statement Analysis",
     "Forecasting & Budgeting",
-    "Sensitivity & Scenario Analysis",
+    "Scenario & Sensitivity Analysis",
   ],
 },
 {
   title: "Corporate Finance",
   items: [
-    "Variance Analysis",
+    "Financial Performance & Variance Analysis",
     "Capital Structure Analysis",
-    "Cost Analysis",
-    "ROI & Investment Analysis",
+    "Cost & ROI Analysis",
+    "Investment Analysis",
   ],
 },
 {
   title: "Data & Analytical Skills",
   items: [
-    "Data Analysis",
+    "Financial Data for Analysis",
+    "Operational & Project Analysis",
     "Quantitative Analysis",
-    "Performance Analysis",
   ],
 },
 {
