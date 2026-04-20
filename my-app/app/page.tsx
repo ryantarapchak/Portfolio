@@ -781,47 +781,39 @@ export default function Home() {
 
                     {[
                       {
-                        title: "Financial Modeling & Deals",
-                        items: [
-                          "DCF Modeling",
-                          "M&A Case Analysis",
-                          "Comparable Company Analysis",
-                          "Precedent Transactions",
-                        ],
-                      },
-                      {
-                        title: "Corporate Finance",
-                        items: [
-                          "Financial Analysis",
-                          "Forecasting & Budgeting",
-                          "Investment Analysis",
-                        ],
-                      },
-                      {
-                        title: "Markets & Investments",
-                        items: [
-                          "Capital Markets",
-                          "Portfolio & Risk Analysis",
-                          "Fixed Income",
-                        ],
-                      },
-                      {
-                        title: "Tools & Programming",
-                        items: [
-                          "Excel (Advanced)",
-                          "Python",
-                          "VBA",
-                          "JavaScript",
-                        ],
-                      },
-                      {
-                        title: "Data & Analysis",
-                        items: [
-                          "Quantitative Analysis",
-                          "Sensitivity Analysis",
-                          "Data Analysis",
-                        ],
-                      },
+  title: "Financial Analysis & Modeling",
+  items: [
+    "Financial Modeling (DCF, Comparable Company Analysis, Precedent Transactions)",
+    "Financial Statement Analysis",
+    "Forecasting & Budgeting",
+    "Sensitivity & Scenario Analysis",
+  ],
+},
+{
+  title: "Corporate Finance",
+  items: [
+    "Variance Analysis",
+    "Capital Structure Analysis",
+    "Cost Analysis",
+    "ROI & Investment Analysis",
+  ],
+},
+{
+  title: "Data & Analytical Skills",
+  items: [
+    "Data Analysis",
+    "Quantitative Analysis",
+    "Performance Analysis",
+  ],
+},
+{
+  title: "Tools & Technical",
+  items: [
+    "Excel (Advanced)",
+    "Python",
+    "VBA",
+  ],
+},
                     ].map((section) => (
                       <motion.div key={section.title} {...inViewMotion}>
                         <p className="text-sm font-semibold text-slate-400">
@@ -855,34 +847,33 @@ export default function Home() {
 
                     {[
                       {
-                        title: "Problem Solving",
-                        items: [
-                          "Breaking down complex financial problems",
-                          "Thinking through decisions with data",
-                          "Attention to detail",
-                        ],
-                      },
-                      {
-                        title: "Communication",
-                        items: [
-                          "Presenting financial ideas clearly",
-                          "Explaining analysis to teams and stakeholders",
-                        ],
-                      },
-                      {
-                        title: "Leadership & Teamwork",
-                        items: [
-                          "Leading group projects",
-                          "Working closely with teams",
-                        ],
-                      },
-                      {
-                        title: "Execution",
-                        items: [
-                          "Managing deadlines across multiple priorities",
-                          "Making informed decisions under pressure",
-                        ],
-                      },
+  title: "Problem Solving",
+  items: [
+    "Breaking down complex financial problems",
+    "Building structured, data-driven solutions",
+  ],
+},
+{
+  title: "Communication",
+  items: [
+    "Presenting financial insights clearly",
+    "Explaining analysis to stakeholders",
+  ],
+},
+{
+  title: "Attention to Detail",
+  items: [
+    "Ensuring accuracy in financial models and analysis",
+    "Maintaining consistency across data and assumptions",
+  ],
+},
+{
+  title: "Execution",
+  items: [
+    "Managing deadlines across multiple priorities",
+    "Delivering analysis under time constraints",
+  ],
+},
                     ].map((section) => (
                       <motion.div
                         key={section.title}
