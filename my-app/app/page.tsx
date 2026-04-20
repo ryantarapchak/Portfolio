@@ -270,7 +270,7 @@ export default function Home() {
       title: "CrowdStrike (CRWD)",
       subtitle: "Equity Research Pitch",
       description:
-        "Developed and presented a long-term BUY thesis based on recurring revenue growth, platform expansion, and margin scalability.",
+      "Conducted financial and market analysis on CrowdStrike and presented findings in an investment pitch, evaluating growth drivers, profitability, and valuation.",      
       pdf: "/crowdstrike.pdf",
       featured: false,
       client: "Nittany Investment Club",
@@ -281,7 +281,7 @@ export default function Home() {
       title: "SensoTech",
       subtitle: "Master Budget Model",
       description:
-        "Built a multi-sheet Excel master budget for a manufacturing company, connecting sales, production, cost, cash, and projected financial statements. Included a separate file to highlight the formulas and structure behind the model.",
+        "Built a fully integrated master budget model linking sales, production, and financial statements to evaluate profitability and cash flow.",
       pdf: "/sensotech.pdf",
       featured: false,
       client: "Dr. Sajay Samuel",
@@ -472,7 +472,6 @@ export default function Home() {
                 {[
                   "Financial Analyst",
                   "Corporate Finance",
-                  "Investment Banking Analyst",
                 ].map((role) => (
                   <motion.span
                     key={role}
@@ -551,11 +550,7 @@ export default function Home() {
                   </h2>
 
                   <p className="mt-4 leading-7 text-slate-300/95">
-                    Penn State graduate student with experience in financial
-                    analysis, valuation, and building models across both
-                    academic and real-world settings. I enjoy breaking down
-                    businesses, understanding what drives performance, and
-                    turning that into decisions.
+                    Finance graduate student with experience in financial modeling, budgeting, and valuation. I enjoy building models that connect business decisions to financial outcomes and using data to understand performance.
                   </p>
                 </motion.div>
 
