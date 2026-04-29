@@ -471,8 +471,8 @@ export default function Home() {
               <div className="mt-3 flex flex-wrap gap-2">
                 {[
                   "Consulting",
-                  "Business Strategy",
-                  "Financial Analysis",
+                  "Strategy",
+                  "Operations",
                 ].map((role) => (
                   <motion.span
                     key={role}
