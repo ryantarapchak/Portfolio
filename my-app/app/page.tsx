@@ -551,7 +551,7 @@ export default function Home() {
                   </h2>
 
                   <p className="mt-4 leading-7 text-slate-300/95">
-                    Finance graduate student with experience in financial modeling, budgeting, and valuation. I enjoy building models that connect business decisions to financial outcomes and using data to understand performance.
+                    Finance graduate student with experience in financial analysis and modeling. I’m interested in understanding how businesses operate, breaking down problems, and using data to figure out what’s actually driving performance.
                   </p>
                 </motion.div>
 
@@ -564,9 +564,9 @@ export default function Home() {
                   </h2>
 
                   <ul className="mt-4 space-y-3 text-slate-300">
-                    <li>• Financial modeling and valuation</li>
-                    <li>• Forecasting and budgeting</li>
-                    <li>• Breaking down company performance</li>
+                    <li>• Breaking down how businesses actually perform</li>
+                    <li>• Using financial analysis to make better decisions</li>
+                    <li>• Finding what’s driving results and where things can improve</li>
                   </ul>
                 </motion.div>
               </>
